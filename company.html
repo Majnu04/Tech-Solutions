@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Tech - Gouri Shanker Tech Solutions</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease;
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.7);
+            border-radius: 50%;
+            animation: float-particle 6s infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.3; }
+        }
+
+        /* Header improvements */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 2rem;
+        }
+
+        /* Logo image and text styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+            background: none;
+        }
+
+        .logo-img {
+            height: 36px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .logo-text {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text .highlight-name {
+            color: #ffd700;
+            font-weight: 900;
+            margin-right: 4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #ffd700;
+        }
+
+        .nav-menu a:hover {
+            color: white;
+        }
+
+        .nav-menu a:hover::before {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section with 3D Effects */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--dark-gradient);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 30%, rgba(102, 126, 234, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 75% 70%, rgba(245, 87, 108, 0.4) 0%, transparent 50%);
+            animation: pulse-bg 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .hero-title .word:nth-child(1) { animation-delay: 0.1s; }
+        .hero-title .word:nth-child(2) { animation-delay: 0.2s; }
+        .hero-title .word:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Elements */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            top: 20%;
+            left: 10%;
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+            top: 60%;
+            right: 20%;
+            animation: float2 8s ease-in-out infinite;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            bottom: 30%;
+            left: 70%;
+            animation: float3 7s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateX(0px) rotate(0deg); }
+            50% { transform: translateX(30px) rotate(-180deg); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+            50% { transform: translate(-20px, -20px) rotate(90deg); }
+        }
+
+        /* Advanced Services Section */
+        .services {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, white, rgba(255, 255, 255, 0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Portfolio/Showcase */
+        .showcase {
+            padding: 120px 0;
+            background: #000;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .showcase-content h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .showcase-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tech-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .showcase-visual {
+            position: relative;
+            height: 400px;
+            background: var(--dark-gradient);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-editor {
+            padding: 2rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #4facfe;
+            position: relative;
+        }
+
+        .code-line {
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: typeIn 0.5s ease-out forwards;
+        }
+
+        .code-line:nth-child(1) { animation-delay: 0.1s; }
+        .code-line:nth-child(2) { animation-delay: 0.3s; }
+        .code-line:nth-child(3) { animation-delay: 0.5s; }
+        .code-line:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes typeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Advanced Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Elite Tech Logo" class="logo-img">
+                <span class="logo-text">
+                    <span class="highlight-name">Elite Tech</span> Solutions
+                </span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#showcase">Showcase</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="word">Elite</span>
+                <span class="word">Digital</span>
+                <span class="word">Innovation</span>
+            </h1>
+            <p class="hero-subtitle">Transforming businesses through cutting-edge AI, immersive web experiences, and data-driven marketing strategies</p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-primary">Start Your Project</a>
+                <a href="#showcase" class="cta-secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Our Expertise</p>
+                <h2 class="section-title">Premium Digital Solutions</h2>
+                <p class="section-description">We deliver innovative, scalable, and results-driven digital solutions tailored to your business needs. From AI-powered automation to immersive web design, our team ensures your brand stands out in the digital landscape.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI & Automation</h3>
+                    <p>Leverage artificial intelligence to automate workflows, gain insights, and drive smarter business decisions.</p>
+                    <ul class="service-features">
+                        <li>Custom AI Solutions</li>
+                        <li>Process Automation</li>
+                        <li>Predictive Analytics</li>
+                        <li>Chatbots & Virtual Assistants</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>Build immersive, high-performance websites and web apps that engage users and accelerate growth.</p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>Progressive Web Apps</li>
+                        <li>eCommerce Solutions</li>
+                        <li>API Integrations</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📈</div>
+                    <h3>Digital Marketing</h3>
+                    <p>Grow your brand with data-driven marketing strategies that maximize reach and ROI.</p>
+                    <ul class="service-features">
+                        <li>SEO & SEM</li>
+                        <li>Social Media Campaigns</li>
+                        <li>Content Strategy</li>
+                        <li>Analytics & Reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">3+</div>
+                    <div class="stat-label">Innovative Projects</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5+</div>
+                    <div class="stat-label">Tech Collaborations</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">1</div>
+                    <div class="stat-label">Startup Journey</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Our Work</p>
+                <h2 class="section-title">Showcase & Portfolio</h2>
+                <p class="section-description">See how <span style="color:#ffd700; font-weight:900;">Gouri Shanker</span> Tech Solutions is building the future with dynamic, real-world projects and new ideas.</p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-content slide-in-left">
+                    <h3>AI-Powered Analytics Platform</h3>
+                    <p>Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses.</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">TensorFlow</span>
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Azure</span>
+                    </div>
+                </div>
+                <div class="showcase-visual slide-in-right">
+                    <div class="code-editor">
+                        <div class="code-line">def predict(data):</div>
+                        <div class="code-line">    model = load_model('ai_model.h5')</div>
+                        <div class="code-line">    return model.predict(data)</div>
+                        <div class="code-line"># AI-powered business insights</div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-grid" style="margin-top: 4rem;">
+                <div class="showcase-visual slide-in-left">
+                    <div class="code-editor">
+                        <div class="code-line">&lt;div class="landing-page"&gt;</div>
+                        <div class="code-line">  &lt;h1&gt;Welcome to NextGen Web&lt;/h1&gt;</div>
+                        <div class="code-line">  &lt;p&gt;Immersive, interactive, and fast.&lt;/p&gt;</div>
+                        <div class="code-line">&lt;/div&gt;</div>
+                    </div>
+                </div>
+                <div class="showcase-content slide-in-right">
+                    <h3>Immersive Web Experience</h3>
+                    <p>Designed and developed a visually stunning, interactive website for a tech startup, boosting engagement and conversions.</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">GSAP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="showcase">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">New Projects</p>
+                <h2 class="section-title">Our Latest Work & Startup Journey</h2>
+                <p class="section-description">
+                    <span style="color:#ffd700; font-weight:900;">Gouri Shanker</span> Tech Solutions is a fast-growing startup, always innovating and building new digital products. Here are some of our most exciting and recent projects!
+                </p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-content slide-in-left">
+                    <h3><span style="color:#ffd700; font-weight:900;">Smart Inventory Management System</span></h3>
+                    <p>
+                        A cloud-based platform for retailers, using AI to forecast demand and optimize inventory in real time.<br>
+                        <span style="background: #ffd700; color: #000; font-weight: bold; border-radius: 6px; padding: 2px 8px;">NEW</span>
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Azure</span>
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">React</span>
+                    </div>
+                </div>
+                <div class="showcase-visual slide-in-right">
+                    <div class="code-editor">
+                        <div class="code-line">const forecast = await ai.predict(demandData);</div>
+                        <div class="code-line">updateInventory(forecast);</div>
+                        <div class="code-line">// Real-time inventory optimization</div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-grid" style="margin-top: 4rem;">
+                <div class="showcase-visual slide-in-left">
+                    <div class="code-editor">
+                        <div class="code-line">&lt;div class="project"&gt;</div>
+                        <div class="code-line">  &lt;h2&gt;Startup Collaboration Portal&lt;/h2&gt;</div>
+                        <div class="code-line">  &lt;p&gt;Connecting innovators and investors.&lt;/p&gt;</div>
+                        <div class="code-line">&lt;/div&gt;</div>
+                    </div>
+                </div>
+                <div class="showcase-content slide-in-right">
+                    <h3><span style="color:#ffd700; font-weight:900;">Startup Collaboration Portal</span></h3>
+                    <p>
+                        A networking platform to connect startups, mentors, and investors—empowering the tech ecosystem in Andhra Pradesh.<br>
+                        <span style="background: #ffd700; color: #000; font-weight: bold; border-radius: 6px; padding: 2px 8px;">NEW</span>
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">MongoDB</span>
+                        <span class="tech-item">Vue.js</span>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-grid" style="margin-top: 4rem;">
+                <div class="showcase-content slide-in-left">
+                    <h3><span style="color:#ffd700; font-weight:900;">AI Chatbot for Customer Support</span></h3>
+                    <p>
+                        Built a smart chatbot that automates customer queries and boosts satisfaction for local businesses.<br>
+                        <span style="background: #ffd700; color: #000; font-weight: bold; border-radius: 6px; padding: 2px 8px;">NEW</span>
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Dialogflow</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Azure Bot Service</span>
+                    </div>
+                </div>
+                <div class="showcase-visual slide-in-right">
+                    <div class="code-editor">
+                        <div class="code-line">user: "How can I track my order?"</div>
+                        <div class="code-line">bot: "Please enter your order ID. I'll fetch the status for you!"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h2>Let's Connect</h2>
+                    <p>
+                        <span style="color:#ffd700; font-weight:900;">Gouri Shanker</span> is ready to help your business grow.<br>
+                        <span style="color:#ffd700; font-weight:900;">Contact for new projects, collaborations, or just to say hi!</span>
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><span style="color:#ffd700; font-weight:900;">gourishanker0408@gmail.com</span></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p><span style="color:#ffd700; font-weight:900;">+917893804498</span></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p><span style="color:#ffd700; font-weight:900;">Vishakapatnam, Andhra Pradesh</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in" autocomplete="off">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="ai">AI & Automation</option>
+                            <option value="web">Web Development</option>
+                            <option value="marketing">Digital Marketing</option>
+                            <option value="other">Other / New Project</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p>
+                        <span style="color:#ffd700; font-weight:900;">Elite Tech</span> Solutions is a dynamic startup, delivering innovative digital products and solutions for the next generation.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#showcase">Showcase</a>
+                    <a href="#experience">New Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <span style="color:#ffd700; font-weight:900;">gourishanker0408@gmail.com</span></p>
+                    <p>Phone: <span style="color:#ffd700; font-weight:900;">7893804498</span></p>
+                    <p>Location: <span style="color:#ffd700; font-weight:900;">Vishakapatnam, Andhra Pradesh</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 <span style="color:#ffd700; font-weight:900;">Gouri Shanker</span> &ndash; Elite Tech Solutions. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            document.getElementById('loadingScreen').classList.add('hidden');
+        });
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursorFollower');
+        document.addEventListener('mousemove', e => {
+            if (cursor && follower) {
+                cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+                follower.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+            }
+        });
+
+        // Mobile Menu Toggle (improved for responsive)
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+                if (navMenu.classList.contains('open')) {
+                    navMenu.style.display = 'flex';
+                } else {
+                    navMenu.style.display = '';
+                }
+            });
+        }
+
+        // Responsive menu hide on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navMenu) {
+                navMenu.style.display = '';
+                navMenu.classList.remove('open');
+            }
+        });
+
+        // Scroll Animations
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            for (const el of reveals) {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            }
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Particle Background
+        const particles = document.getElementById('particles');
+        if (particles) {
+            for (let i = 0; i < 60; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.top = Math.random() * 100 + '%';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (4 + Math.random() * 4) + 's';
+                particles.appendChild(p);
+            }
+        }
+
+        // Contact Form (Demo Only)
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for reaching out! We will contact you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
