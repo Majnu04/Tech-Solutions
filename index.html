@@ -31,6 +31,166 @@
             background: #000;
         }
 
+        /* Add or update these responsive styles in your CSS */
+
+        /* Ensure the layout is fluid */
+        body, html {
+            width: 100%;
+            min-width: 0;
+            overflow-x: hidden;
+        }
+
+        /* Container responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Header and nav responsiveness */
+        .header .nav-container {
+            flex-wrap: wrap;
+            padding: 0.5rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+        }
+
+        .nav-menu {
+            gap: 1.2rem;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* Responsive grid for services, showcase, stats, etc. */
+        .services-grid,
+        .stats-grid,
+        .showcase-grid,
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .service-card,
+        .stat-item,
+        .showcase-content,
+        .showcase-visual,
+        .contact-info,
+        .contact-form {
+            flex: 1 1 300px;
+            min-width: 260px;
+            box-sizing: border-box;
+        }
+
+        /* Responsive typography */
+        .section-title {
+            font-size: 2.5rem;
+        }
+        @media (max-width: 900px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .showcase-grid,
+            .contact-grid {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .nav-menu {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                background: #181818;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1001;
+                padding: 1rem 0;
+            }
+            .nav-menu.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                margin-left: auto;
+            }
+            .logo {
+                margin-bottom: 0.5rem;
+            }
+            .container {
+                padding: 0 0.5rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .logo-text {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+            .service-card,
+            .stat-item,
+            .showcase-content,
+            .showcase-visual,
+            .contact-info,
+            .contact-form {
+                min-width: 180px;
+            }
+        }
+
+        /* Make images and code blocks responsive */
+        img, .code-editor {
+            max-width: 100%;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        /* Buttons and forms */
+        button, .submit-btn {
+            width: 100%;
+            max-width: 250px;
+            font-size: 1rem;
+            padding: 0.7rem 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Ensure footer is readable on all sizes */
+        .footer-content {
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .footer-section {
+            flex: 1 1 200px;
+            min-width: 160px;
+        }
+
+        /* Hide scrollbars on mobile for a cleaner look */
+        body {
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #ffd700 #181818;
+        }
+
         /* Custom Cursor */
         .cursor {
             width: 20px;
@@ -709,6 +869,20 @@
             transition: all 0.3s ease;
         }
 
+        /* Style the select dropdown and its options for dark background and white text */
+        select, select option {
+            background: #181818;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        /* For better cross-browser support, also add: */
+        select:focus {
+            background: #181818;
+            color: #fff;
+            outline: 1px solid #ffd700;
+        }
+
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
@@ -914,6 +1088,78 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #000;
+            color: #fff;
+            padding: 4rem 0 2rem 0;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: #181818;
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            padding: 2rem 1.5rem;
+            min-width: 260px;
+            max-width: 340px;
+            flex: 1 1 300px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(255,215,0,0.10), 0 2px 8px rgba(0,0,0,0.18);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .testimonial-author strong {
+            color: #ffd700;
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .testimonials-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .testimonial-card {
+                max-width: 95vw;
+            }
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 32px;
+            height: 32px;
+            filter: invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);
         }
     </style>
 </head>
@@ -1186,14 +1432,17 @@
                             <div class="contact-icon">📧</div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <p><span style="color:#ffd700; font-weight:900;">gourishanker0408@gmail.com</span></p>
+                                <p>
+                                    <span style="color:#ffd700; font-weight:900;">gourishanker0408@gmail.com</span><br>
+                                    <span style="color:#ffd700; font-weight:900;">elitetechsolutions04@gmail.com</span>
+                                </p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">📞</div>
                             <div class="contact-text">
                                 <h4>Phone</h4>
-                                <p><span style="color:#ffd700; font-weight:900;">+917893804498</span></p>
+                                <p><span style="color:#ffd700; font-weight:900;">+91 7893804498</span></p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1204,8 +1453,14 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Social Media Icons -->
+                    <div class="social-icons" style="margin: 1.5rem 0; display: flex; gap: 1.2rem;">
+                        <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" title="LinkedIn" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
+                        <a href="https://github.com/Majnu04" target="_blank" title="GitHub" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
+                        <a href="https://instagram.com/majnu_15__" target="_blank" title="Instagram" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
+                    </div>
                 </div>
-                <form class="contact-form fade-in" autocomplete="off">
+                <form class="contact-form fade-in" action="https://formspree.io/f/movwlarr" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -1234,6 +1489,46 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">What Clients Say</p>
+                <h2 class="section-title">Testimonials</h2>
+                <p class="section-description">Hear from those who have worked with <span style="color:#ffd700; font-weight:900;">Gouri Shanker</span> and Elite Tech Solutions.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"Elite Tech Solutions delivered our project on time with outstanding quality. Their innovative approach helped us scale quickly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Priya R.</strong><br>
+                        <span>Startup Founder</span>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"Working with Gouri Shanker was a fantastic experience. The team was responsive, creative, and truly cared about our business goals."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Rahul M.</strong><br>
+                        <span>Business Owner</span>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"Their technical expertise and dedication made our digital transformation seamless. Highly recommended for any tech project!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Anjali S.</strong><br>
+                        <span>Product Manager</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1255,6 +1550,7 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>Email: <span style="color:#ffd700; font-weight:900;">gourishanker0408@gmail.com</span></p>
+                    <p>Email: <span style="color:#ffd700; font-weight:900;">elitetechsolutions04@gmail.com</span></p>
                     <p>Phone: <span style="color:#ffd700; font-weight:900;">7893804498</span></p>
                     <p>Location: <span style="color:#ffd700; font-weight:900;">Vishakapatnam, Andhra Pradesh</span></p>
                 </div>
@@ -1329,16 +1625,6 @@
                 p.style.animationDuration = (4 + Math.random() * 4) + 's';
                 particles.appendChild(p);
             }
-        }
-
-        // Contact Form (Demo Only)
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for reaching out! We will contact you soon.');
-                this.reset();
-            });
         }
     </script>
 </body>
