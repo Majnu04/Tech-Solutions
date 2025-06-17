@@ -1062,24 +1062,51 @@
         @media (max-width: 600px) {
           .contact-grid {
             flex-direction: column;
-            gap: 1.5rem;
+
+            gap: 1rem;
             padding: 0;
           }
           .contact-info, .contact-form {
-            min-width: 0;
             width: 100%;
             padding: 0;
           }
           .contact-info h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             text-align: center;
+            margin-bottom: 0.5rem;
           }
           .contact-info p {
             font-size: 1rem;
             text-align: center;
+            margin-bottom: 1rem;
+          }
+          .contact-details {
+            gap: 0.7rem;
+          }
+          .contact-item {
+            flex-direction: row;
+            align-items: center;
+            padding: 0.7rem 1rem;
+            border-radius: 18px;
+            margin-bottom: 0.5rem;
+            font-size: 0.98rem;
+          }
+          .contact-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 0.8rem;
+          }
+          .contact-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+          }
+          .contact-text p, .contact-text a {
+            font-size: 0.97rem;
+            word-break: break-all;
           }
           .contact-form {
             margin-top: 1rem;
+            padding: 1rem 0 0 0;
           }
           .form-group label {
             font-size: 1rem;
@@ -1366,6 +1393,18 @@
             flex-direction: column;
           }
         }
+
+        /* Menu Overlay */
+        .menu-overlay {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(0,0,0,0.5);
+          z-index: 99;
+          display: none;
+        }
+        .menu-open .menu-overlay {
+          display: block;
+        }
     </style>
 </head>
 <body>
@@ -1407,6 +1446,7 @@
             </div>
         </div>
     </header>
+    <div id="menuOverlay" class="menu-overlay" style="display:none;"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1808,16 +1848,28 @@
         });
 
         // Mobile Menu Toggle (improved for responsive)
-        const menuToggle = document.getElementById('menuToggle');
+        const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-                if (navMenu.classList.contains('open')) {
-                    navMenu.style.display = 'flex';
-                } else {
-                    navMenu.style.display = '';
-                }
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('open');
+          document.body.classList.toggle('menu-open');
+          menuOverlay.style.display = navMenu.classList.contains('open') ? 'block' : 'none';
+        });
+
+        // Close menu when overlay is clicked
+        menuOverlay.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          document.body.classList.remove('menu-open');
+          menuOverlay.style.display = 'none';
+        });
+
+        // Hide menu overlay on click
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                menuOverlay.style.display = 'none';
             });
         }
 
@@ -1826,6 +1878,7 @@
             if (window.innerWidth > 768 && navMenu) {
                 navMenu.style.display = '';
                 navMenu.classList.remove('open');
+                menuOverlay.style.display = 'none';
             }
         });
 
