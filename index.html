@@ -1274,6 +1274,60 @@
                 font-size: 0.9rem;
             }
         }
+
+        .immersive-img-mobile-fix {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-gradient);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            min-height: 350px;
+            padding: 0;
+        }
+        .immersive-img-mobile-fix img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: 0 4px 32px #000a;
+            transition: max-width 0.3s, max-height 0.3s;
+        }
+        @media (max-width: 900px) {
+            .immersive-img-mobile-fix {
+                min-height: 220px;
+                border-radius: 16px;
+            }
+            .immersive-img-mobile-fix img {
+                max-width: 100vw;
+                max-height: 220px;
+                border-radius: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .immersive-img-mobile-fix {
+                min-height: 160px;
+                border-radius: 10px;
+            }
+            .immersive-img-mobile-fix img {
+                max-width: 100vw;
+                max-height: 160px;
+                border-radius: 0;
+            }
+        }
+
+        /* Example: Adjust font size and layout for screens smaller than 600px */
+        @media (max-width: 600px) {
+          body {
+            font-size: 16px;
+          }
+          .container {
+            flex-direction: column;
+          }
+        }
     </style>
 </head>
 <body>
@@ -1439,9 +1493,9 @@
                     <img src="AI_Powered_Analytics_Platform_Optimized.webp" alt="AI-Powered Analytics Platform Screenshot" loading="lazy" style="border-radius:16px;max-width:100%;box-shadow:0 4px 32px #000a;">
                 </div>
             </div>
-            <div class="showcase-grid" style="margin-top: 4rem;">
-                <div class="showcase-visual slide-in-left">
-                    <img src="images\Immersive_Web_Experience_Cropped.webp" alt="NextGen Web Project Screenshot" loading="lazy" style="border-radius:16px;max-width:100%;">
+            <div class="showcase-grid" style="margin-top: 4rem; align-items: stretch; flex-wrap: wrap;">
+                <div class="showcase-visual slide-in-left immersive-img-mobile-fix">
+                    <img src="images/Immersive_Web_Experience_Cropped.webp" alt="Immersive Web Experience Screenshot" loading="lazy">
                 </div>
                 <div class="showcase-content slide-in-right">
                     <h3>Immersive Web Experience</h3>
