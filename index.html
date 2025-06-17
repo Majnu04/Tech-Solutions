@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite Tech Solutions by Gouri Shanker – AI, web development, and digital innovation for startups and businesses.">
     <title>Elite Tech - Gouri Shanker Tech Solutions</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
@@ -29,6 +30,10 @@
             color: #333;
             overflow-x: hidden;
             background: #000;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Add or update these responsive styles in your CSS */
@@ -709,7 +714,7 @@
             margin-bottom: 1rem;
             background: linear-gradient(45deg, white, rgba(255, 255, 255, 0.8));
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-label {
@@ -1220,9 +1225,59 @@
                 height: 32px;
             }
         }
+
+        /* CEO Card */
+        .ceo-card {
+            max-width: 340px;
+            margin: 2rem auto 2rem auto;
+            padding: 2rem 1.5rem;
+            background: rgba(24, 24, 32, 0.95);
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+            text-align: center;
+        }
+
+        .ceo-card img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #ffd700;
+            box-shadow: 0 2px 8px #ffd70044;
+        }
+
+        .ceo-card .name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffd700;
+            letter-spacing: 1px;
+        }
+
+        .ceo-card .title {
+            font-size: 1rem;
+            color: #fff;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Override some styles for smaller screens */
+        @media (max-width: 500px) {
+            .ceo-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .ceo-card .name {
+                font-size: 1.1rem;
+            }
+
+            .ceo-card .title {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <main>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loader"></div>
@@ -1238,12 +1293,12 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="nav-container">
-            <div class="logo">
+            <a href="#home" class="logo" style="text-decoration:none;">
                 <img src="logo.png" alt="Elite Tech Logo" class="logo-img">
                 <span class="logo-text">
                     <span class="highlight-name">Elite Tech</span> Solutions
                 </span>
-            </div>
+            </a>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -1279,6 +1334,17 @@
             <div class="hero-cta">
                 <a href="#contact" class="cta-primary">Start Your Project</a>
                 <a href="#showcase" class="cta-secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" style="background:#111;padding:4rem 0 2rem 0;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">About Us</p>
+                <h2 class="section-title">Who We Are</h2>
+                <p class="section-description">Elite Tech Solutions, led by CEO Gouri Shanker, is dedicated to delivering innovative digital solutions. Our mission is to empower startups and businesses with cutting-edge technology, creative design, and data-driven strategies. We value transparency, collaboration, and measurable results.</p>
             </div>
         </div>
     </section>
@@ -1334,15 +1400,15 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item fade-in">
-                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">3+</div>
+                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; background-clip: text;">3+</div>
                     <div class="stat-label">Innovative Projects</div>
                 </div>
                 <div class="stat-item fade-in">
-                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5+</div>
+                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; background-clip: text;">5+</div>
                     <div class="stat-label">Tech Collaborations</div>
                 </div>
                 <div class="stat-item fade-in">
-                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">1</div>
+                    <div class="stat-number" style="background: linear-gradient(45deg, #ffd700, #fff); -webkit-background-clip: text; background-clip: text;">1</div>
                     <div class="stat-label">Startup Journey</div>
                 </div>
             </div>
@@ -1360,7 +1426,7 @@
             <div class="showcase-grid">
                 <div class="showcase-content slide-in-left">
                     <h3>AI-Powered Analytics Platform</h3>
-                    <p>Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses.</p>
+                    <p>Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses. <strong>Role:</strong> Full-stack Developer. <strong>Result:</strong> Improved client decision-making speed by 40%.</p>
                     <div class="tech-stack">
                         <span class="tech-item">Python</span>
                         <span class="tech-item">TensorFlow</span>
@@ -1369,26 +1435,16 @@
                     </div>
                 </div>
                 <div class="showcase-visual slide-in-right">
-                    <div class="code-editor">
-                        <div class="code-line">def predict(data):</div>
-                        <div class="code-line">    model = load_model('ai_model.h5')</div>
-                        <div class="code-line">    return model.predict(data)</div>
-                        <div class="code-line"># AI-powered business insights</div>
-                    </div>
+                    <img src="images/ai-analytics-demo.webp" alt="AI Analytics Dashboard Screenshot" loading="lazy" style="border-radius:16px;max-width:100%;">
                 </div>
             </div>
             <div class="showcase-grid" style="margin-top: 4rem;">
                 <div class="showcase-visual slide-in-left">
-                    <div class="code-editor">
-                        <div class="code-line">&lt;div class="landing-page"&gt;</div>
-                        <div class="code-line">  &lt;h1&gt;Welcome to NextGen Web&lt;/h1&gt;</div>
-                        <div class="code-line">  &lt;p&gt;Immersive, interactive, and fast.&lt;/p&gt;</div>
-                        <div class="code-line">&lt;/div&gt;</div>
-                    </div>
+                    <img src="images/nextgen-web.webp" alt="NextGen Web Project Screenshot" loading="lazy" style="border-radius:16px;max-width:100%;">
                 </div>
                 <div class="showcase-content slide-in-right">
                     <h3>Immersive Web Experience</h3>
-                    <p>Designed and developed a visually stunning, interactive website for a tech startup, boosting engagement and conversions.</p>
+                    <p>Designed and developed a visually stunning, interactive website for a tech startup, boosting engagement and conversions. <strong>Role:</strong> UI/UX Designer & Developer. <strong>Result:</strong> Increased user engagement by 60%.</p>
                     <div class="tech-stack">
                         <span class="tech-item">HTML5</span>
                         <span class="tech-item">CSS3</span>
@@ -1512,12 +1568,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Social Media Icons -->
-                    <div class="social-icons" style="margin: 1.5rem 0; display: flex; gap: 1.2rem;">
-                        <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" title="LinkedIn" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
-                        <a href="https://github.com/Majnu04" target="_blank" title="GitHub" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
-                        <a href="https://instagram.com/majnu_15__" target="_blank" title="Instagram" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
-                    </div>
                 </div>
                 <form class="contact-form fade-in" action="https://formspree.io/f/movwlarr" method="POST">
                     <div class="form-group">
@@ -1545,6 +1595,16 @@
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
+            <div class="ceo-card" style="max-width:340px;margin:2rem auto 2rem auto;padding:2rem 1.5rem;background:rgba(24,24,32,0.95);border-radius:1.2rem;box-shadow:0 4px 24px rgba(0,0,0,0.18);text-align:center;">
+                <img src="https://ui-avatars.com/api/?name=Gouri+Shanker&background=ffd700&color=181818&size=96&rounded=true" alt="Gouri Shanker Avatar" style="width:72px;height:72px;border-radius:50%;margin-bottom:1rem;border:3px solid #ffd700;box-shadow:0 2px 8px #ffd70044;">
+                <div style="font-size:1.2rem;font-weight:800;color:#ffd700;letter-spacing:1px;">Gouri Shanker</div>
+                <div style="font-size:1rem;color:#fff;opacity:0.8;margin-bottom:1rem;">CEO, Elite Tech Solutions</div>
+                <div class="social-icons" style="margin: 0.5rem 0 0 0; display: flex; gap: 1.2rem; justify-content:center;">
+                    <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" title="LinkedIn" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
+                    <a href="https://github.com/Majnu04" target="_blank" title="GitHub" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
+                    <a href="https://instagram.com/majnu_15__" target="_blank" title="Instagram" style="display:inline-block;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:32px;height:32px;filter:invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);"></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1559,7 +1619,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-content">
-                        <p>"Elite Tech Solutions delivered our project on time with outstanding quality. Their innovative approach helped us scale quickly."</p>
+                        "Elite Tech Solutions delivered our project on time with outstanding quality. Their innovative approach helped us scale quickly."
                     </div>
                     <div class="testimonial-author">
                         <strong>Priya R.</strong><br>
@@ -1568,7 +1628,7 @@
                 </div>
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-content">
-                        <p>"Working with Gouri Shanker was a fantastic experience. The team was responsive, creative, and truly cared about our business goals."</p>
+                        "Working with Gouri Shanker was a fantastic experience. The team was responsive, creative, and truly cared about our business goals."
                     </div>
                     <div class="testimonial-author">
                         <strong>Rahul M.</strong><br>
@@ -1577,7 +1637,7 @@
                 </div>
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-content">
-                        <p>"Their technical expertise and dedication made our digital transformation seamless. Highly recommended for any tech project!"</p>
+                        "Their technical expertise and dedication made our digital transformation seamless. Highly recommended for any tech project!"
                     </div>
                     <div class="testimonial-author">
                         <strong>Anjali S.</strong><br>
@@ -1588,19 +1648,18 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer with extra links -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>About</h4>
-                    <p>
-                        <span style="color:#ffd700; font-weight:900;">Elite Tech</span> Solutions is a dynamic startup, delivering innovative digital products and solutions for the next generation.
-                    </p>
+                    <p>Elite Tech Solutions by Gouri Shanker delivers innovative digital products and solutions for startups and businesses. We value transparency, collaboration, and measurable results.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <a href="#home">Home</a>
+                    <a href="#about">About</a>
                     <a href="#services">Services</a>
                     <a href="#showcase">Showcase</a>
                     <a href="#experience">New Projects</a>
@@ -1616,9 +1675,12 @@
             </div>
             <div class="footer-bottom">
                 &copy; 2025 <span style="color:#ffd700; font-weight:900;">Gouri Shanker</span> &ndash; Elite Tech Solutions. All rights reserved.
+                <a href="privacy.html" style="color:#ffd700; margin-left:1rem;">Privacy Policy</a> |
+                <a href="terms.html" style="color:#ffd700;">Terms of Service</a>
             </div>
         </div>
     </footer>
+    </main>
 
     <!-- JavaScript for Interactivity -->
     <script>
@@ -1686,5 +1748,20 @@
             }
         }
     </script>
+    <!-- Live Chat Widget (Tawk.to) -->
+    <!-- If you want to use your own Tawk.to property, replace the property ID below -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68513c6ce3474a191102d51e/1itul82ll';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
