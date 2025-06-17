@@ -1150,16 +1150,43 @@
             margin: 1.5rem 0;
             display: flex;
             gap: 1.2rem;
+            justify-content: center;
+            align-items: center;
         }
 
         .social-icons a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #181818;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            transition: background 0.2s;
+        }
+
+        .social-icons a:hover {
+            background: #ffd70022;
         }
 
         .social-icons img {
-            width: 32px;
-            height: 32px;
-            filter: invert(70%) sepia(100%) saturate(500%) hue-rotate(30deg);
+            width: 28px;
+            height: 28px;
+        }
+
+        @media (max-width: 600px) {
+            .social-icons {
+                gap: 2rem;
+                margin: 1.5rem auto;
+            }
+            .social-icons a {
+                width: 52px;
+                height: 52px;
+            }
+            .social-icons img {
+                width: 32px;
+                height: 32px;
+            }
         }
     </style>
 </head>
