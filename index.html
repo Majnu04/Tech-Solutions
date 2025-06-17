@@ -97,12 +97,29 @@
                 font-size: 2rem;
             }
             .showcase-grid,
-            .contact-grid {
-                flex-direction: column;
+            .contact-grid,
+            .services-grid,
+            .stats-grid,
+            .testimonials-grid {
+                flex-direction: column !important;
+                display: flex !important;
                 gap: 2rem;
+                align-items: stretch;
             }
-            .nav-menu {
-                gap: 1rem;
+            .service-card,
+            .stat-item,
+            .showcase-content,
+            .showcase-visual,
+            .contact-info,
+            .contact-form,
+            .testimonial-card {
+                min-width: 0;
+                max-width: 100%;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .container {
+                padding: 0 0.5rem;
             }
         }
 
@@ -110,6 +127,10 @@
             .header .nav-container {
                 flex-direction: column;
                 align-items: flex-start;
+                padding: 0.5rem 0.5rem;
+            }
+            .logo {
+                margin-bottom: 0.5rem;
             }
             .nav-menu {
                 flex-direction: column;
@@ -130,14 +151,15 @@
                 cursor: pointer;
                 margin-left: auto;
             }
-            .logo {
-                margin-bottom: 0.5rem;
-            }
-            .container {
-                padding: 0 0.5rem;
-            }
             .section-title {
                 font-size: 1.5rem;
+            }
+            .hero-content {
+                padding: 0 0.5rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
 
@@ -153,8 +175,18 @@
             .showcase-content,
             .showcase-visual,
             .contact-info,
-            .contact-form {
-                min-width: 180px;
+            .contact-form,
+            .testimonial-card {
+                min-width: 0;
+                padding: 1rem !important;
+            }
+            .hero-title {
+                font-size: 2rem !important;
+            }
+            .cta-primary, .cta-secondary, .submit-btn {
+                font-size: 1rem;
+                padding: 0.7rem 1rem;
+                max-width: 100%;
             }
         }
 
