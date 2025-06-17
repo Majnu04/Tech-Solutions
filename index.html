@@ -1059,6 +1059,44 @@
             }
         }
 
+        @media (max-width: 600px) {
+          .contact-grid {
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0;
+          }
+          .contact-info, .contact-form {
+            min-width: 0;
+            width: 100%;
+            padding: 0;
+          }
+          .contact-info h2 {
+            font-size: 2rem;
+            text-align: center;
+          }
+          .contact-info p {
+            font-size: 1rem;
+            text-align: center;
+          }
+          .contact-form {
+            margin-top: 1rem;
+          }
+          .form-group label {
+            font-size: 1rem;
+          }
+          .form-group input,
+          .form-group textarea,
+          .form-group select {
+            font-size: 1rem;
+            padding: 0.7rem;
+          }
+          .submit-btn {
+            font-size: 1rem;
+            padding: 0.7rem 1.2rem;
+            width: 100%;
+          }
+        }
+
         /* Scroll Animations */
         .fade-in {
             opacity: 0;
