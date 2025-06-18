@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuOverlay = document.getElementById('menuOverlay');
 
     if (menuToggle && navMenu && menuOverlay) {
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('open');
             document.body.classList.toggle('menu-open');
             menuOverlay.style.display = navMenu.classList.contains('open') ? 'block' : 'none';
@@ -30,6 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('open');
             document.body.classList.remove('menu-open');
             menuOverlay.style.display = 'none';
+        });
+        // Also close menu if user clicks anywhere outside nav-menu
+        document.addEventListener('click', function(e) {
+            if (
+                navMenu.classList.contains('open') &&
+                !navMenu.contains(e.target) &&
+                !menuToggle.contains(e.target)
+            ) {
+                navMenu.classList.remove('open');
+                document.body.classList.remove('menu-open');
+                menuOverlay.style.display = 'none';
+            }
         });
     }
 
