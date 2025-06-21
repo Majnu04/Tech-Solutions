@@ -1,1 +1,17 @@
-images/ai-analytics-dashboard-screenshot.webp
+src/
+  components/
+    Header.jsx
+    Hero.jsx
+    About.jsx
+    Services.jsx
+    Showcase.jsx
+    Experience.jsx
+    Contact.jsx
+    Testimonials.jsx
+    Footer.jsx
+    LoadingScreen.jsx
+    CustomCursor.jsx
+    ParticleBackground.jsx
+  App.jsx
+  index.js
+  index.css

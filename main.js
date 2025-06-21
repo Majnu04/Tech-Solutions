@@ -5,19 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (loadingScreen) loadingScreen.classList.add('hidden');
     });
 
-    // Custom Cursor
-    const cursor = document.getElementById('cursor');
-    const follower = document.getElementById('cursorFollower');
-    document.addEventListener('mousemove', e => {
-        if (cursor && follower) {
-            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
-            follower.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
-        }
-    });
-
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu'); // This now selects the <ul>
+    const navMenu = document.querySelector('.nav-menu');
     const menuOverlay = document.getElementById('menuOverlay');
 
     if (menuToggle && navMenu && menuOverlay) {
@@ -32,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('menu-open');
             menuOverlay.style.display = 'none';
         });
-        // Also close menu if user clicks anywhere outside nav-menu
         document.addEventListener('click', function(e) {
             if (
                 navMenu.classList.contains('open') &&
