@@ -10,7 +10,7 @@
     <meta name="author" content="Gouri Shanker">
     <meta name="robots" content="index, follow">
     <title>Elite Digital Solutions - Gouri Shanker Tech Solutions</title>
-    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="icon" href="https://www.elitedigitalsolutions.tech/logo.png" />
     <link rel="stylesheet" href="style.css" />
 
     <!-- Open Graph -->
@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Elite Digital Solutions" />
     <meta name="twitter:description" content="Boost your brand with Elite Digital Solutions." />
-    <meta name="twitter:image" content="https://www.elitedigitalsolutions.tech/your-logo-image.png" />
+    <meta name="twitter:image" content="https://www.elitedigitalsolutions.tech/logo.png" />
 
     <script type="application/ld+json">
     {
@@ -542,6 +542,7 @@
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="you@email.com" required />
                         </div>
+                        
                         <div class="form-group">
                             <label for="service">Service</label>
                             <select id="service" name="service" required>
@@ -554,11 +555,16 @@
                                     Project</option>
                             </select>
                         </div>
+                         <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="[0-9]{10}" required />
+                        </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..."
                                 required></textarea>
                         </div>
+                       
                         <button type="submit" class="submit-btn">Send
                             Message</button>
                     </form>
@@ -658,7 +664,7 @@
                             quickly."
                         </div>
                         <div class="testimonial-author">
-                            <strong>Priya R.</strong><br />
+                            <strong>Priya.</strong><br />
                             <span>Startup Founder</span>
                         </div>
                     </div>
@@ -684,7 +690,7 @@
                             project!"
                         </div>
                         <div class="testimonial-author">
-                            <strong>Anjali S.</strong><br />
+                            <strong>Anjali</strong><br />
                             <span>Product Manager</span>
                         </div>
                     </div>
@@ -798,6 +804,30 @@
         }
         animateFollower();
     </script>
+
+    <!-- WhatsApp Chat Button -->
+    <!-- WhatsApp Chat Button - Neo Styled -->
+<a href="https://wa.me/message/REJQPX2ODRQZE1"
+   target="_blank"
+   title="Chat with us on WhatsApp"
+   style="
+     position: absolute;
+     bottom: 20px;
+     left: 20px;
+     z-index: 9999;
+     background: linear-gradient(135deg, #292a2e, #37363f);
+     border-radius: 40%;
+     padding: 5px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+   "
+   onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 14px rgba(0, 0, 0, 0.6)';"
+   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.4)';">
+  <img src="https://img.icons8.com/ios-filled/40/ffffff/whatsapp.png"
+       alt="WhatsApp"
+       style="width: 36px; height: 36px;" />
+</a>
+
 </body>
 
 </html>
