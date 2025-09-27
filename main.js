@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('menu-open');
             menuOverlay.style.display = 'block';
             menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.classList.add('active');
             menuOverlay.setAttribute('aria-hidden', 'false');
             // Focus first menu item for keyboard navigation
             const firstMenuItem = navMenu.querySelector('a');
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('menu-open');
             menuOverlay.style.display = 'none';
             menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('active');
             menuOverlay.setAttribute('aria-hidden', 'true');
             menuToggle.focus();
         }
