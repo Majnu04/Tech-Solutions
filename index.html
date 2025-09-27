@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>    <link rel=\"apple-touch-icon\" href=\"logo.png\" />
+    <link rel=\"manifest\" href=\"manifest.json\" />
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+    <link rel=\"preconnect\" href=\"https://cdn.jsdelivr.net\">
+    <link rel=\"preconnect\" href=\"https://formspree.io\">
+    <link rel=\"dns-prefetch\" href=\"https://embed.tawk.to\">l lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Elite Digital Solutions">
-    <meta name="description" content="We provide scalable, innovative, and results-driven digital solutions for your business success.">
-    <meta name="keywords" content="digital solutions, web development, tech services, elite digital solutions, gouri shanker">
+    <meta name="title" content="Elite Digital Solutions - AI & Web Development Expert">
+    <meta name="description" content="Transform your business with AI-powered solutions, cutting-edge web development, and data-driven digital marketing. Led by Gouri Shanker, serving clients globally from India.">
+    <meta name="keywords" content="AI solutions, web development, digital marketing, automation, machine learning, React, Python, TensorFlow, elite digital solutions, gouri shanker, tech startup india">
     <meta name="author" content="Gouri Shanker">
     <meta name="robots" content="index, follow">
-    <title>Elite Digital Solutions - Gouri Shanker Tech Solutions</title>
-    <link rel="icon" href="https://www.elitedigitalsolutions.tech/logo.png" />
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <link rel="canonical" href="https://www.elitedigitalsolutions.tech" />
+    <title>Elite Digital Solutions - AI & Web Development Expert | Gouri Shanker</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="style.css" />
 
     <!-- Open Graph -->
@@ -33,10 +47,33 @@
       "name": "Elite Digital Solutions",
       "url": "https://www.elitedigitalsolutions.tech",
       "logo": "https://www.elitedigitalsolutions.tech/logo.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Gouri Shanker",
+        "jobTitle": "CEO & Founder"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Visakhapatnam",
+        "addressRegion": "Andhra Pradesh",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7893804498",
+        "contactType": "Customer Service",
+        "email": "gourishanker0408@gmail.com"
+      },
       "sameAs": [
-        "https://www.linkedin.com/company/elite-digital-solutions",
-        "https://www.instagram.com/elite_digitalsolutions_"
-      ]
+        "https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/",
+        "https://github.com/Majnu04",
+        "https://instagram.com/majnu_15__",
+        "https://gowri-shanker-portfolio.vercel.app/"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "description": "AI & Automation, Web Development, Digital Marketing Services"
+      }
     }
     </script>
     <script type="application/ld+json">
@@ -121,7 +158,8 @@
 </head>
 
 <body>
-    <main>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content">
         <!-- Loading Screen -->
         <div class="loading-screen" id="loadingScreen">
             <div class="loader"></div>
@@ -135,38 +173,38 @@
         <div class="particles" id="particles"></div>
 
         <!-- Header -->
-        <header class="header" id="header">
+        <header class="header" id="header" role="banner">
             <div class="nav-container">
-                <a href="#home" class="logo" style="text-decoration: none">
-                    <img src="logo.jpeg" alt="Elite Digital Solutions Logo" class="logo-img" />
+                <a href="#home" class="logo" style="text-decoration: none" aria-label="Elite Digital Solutions - Home">
+                    <img src="logo.jpeg" alt="Elite Digital Solutions company logo" class="logo-img" width="36" height="36" />
                     <span class="logo-text">
                         <span class="highlight-name">Elite Digital</span>
                         Solutions
                     </span>
                 </a>
-                <!-- Example HTML for menu toggle and nav -->
-                <div class="menu-toggle" id="menuToggle">
+                <!-- Mobile menu toggle -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#showcase">Showcase</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                </button>
+                <nav role="navigation" aria-label="Main navigation">
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="#home" aria-label="Go to Home section">Home</a></li>
+                        <li><a href="#services" aria-label="Go to Services section">Services</a></li>
+                        <li><a href="#showcase" aria-label="Go to Showcase section">Showcase</a></li>
+                        <li><a href="#experience" aria-label="Go to Experience section">Experience</a></li>
+                        <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
                     </ul>
                 </nav>
-                <div id="menuOverlay" class="menu-overlay"></div>
+                <div id="menuOverlay" class="menu-overlay" aria-hidden="true"></div>
             </div>
         </header>
 
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-bg"></div>
-            <div class="floating-shapes">
+        <section id="home" class="hero" role="main" aria-label="Welcome to Elite Digital Solutions">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="floating-shapes" aria-hidden="true">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
@@ -178,15 +216,11 @@
                     <span class="word">Solutions</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Transforming businesses through cutting-edge AI,
-                    immersive web
-                    experiences, and data-driven marketing strategies
+                    Transforming businesses through cutting-edge AI, immersive web experiences, and data-driven marketing strategies
                 </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="cta-primary">Start Your
-                        Project</a>
-                    <a href="#showcase" class="cta-secondary">View Our
-                        Work</a>
+                    <a href="#contact" class="cta-primary" aria-label="Start your project with Elite Digital Solutions">Start Your Project</a>
+                    <a href="#showcase" class="cta-secondary" aria-label="View our portfolio and previous work">View Our Work</a>
                 </div>
             </div>
         </section>
@@ -344,24 +378,22 @@
                     </div>
                     <div class="showcase-visual slide-in-right">
                         <img src="AI_Powered_Analytics_Platform_Optimized.webp"
-                            alt="AI-Powered Analytics Platform Screenshot" loading="lazy" style="
-                  border-radius: 16px;
-                  max-width: 100%;
-                  box-shadow: 0 4px 32px #000a;
-                " />
+                            alt="Screenshot of AI-powered analytics platform dashboard showing revenue growth metrics, conversion rates, and data visualizations" 
+                            loading="lazy" 
+                            width="600" 
+                            height="400" 
+                            style="border-radius: 16px; max-width: 100%; box-shadow: 0 4px 32px #000a;" />
                     </div>
                 </div>
                 <div class="showcase-grid" style="margin-top: 4rem; align-items: stretch; flex-wrap: wrap">
                     <!-- Wrapper -->
                     <div class="showcase-visual" style="width: 100%; overflow: hidden; border-radius: 16px;">
                         <img src="images/Immersive_Web_Experience_Cropped.webp"
-                            alt="Immersive Web Experience Screenshot" loading="lazy" style="
-                                                        width: 100%;
-                                                        max-height: 100%;
-                                                        object-fit: contain;
-                                                        display: block;
-                                                        margin: auto;
-                                                      " />
+                            alt="Modern immersive web experience showcase featuring interactive elements, smooth animations, and responsive design" 
+                            loading="lazy" 
+                            width="800" 
+                            height="450" 
+                            style="width: 100%; max-height: 100%; object-fit: contain; display: block; margin: auto;" />
                     </div>
 
                     <div class="showcase-content slide-in-right">
@@ -386,12 +418,12 @@
                 </div>
                 <div class="showcase-grid" style="margin-top: 4rem">
                     <div class="showcase-visual slide-in-left">
-                        <img src="\images\ai-analytics-dashboard-screenshot.webp.webp"
-                            alt="AI Analytics Dashboard Screenshot" loading="lazy" style="
-                  border-radius: 16px;
-                  max-width: 100%;
-                  box-shadow: 0 4px 32px #000a;
-                " />
+                        <img src="images/ai-analytics-dashboard-screenshot.webp.webp"
+                            alt="Interactive AI analytics dashboard featuring real-time business metrics, revenue tracking, and customer analytics with modern dark theme interface" 
+                            loading="lazy" 
+                            width="600" 
+                            height="400" 
+                            style="border-radius: 16px; max-width: 100%; box-shadow: 0 4px 32px #000a;" />
                     </div>
                     <div class="showcase-content slide-in-right">
                         <h3>AI-Powered Analytics Dashboard</h3>
@@ -520,8 +552,11 @@
                     </div> -->
 
                     <div class="custom-visual-image slide-in-left">
-                        <img src="/images/Smart-Inventory-Management-System.jpg" alt="AI Analytics Dashboard Screenshot"
-                            loading="lazy" />
+                        <img src="images/Smart-Inventory-Management-System.jpg" 
+                            alt="Smart inventory management system dashboard with AI-powered demand forecasting and real-time optimization features" 
+                            loading="lazy" 
+                            width="600" 
+                            height="400" />
                     </div>
                 </div>
                 <div class="showcase-grid" style="margin-top: 4rem">
@@ -542,7 +577,11 @@
                     </div> -->
 
                     <div class="custom-visual-image slide-in-left">
-                        <img src="/images/soulserve.jpeg" alt="AI Analytics Dashboard Screenshot" loading="lazy" />
+                        <img src="images/soulserve.jpeg" 
+                            alt="Soulserve platform interface for connecting restaurants with NGOs to reduce food waste and help communities" 
+                            loading="lazy" 
+                            width="600" 
+                            height="400" />
                     </div>
 
                     <div class="showcase-content slide-in-right">
@@ -620,40 +659,43 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form fade-in" action="https://formspree.io/f/movwlarr" method="POST">
+                    <form class="contact-form fade-in" action="https://formspree.io/f/movwlarr" method="POST" novalidate>
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required />
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your Full Name" required aria-describedby="name-error" minlength="2" maxlength="50" />
+                            <span class="error-message" id="name-error" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="you@email.com" required aria-describedby="email-error" />
+                            <span class="error-message" id="email-error" aria-live="polite"></span>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="service">Service</label>
-                            <select id="service" name="service" required>
-                                <option value>Select a service</option>
+                            <label for="service">Service Required *</label>
+                            <select id="service" name="service" required aria-describedby="service-error">
+                                <option value="">Select a service</option>
                                 <option value="ai">AI & Automation</option>
                                 <option value="web">Web Development</option>
-                                <option value="marketing">Digital
-                                    Marketing</option>
-                                <option value="other">Other / New
-                                    Project</option>
+                                <option value="marketing">Digital Marketing</option>
+                                <option value="other">Other / New Project</option>
                             </select>
-                        </div>
-                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="[0-9]{10}" required />
+                            <span class="error-message" id="service-error" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..."
-                                required></textarea>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 Your Phone Number" pattern="[+]?[0-9\s\-\(\)]{10,15}" aria-describedby="phone-help" />
+                            <small id="phone-help" class="form-help">Optional - Include country code if outside India</small>
                         </div>
-                       
-                        <button type="submit" class="submit-btn">Send
-                            Message</button>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements, timeline, and budget..." required aria-describedby="message-error" minlength="20" maxlength="1000"></textarea>
+                            <span class="error-message" id="message-error" aria-live="polite"></span>
+                        </div>
+                        <button type="submit" class="submit-btn" aria-describedby="submit-status">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">Sending...</span>
+                        </button>
+                        <div id="submit-status" class="submit-status" aria-live="polite"></div>
                     </form>
                 </div>
                 <div class="ceo-card" style="
@@ -867,29 +909,30 @@
     <!--End of Tawk.to Script-->
 
     <script>
-        // Smooth Custom Cursor Script
-        const cursor = document.getElementById("cursor");
-        const follower = document.getElementById("cursorFollower");
-        let mouseX = 0,
-            mouseY = 0;
-        let followerX = 0,
-            followerY = 0;
-
-        document.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursor.style.left = mouseX + "px";
-            cursor.style.top = mouseY + "px";
-        });
-
-        function animateFollower() {
-            followerX += (mouseX - followerX) * 0.18;
-            followerY += (mouseY - followerY) * 0.18;
-            follower.style.left = followerX + "px";
-            follower.style.top = followerY + "px";
-            requestAnimationFrame(animateFollower);
+        // Smooth Custom Cursor Script - Desktop Only
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const cursor = document.getElementById("cursor");
+            const follower = document.getElementById("cursorFollower");
+            
+            if (cursor && follower) {
+                let mouseX = 0, mouseY = 0;
+                let followerX = 0, followerY = 0;
+                
+                document.addEventListener("mousemove", (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+                }, { passive: true });
+                
+                function animateFollower() {
+                    followerX += (mouseX - followerX) * 0.18;
+                    followerY += (mouseY - followerY) * 0.18;
+                    follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+                    requestAnimationFrame(animateFollower);
+                }
+                animateFollower();
+            }
         }
-        animateFollower();
     </script>
 
     <!-- WhatsApp Chat Button -->

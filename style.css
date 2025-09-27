@@ -250,28 +250,44 @@ body {
   scrollbar-color: #ffd700 #181818;
 }
 
-/* Custom Cursor */
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #667eea;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: transform 0.1s ease;
+/* Custom Cursor - Only for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #667eea;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+    will-change: transform;
+  }
+  
+  .cursor-follower {
+    width: 8px;
+    height: 8px;
+    background: #667eea;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
 }
 
-.cursor-follower {
-  width: 8px;
-  height: 8px;
-  background: #667eea;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.3s ease;
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
 }
 
 /* Particle Background */
@@ -1064,6 +1080,102 @@ select:focus {
   left: 100%;
 }
 
+/* Form Validation Styles */
+.form-group {
+  position: relative;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: block;
+  min-height: 1.2rem;
+}
+
+.form-help {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown),
+.form-group select:invalid {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown),
+.form-group select:valid {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.submit-status {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  display: none;
+}
+
+.submit-status.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
+  color: #4caf50;
+  display: block;
+}
+
+.submit-status.error {
+  background-color: rgba(255, 107, 107, 0.1);
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  display: block;
+}
+
+.btn-loading {
+  opacity: 0.7;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Focus indicators for better accessibility */
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible,
+.submit-btn:focus-visible,
+.cta-primary:focus-visible,
+.cta-secondary:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #ffd700;
+  color: #000;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10001;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
 /* Footer */
 .footer {
   background: #000;
@@ -1365,6 +1477,7 @@ select:focus {
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .fade-in.visible {
@@ -1376,6 +1489,7 @@ select:focus {
   opacity: 0;
   transform: translateX(-50px);
   transition: all 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .slide-in-left.visible {
@@ -1387,11 +1501,32 @@ select:focus {
   opacity: 0;
   transform: translateX(50px);
   transition: all 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .slide-in-right.visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Respect users' preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .particles {
+    display: none;
+  }
+  
+  .floating-shapes {
+    animation: none;
+  }
 }
 
 /* Loading Animation */
