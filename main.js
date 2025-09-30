@@ -2,6 +2,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Performance optimizations
     let ticking = false;
     
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    function handleScroll() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                const scrollY = window.scrollY;
+                if (scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
     // Loading Screen with better performance
     window.addEventListener('load', function() {
         const loadingScreen = document.getElementById('loadingScreen');
