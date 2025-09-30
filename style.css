@@ -445,26 +445,9 @@ body {
   color: #ffd700;
 }
 
-.nav-menu a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ffd700;
-  transition: width 0.3s ease;
-}
+/* Yellow underline animation removed */
 
-.nav-menu a:hover::after {
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-}
+/* Mobile menu styles handled in comprehensive media query below */
 
 /* Show nav menu on desktop */
 @media (min-width: 769px) {
@@ -1466,7 +1449,7 @@ select:focus {
 /* Hide nav-menu by default on mobile */
 @media (max-width: 768px) {
   .nav-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
@@ -1481,11 +1464,14 @@ select:focus {
     transition: transform 0.3s ease;
     backdrop-filter: blur(20px);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
+    visibility: hidden;
+    opacity: 0;
   }
   
   .nav-menu.open {
-    display: flex;
     transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
   }
   
   .nav-menu li {
