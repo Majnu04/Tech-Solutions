@@ -61,6 +61,43 @@ html {
 
 .menu-toggle {
   display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
 }
 
 /* Responsive grid for services, showcase, stats, etc. */
@@ -369,10 +406,15 @@ body {
   min-height: 60px;
 }
 
+/* Mobile header adjustments */
 @media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+  
   .nav-container {
     padding: 0.5rem 1rem;
-    min-height: 50px;
+    min-height: 56px;
   }
 }
 
@@ -1446,8 +1488,12 @@ select:focus {
   }
 }
 
-/* Hide nav-menu by default on mobile */
+/* Mobile Navigation Menu */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -1456,22 +1502,22 @@ select:focus {
     right: 0;
     width: 280px;
     height: 100vh;
-    background: rgba(24, 24, 32, 0.95);
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 15, 20, 0.98);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
     z-index: 1000;
     padding: 80px 2rem 2rem 2rem;
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(20px);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    visibility: hidden;
+    border-left: 1px solid rgba(255, 215, 0, 0.2);
     opacity: 0;
+    visibility: hidden;
   }
   
   .nav-menu.open {
     transform: translateX(0);
-    visibility: visible;
     opacity: 1;
+    visibility: visible;
   }
   
   .nav-menu li {
@@ -1499,16 +1545,6 @@ select:focus {
     transform: translateX(8px);
   }
   
-  .menu-toggle {
-    display: flex;
-    z-index: 1001;
-    background: transparent;
-    border-radius: 0;
-    padding: 8px 4px;
-    backdrop-filter: none;
-    border: none;
-  }
-  
   .menu-overlay {
     display: none;
     position: fixed;
@@ -1519,15 +1555,18 @@ select:focus {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
     backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
   
   .menu-open .menu-overlay {
     display: block;
+    opacity: 1;
   }
   
-  /* Hide desktop nav items on mobile */
-  .nav-container {
-    position: relative;
+  /* Ensure desktop nav is hidden */
+  .nav-menu {
+    /* Mobile styles already defined above */
   }
 }
 
