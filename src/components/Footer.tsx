@@ -39,7 +39,7 @@ const Footer = () => {
             <div className="space-y-2 text-gray-400">
               <p>
                 <span className="text-gray-500">Email:</span><br />
-                gourishanker0408@gmail.com
+                elitetechsolutions04@gmail.com
               </p>
               <p>
                 <span className="text-gray-500">Phone:</span><br />

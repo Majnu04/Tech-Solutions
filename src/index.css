@@ -35,7 +35,7 @@
 
 @layer components {
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08] shadow-lg;
+    @apply bg-dark-800/40 backdrop-blur-2xl border border-dark-700 shadow-lg;
   }
 
   .gradient-text {
@@ -43,7 +43,7 @@
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-dark-950 font-semibold rounded-2xl hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5;
+    @apply px-8 py-4 bg-gradient-to-r from-[#E7A93F] to-[#d49835] text-dark-950 font-semibold rounded-2xl hover:shadow-xl hover:shadow-[#E7A93F]/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5;
   }
 
   .btn-secondary {
