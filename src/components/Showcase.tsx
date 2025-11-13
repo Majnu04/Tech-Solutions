@@ -3,6 +3,16 @@ import { useRef } from 'react'
 
 const projects = [
   {
+    title: 'Vignan\'s Institute of Information Technology – Official Website',
+    description: 'Developed a premium, fully responsive academic website for Vignan\'s Institute of Information Technology (VIIT), Duvvada. The platform features a clean UI, structured academic sections, improved navigation, and optimized performance for students and faculty.',
+    role: 'Lead Developer & UI/UX Designer',
+    result: 'Premium Education Platform LIVE',
+    tech: ['React', 'Node.js', 'TailwindCSS', 'Cloud Hosting'],
+    image: '/images/vignancollage.jpg',
+    link: 'https://vignaniit.edu.in',
+    tag: 'NEW • Premium Project'
+  },
+  {
     title: 'AI-Powered Analytics Platform',
     description: 'Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses.',
     role: 'Full-stack Developer',
@@ -71,6 +81,11 @@ const ProjectCard = ({ project, index, isInView }: any) => {
       className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}
     >
       <div className={isEven ? '' : 'lg:col-start-2'}>
+        {project.tag && (
+          <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#E7A93F] to-[#d49835] text-dark-950 text-sm font-bold rounded-full mb-4">
+            {project.tag}
+          </span>
+        )}
         <h3 className="text-3xl md:text-4xl font-bold mb-6">{project.title}</h3>
         <p className="text-gray-300 mb-6 text-lg leading-relaxed">{project.description}</p>
         <div className="space-y-3 mb-8">
