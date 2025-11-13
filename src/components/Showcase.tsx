@@ -17,7 +17,7 @@ const featuredProjects = [
     role: 'Full-stack Developer',
     result: 'Improved client decision-making speed by 40%',
     tech: ['Python', 'TensorFlow', 'React'],
-    image: '/AI_Powered_Analytics_Platform_Optimized.webp'
+    image: '/images/ai-analytics-dashboard-screenshot.webp.webp'
   },
   {
     title: 'Immersive Web Experience',
