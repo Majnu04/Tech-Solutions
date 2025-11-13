@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-const projects = [
+const featuredProjects = [
   {
     title: 'Vignan\'s Institute of Information Technology – Official Website',
     description: 'Developed a premium, fully responsive academic website for Vignan\'s Institute of Information Technology (VIIT), Duvvada. The platform features a clean UI, structured academic sections, improved navigation, and optimized performance for students and faculty.',
@@ -9,8 +9,7 @@ const projects = [
     result: 'Premium Education Platform LIVE',
     tech: ['React', 'Node.js', 'TailwindCSS', 'Cloud Hosting'],
     image: '/images/vignancollage.jpg',
-    link: 'https://vignaniit.edu.in',
-    tag: 'NEW • Premium Project'
+    link: 'https://vignaniit.edu.in'
   },
   {
     title: 'AI-Powered Analytics Platform',
@@ -34,7 +33,7 @@ const projects = [
     role: 'Full-stack Developer',
     result: 'LIVE',
     tech: ['React', 'Next.js', 'Vercel', 'CSS3'],
-    image: '/Portfolio2.jpg',
+    image: '/images/protfolio.jpg',
     link: 'https://gowri-shanker-portfolio.vercel.app/'
   }
 ]
@@ -61,11 +60,27 @@ const Showcase = () => {
         </p>
       </motion.div>
 
-      <div className="space-y-32">
-        {projects.map((project, index) => (
+      <div className="space-y-32 mb-16">
+        {featuredProjects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} isInView={isInView} />
         ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="text-center"
+      >
+        <a
+          href="/all-projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary inline-block"
+        >
+          View All Projects →
+        </a>
+      </motion.div>
     </section>
   )
 }
@@ -81,11 +96,6 @@ const ProjectCard = ({ project, index, isInView }: any) => {
       className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}
     >
       <div className={isEven ? '' : 'lg:col-start-2'}>
-        {project.tag && (
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#E7A93F] to-[#d49835] text-dark-950 text-sm font-bold rounded-full mb-4">
-            {project.tag}
-          </span>
-        )}
         <h3 className="text-3xl md:text-4xl font-bold mb-6">{project.title}</h3>
         <p className="text-gray-300 mb-6 text-lg leading-relaxed">{project.description}</p>
         <div className="space-y-3 mb-8">
