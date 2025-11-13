@@ -43,7 +43,7 @@
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-accent-yellow to-orange-500 text-dark-950 font-bold rounded-xl hover:shadow-xl hover:shadow-accent-yellow/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5;
+    @apply px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-dark-950 font-bold rounded-xl hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5;
   }
 
   .btn-secondary {

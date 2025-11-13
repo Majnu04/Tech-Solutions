@@ -49,7 +49,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <Link to="contact" smooth duration={500}>
-              <button className="btn-primary cursor-pointer shadow-2xl shadow-accent-yellow/20">
+              <button className="btn-primary cursor-pointer shadow-2xl shadow-yellow-500/20">
                 Start Your Project
               </button>
             </Link>
