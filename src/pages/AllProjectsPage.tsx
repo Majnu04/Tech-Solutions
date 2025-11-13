@@ -49,7 +49,7 @@ const allProjects = [
     role: 'Full-stack Developer',
     result: 'Reduced inventory costs by 30%',
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-    image: '/images/inventory.jpg',
+    image: '/images/Smart-Inventory-Management-System.jpg',
     category: 'Client Projects'
   },
   {
@@ -58,7 +58,7 @@ const allProjects = [
     role: 'Lead Developer',
     result: 'Successfully launched with 500+ users',
     tech: ['React', 'Firebase', 'Stripe', 'TailwindCSS'],
-    image: '/images/soulserve.jpg',
+    image: '/images/soulserve.jpeg',
     category: 'Client Projects'
   },
   {
@@ -67,7 +67,7 @@ const allProjects = [
     role: 'Full-stack Developer',
     result: 'Streamlined business operations',
     tech: ['React', 'Node.js', 'PostgreSQL', 'Redis'],
-    image: '/images/reeves.jpg',
+    image: '/images/reeves.png',
     category: 'Client Projects'
   }
 ]
