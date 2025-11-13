@@ -24,7 +24,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-tight px-4 sm:px-0"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 leading-tight px-4 sm:px-0"
           >
             <span className="block gradient-text animate-gradient bg-gradient-to-r from-primary-500 via-purple-500 to-primary-600 bg-clip-text">
               Elite Digital Solutions
@@ -35,11 +35,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-dark-200 mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-0"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-dark-200/90 mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed font-normal px-4 sm:px-0"
           >
-            Empowering businesses with <span className="text-dark-50 font-semibold">scalable digital products</span>,{' '}
-            <span className="text-dark-50 font-semibold">AI-driven automation</span>, and{' '}
-            <span className="text-dark-50 font-semibold">next-gen web experiences</span>.
+            Empowering businesses with <span className="text-dark-50/95 font-semibold">scalable digital products</span>,{' '}
+            <span className="text-dark-50/95 font-semibold">AI-driven automation</span>, and{' '}
+            <span className="text-dark-50/95 font-semibold">next-gen web experiences</span>.
           </motion.p>
 
           <motion.div

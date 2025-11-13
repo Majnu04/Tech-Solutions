@@ -39,7 +39,7 @@ const Experience = () => {
         className="text-center mb-20"
       >
         <span className="section-badge">New Projects</span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-6">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-6 mb-6">
           Our Latest Work & <span className="gradient-text">Startup Journey</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -70,7 +70,7 @@ const Experience = () => {
               </span>
             </div>
             <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-primary-400 group-hover:text-primary-300 transition-colors">{project.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-primary-400 group-hover:text-primary-300 transition-colors">{project.title}</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, i) => (

@@ -49,7 +49,7 @@ const Contact = () => {
         className="text-center mb-20"
       >
         <span className="section-badge">Get In Touch</span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-6">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-6 mb-6">
           Let's <span className="gradient-text">Connect</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">

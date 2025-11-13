@@ -16,7 +16,7 @@ const About = () => {
         className="max-w-5xl mx-auto text-center"
       >
         <span className="section-badge">About Us</span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-8">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-6 mb-8">
           Who We <span className="gradient-text">Are</span>
         </h2>
         <p className="text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed">

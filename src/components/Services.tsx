@@ -52,7 +52,7 @@ const Services = () => {
         className="text-center mb-20"
       >
         <span className="section-badge">Our Expertise</span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-6">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-6 mb-6">
           Premium Digital <span className="gradient-text">Solutions</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -73,7 +73,7 @@ const Services = () => {
             <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/10 border border-primary-500/20 text-primary-400 mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary-500/30 transition-all duration-500">
               {service.icon}
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-primary-400 transition-colors duration-300">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-4 group-hover:text-primary-400 transition-colors duration-300">
               {service.title}
             </h3>
             <p className="text-gray-400 mb-8 leading-relaxed">{service.description}</p>

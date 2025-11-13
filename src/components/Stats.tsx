@@ -54,7 +54,7 @@ const StatCard = ({ stat, isInView, delay }: { stat: typeof stats[0], isInView: 
       transition={{ duration: 0.6, delay }}
       className="text-center p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
     >
-      <div className="text-6xl md:text-7xl lg:text-8xl font-black gradient-text mb-6">
+      <div className="text-6xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6">
         {count}{stat.suffix}
       </div>
       <div className="text-xl md:text-2xl text-gray-300 font-medium">{stat.label}</div>
