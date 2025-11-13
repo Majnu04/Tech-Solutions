@@ -46,12 +46,15 @@ const Contact = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <span className="text-primary-300 font-semibold text-sm tracking-wider uppercase">Get In Touch</span>
-        <h2 className="text-4xl md:text-5xl font-display font-black mt-4 mb-6">
+        <span className="section-badge">Get In Touch</span>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-6">
           Let's <span className="gradient-text">Connect</span>
         </h2>
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          Ready to start your next project? Let's discuss how we can help your business grow.
+        </p>
       </motion.div>
 
       <div className="grid lg:grid-cols-2 gap-12">
@@ -63,58 +66,58 @@ const Contact = () => {
           className="space-y-8"
         >
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-primary-300">Gouri Shanker</span> is ready to help your business grow.
+            <h3 className="text-2xl md:text-3xl font-bold mb-6">
+              <span className="text-primary-400">Gouri Shanker</span> is ready to help your business grow.
             </h3>
-            <p className="text-gray-300 text-lg">
-              Contact <span className="text-primary-300 font-semibold">Elite Digital Solutions</span> for new projects, collaborations, or just to say hi!
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
+              Contact <span className="text-primary-400 font-semibold">Elite Digital Solutions</span> for new projects, collaborations, or just to say hi!
             </p>
           </div>
 
           <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <FaEnvelope className="text-primary-300 text-2xl mt-1" />
+            <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+              <FaEnvelope className="text-primary-400 text-2xl mt-1 flex-shrink-0" />
               <div>
-                <h4 className="font-bold text-lg mb-1">Email</h4>
+                <h4 className="font-bold text-lg mb-2">Email</h4>
                 <p className="text-gray-300">gourishanker0408@gmail.com</p>
                 <p className="text-gray-300">elitetechsolutions04@gmail.com</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <FaPhone className="text-primary-300 text-2xl mt-1" />
+            <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+              <FaPhone className="text-primary-400 text-2xl mt-1 flex-shrink-0" />
               <div>
-                <h4 className="font-bold text-lg mb-1">Phone</h4>
+                <h4 className="font-bold text-lg mb-2">Phone</h4>
                 <p className="text-gray-300">+91 7893804498</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <FaMapMarkerAlt className="text-primary-300 text-2xl mt-1" />
+            <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+              <FaMapMarkerAlt className="text-primary-400 text-2xl mt-1 flex-shrink-0" />
               <div>
-                <h4 className="font-bold text-lg mb-1">Location</h4>
+                <h4 className="font-bold text-lg mb-2">Location</h4>
                 <p className="text-gray-300">Visakhapatnam, Andhra Pradesh</p>
               </div>
             </div>
           </div>
 
           {/* CEO Card */}
-          <div className="card text-center max-w-sm">
+          <div className="card text-center max-w-sm mx-auto border-2 border-primary-500/20 hover:border-primary-500/40 transition-all">
             <img
-              src="https://ui-avatars.com/api/?name=Gouri+Shanker&background=ffd700&color=181818&size=96&rounded=true"
+              src="https://ui-avatars.com/api/?name=Gouri+Shanker&background=4D7CFE&color=fff&size=96&rounded=true"
               alt="Gouri Shanker"
-              className="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-primary-300"
+              className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-500 shadow-lg shadow-primary-500/30"
             />
-            <h4 className="text-xl font-bold text-primary-300 mb-1">Gouri Shanker</h4>
-            <p className="text-gray-400 mb-4">CEO, Elite Digital Solutions</p>
+            <h4 className="text-2xl font-bold text-primary-400 mb-2">Gouri Shanker</h4>
+            <p className="text-gray-400 mb-6">CEO, Elite Digital Solutions</p>
             <div className="flex justify-center gap-4">
-              <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-primary-400 transition-colors">
+              <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
                 <FaLinkedin className="text-2xl" />
               </a>
-              <a href="https://github.com/Majnu04" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-primary-400 transition-colors">
+              <a href="https://github.com/Majnu04" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
                 <FaGithub className="text-2xl" />
               </a>
-              <a href="https://instagram.com/majnu_15__" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-primary-400 transition-colors">
+              <a href="https://instagram.com/majnu_15__" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
                 <FaInstagram className="text-2xl" />
               </a>
             </div>
@@ -138,7 +141,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-primary-300 transition-colors"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
               placeholder="Your Full Name"
             />
           </div>
@@ -152,7 +155,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-primary-300 transition-colors"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
               placeholder="you@email.com"
             />
           </div>
@@ -165,7 +168,7 @@ const Contact = () => {
               value={formData.service}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-primary-300 transition-colors"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
             >
               <option value="">Select a service</option>
               <option value="ai">AI & Automation</option>
@@ -183,7 +186,7 @@ const Contact = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-primary-300 transition-colors"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
               placeholder="+91 Your Phone Number"
             />
           </div>
@@ -197,7 +200,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-primary-300 transition-colors resize-none"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none"
               placeholder="Tell us about your project requirements, timeline, and budget..."
             />
           </div>

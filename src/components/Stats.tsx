@@ -12,8 +12,9 @@ const Stats = () => {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section className="section-container bg-gradient-to-br from-primary-300/10 to-purple-900/10">
-      <div ref={ref} className="grid md:grid-cols-3 gap-12">
+    <section className="section-container bg-gradient-to-br from-primary-500/10 via-dark-900/50 to-purple-600/10 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/5 to-transparent" />
+      <div ref={ref} className="grid md:grid-cols-3 gap-12 md:gap-16 relative z-10">
         {stats.map((stat, index) => (
           <StatCard key={index} stat={stat} isInView={isInView} delay={index * 0.2} />
         ))}
@@ -51,12 +52,12 @@ const StatCard = ({ stat, isInView, delay }: { stat: typeof stats[0], isInView: 
       initial={{ opacity: 0, scale: 0.5 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="text-center"
+      className="text-center p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
     >
-      <div className="text-6xl md:text-7xl font-black gradient-text mb-4">
+      <div className="text-6xl md:text-7xl lg:text-8xl font-black gradient-text mb-6">
         {count}{stat.suffix}
       </div>
-      <div className="text-xl text-gray-300 font-medium">{stat.label}</div>
+      <div className="text-xl md:text-2xl text-gray-300 font-medium">{stat.label}</div>
     </motion.div>
   )
 }

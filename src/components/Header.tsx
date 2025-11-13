@@ -52,10 +52,10 @@ const Header = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="relative text-gray-300 hover:text-primary-300 cursor-pointer transition-colors duration-300 font-medium group"
+              className="relative text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium group"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-300 group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
         </nav>
@@ -88,7 +88,7 @@ const Header = () => {
                   offset={-80}
                   duration={500}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl text-gray-300 hover:text-primary-300 cursor-pointer transition-colors duration-300 font-medium"
+                  className="text-xl text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium"
                 >
                   {item.name}
                 </Link>

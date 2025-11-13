@@ -30,14 +30,14 @@ const Testimonials = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <span className="text-primary-300 font-semibold text-sm tracking-wider uppercase">What Clients Say</span>
-        <h2 className="text-4xl md:text-5xl font-display font-black mt-4 mb-6">
+        <span className="section-badge">What Clients Say</span>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-6">
           <span className="gradient-text">Testimonials</span>
         </h2>
-        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-          Hear from those who have worked with <span className="text-primary-300 font-bold">Gouri Shanker</span> and Elite Digital Solutions.
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          Hear from those who have worked with <span className="text-primary-400 font-bold">Gouri Shanker</span> and Elite Digital Solutions.
         </p>
       </motion.div>
 
@@ -47,14 +47,14 @@ const Testimonials = () => {
             key={index}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-            className="card hover:scale-105"
+            transition={{ duration: 0.8, delay: index * 0.15 }}
+            className="card hover:scale-[1.02]"
           >
-            <div className="text-primary-300 text-5xl mb-4">"</div>
-            <p className="text-gray-300 mb-6 italic">{testimonial.content}</p>
-            <div className="border-t border-white/10 pt-4">
-              <p className="font-bold text-white">{testimonial.author}</p>
-              <p className="text-gray-400 text-sm">{testimonial.role}</p>
+            <div className="text-primary-400 text-6xl mb-4 font-serif leading-none">"</div>
+            <p className="text-gray-300 mb-8 italic leading-relaxed text-lg">{testimonial.content}</p>
+            <div className="border-t border-white/10 pt-6">
+              <p className="font-bold text-white text-lg">{testimonial.author}</p>
+              <p className="text-gray-400 text-sm mt-1">{testimonial.role}</p>
             </div>
           </motion.div>
         ))}

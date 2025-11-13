@@ -8,34 +8,43 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#fef9e7',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#ffd700',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+          50: '#f0f5ff',
+          100: '#e0ebff',
+          200: '#c7dbfe',
+          300: '#a4c4fd',
+          400: '#7da8fa',
+          500: '#4D7CFE',
+          600: '#3b5fe6',
+          700: '#2d47c3',
+          800: '#273a9e',
+          900: '#25337d',
+        },
+        purple: {
+          500: '#9B6BFF',
+          600: '#8854e6',
+        },
+        accent: {
+          yellow: '#F5A623',
+          gold: '#ffd700',
         },
         dark: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
-          950: '#0a0a0f',
+          50: '#f7f7f7',
+          100: '#e3e3e3',
+          200: '#cccccc',
+          300: '#b8b8b8',
+          400: '#9e9e9e',
+          500: '#7e7e7e',
+          600: '#626262',
+          700: '#515151',
+          800: '#2b2b2b',
+          900: '#1a1a1a',
+          950: '#0A0A0A',
         }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'Poppins', 'Inter', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -46,6 +55,8 @@ export default {
         'glow': 'glow 2s ease-in-out infinite alternate',
         'slide-up': 'slideUp 0.6s ease-out',
         'fade-in': 'fadeIn 0.8s ease-out',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'shimmer': 'shimmer 2s linear infinite',
       },
       keyframes: {
         float: {
@@ -53,8 +64,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px #ffd700, 0 0 10px #ffd700' },
-          '100%': { boxShadow: '0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700' },
+          '0%': { boxShadow: '0 0 5px #4D7CFE, 0 0 10px #4D7CFE' },
+          '100%': { boxShadow: '0 0 10px #4D7CFE, 0 0 20px #4D7CFE, 0 0 30px #4D7CFE' },
         },
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
@@ -63,6 +74,10 @@ export default {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' },
         },
       },
     },

@@ -40,15 +40,18 @@ const Showcase = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <span className="text-primary-300 font-semibold text-sm tracking-wider uppercase">Portfolio</span>
-        <h2 className="text-4xl md:text-5xl font-display font-black mt-4 mb-6">
+        <span className="section-badge">Portfolio</span>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black mt-6 mb-6">
           Featured <span className="gradient-text">Projects</span>
         </h2>
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+          Explore our latest work and see how we've helped businesses transform digitally.
+        </p>
       </motion.div>
 
-      <div className="space-y-24">
+      <div className="space-y-32">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} isInView={isInView} />
         ))}
@@ -68,19 +71,21 @@ const ProjectCard = ({ project, index, isInView }: any) => {
       className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}
     >
       <div className={isEven ? '' : 'lg:col-start-2'}>
-        <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-        <p className="text-gray-300 mb-4 text-lg">{project.description}</p>
-        <p className="text-gray-400 mb-2">
-          <span className="font-semibold">Role:</span> {project.role}
-        </p>
-        <p className="text-green-400 font-semibold mb-6">
-          ✓ {project.result}
-        </p>
-        <div className="flex flex-wrap gap-3 mb-6">
+        <h3 className="text-3xl md:text-4xl font-bold mb-6">{project.title}</h3>
+        <p className="text-gray-300 mb-6 text-lg leading-relaxed">{project.description}</p>
+        <div className="space-y-3 mb-8">
+          <p className="text-gray-400">
+            <span className="font-semibold text-white">Role:</span> {project.role}
+          </p>
+          <p className="text-primary-400 font-semibold flex items-center gap-2">
+            <span className="text-xl">✓</span> {project.result}
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3 mb-8">
           {project.tech.map((tech: string, i: number) => (
             <span
               key={i}
-              className="px-4 py-2 glass border-primary-300/30 text-primary-300 rounded-full text-sm font-medium"
+              className="px-4 py-2 bg-primary-500/10 border border-primary-500/30 text-primary-400 rounded-lg text-sm font-medium hover:bg-primary-500/20 transition-colors"
             >
               {tech}
             </span>
@@ -99,16 +104,17 @@ const ProjectCard = ({ project, index, isInView }: any) => {
       </div>
       <div className={isEven ? '' : 'lg:col-start-1 lg:row-start-1'}>
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary-300/20"
+          whileHover={{ scale: 1.02, y: -8 }}
+          transition={{ duration: 0.3 }}
+          className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary-500/20 border border-white/5 group"
         >
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
         </motion.div>
       </div>
     </motion.div>
