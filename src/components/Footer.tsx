@@ -85,14 +85,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 pb-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
-          <p>
-            © 2025 <span className="text-primary-400 font-bold">Gouri Shanker</span> – Elite Digital Solutions. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <a href="/privacy.html" className="hover:text-primary-400 transition-colors">Privacy Policy</a>
-            <a href="/terms.html" className="hover:text-primary-400 transition-colors">Terms of Service</a>
+        <div className="border-t border-white/10 pt-8 pb-8 text-gray-400 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+            <p>
+              © 2025 <span className="text-primary-400 font-bold">Gouri Shanker</span> – Elite Digital Solutions. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <a href="/privacy.html" className="hover:text-primary-400 transition-colors">Privacy Policy</a>
+              <a href="/terms.html" className="hover:text-primary-400 transition-colors">Terms of Service</a>
+            </div>
           </div>
+          <p className="text-center text-gray-500 text-xs">
+            Based in <span className="text-primary-400 font-semibold">Visakhapatnam, India</span> — delivering premium digital solutions worldwide
+          </p>
         </div>
       </div>
     </footer>
