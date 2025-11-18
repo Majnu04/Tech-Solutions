@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FaRobot, FaCode, FaChartLine } from 'react-icons/fa'
+import { FaRobot, FaCode, FaChartLine, FaVideo, FaPalette } from 'react-icons/fa'
 
 const services = [
   {
@@ -34,6 +34,28 @@ const services = [
       'Social Media Campaigns',
       'Content Strategy',
       'Analytics & Reporting'
+    ]
+  },
+  {
+    icon: <FaVideo className="w-12 h-12" />,
+    title: 'Video Editing',
+    description: 'Professional video editing services that bring your stories to life with cinematic quality and engaging visuals.',
+    features: [
+      'Promotional Videos',
+      'Social Media Content',
+      'Corporate Videos',
+      'Motion Graphics & VFX'
+    ]
+  },
+  {
+    icon: <FaPalette className="w-12 h-12" />,
+    title: 'Logo Design',
+    description: 'Create memorable brand identities with custom logo designs that capture your vision and stand out.',
+    features: [
+      'Brand Identity Design',
+      'Custom Logo Creation',
+      'Vector Graphics',
+      'Brand Style Guides'
     ]
   }
 ]
