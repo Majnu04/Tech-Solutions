@@ -7,6 +7,13 @@ const clients = [
     label: 'Premium Education Partner',
     description: 'Collaborated with VIIT Duvvada to deliver their official digital platform.',
     logo: '/vignanlogo.png'
+  },
+  {
+    name: 'DoFlow',
+    label: '#1 Online Learning Platform',
+    description: 'Master Skills with DoFlow - Learn from industry experts and transform your career with premium courses.',
+    logo: '/Doflow logo.PNG',
+    website: 'https://doflow-ebon.vercel.app/#/'
   }
 ]
 
@@ -55,6 +62,8 @@ const Testimonials = () => {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="card text-center group hover:border-[#E7A93F]/50"
+            onClick={() => client.website && window.open(client.website, '_blank')}
+            style={{ cursor: client.website ? 'pointer' : 'default' }}
           >
             <div className="mb-6 flex items-center justify-center">
               <div className="w-32 h-32 bg-white/5 rounded-2xl flex items-center justify-center p-4 group-hover:bg-white/10 transition-colors">

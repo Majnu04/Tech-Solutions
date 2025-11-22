@@ -20,12 +20,13 @@ const featuredProjects = [
     image: '/images/ai-analytics-dashboard-screenshot.webp.webp'
   },
   {
-    title: 'Immersive Web Experience',
-    description: 'Designed and developed a visually stunning, interactive website for a tech startup, boosting engagement and conversions.',
-    role: 'UI/UX Designer & Developer',
-    result: 'Increased user engagement by 60%',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'GSAP'],
-    image: '/images/Immersive_Web_Experience_Cropped.webp'
+    title: 'DoFlow - Online Learning Platform',
+    description: 'Developed a premium online learning platform where users can master skills from industry experts. Features include course management, user authentication, responsive design, and seamless navigation for an enhanced learning experience.',
+    role: 'Full-stack Developer & UI/UX Designer',
+    result: '#1 Online Learning Platform',
+    tech: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'],
+    image: '/images/Doflow-ss.jpeg',
+    link: 'https://doflow-ebon.vercel.app/#/'
   },
   {
     title: 'Personal Portfolio Website',
