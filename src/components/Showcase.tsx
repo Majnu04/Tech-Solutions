@@ -5,7 +5,7 @@ const featuredProjects = [
   {
     title: 'Vignan\'s Institute of Information Technology – Official Website',
     description: 'Developed a premium, fully responsive academic website for Vignan\'s Institute of Information Technology (VIIT), Duvvada. The platform features a clean UI, structured academic sections, improved navigation, and optimized performance for students and faculty.',
-    role: 'Lead Developer & UI/UX Designer',
+
     result: 'Premium Education Platform LIVE',
     tech: ['React', 'Node.js', 'TailwindCSS', 'Cloud Hosting'],
     image: '/images/vignancollage.jpg',
@@ -14,7 +14,7 @@ const featuredProjects = [
   {
     title: 'AI-Powered Analytics Platform',
     description: 'Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses.',
-    role: 'Full-stack Developer',
+
     result: 'Improved client decision-making speed by 40%',
     tech: ['Python', 'TensorFlow', 'React'],
     image: '/images/ai-analytics-dashboard-screenshot.webp.webp'
@@ -22,7 +22,6 @@ const featuredProjects = [
   {
     title: 'DoFlow - Online Learning Platform',
     description: 'Developed a premium online learning platform where users can master skills from industry experts. Features include course management, user authentication, responsive design, and seamless navigation for an enhanced learning experience.',
-    role: 'Full-stack Developer & UI/UX Designer',
     result: '#1 Online Learning Platform',
     tech: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'],
     image: '/images/Doflow-ss.jpeg',
@@ -31,7 +30,6 @@ const featuredProjects = [
   {
     title: 'Personal Portfolio Website',
     description: 'A modern, responsive portfolio website showcasing professional skills, projects, and achievements.',
-    role: 'Full-stack Developer',
     result: 'LIVE',
     tech: ['React', 'Next.js', 'Vercel', 'CSS3'],
     image: '/images/protfolio.jpg',
@@ -101,7 +99,7 @@ const ProjectCard = ({ project, index, isInView }: any) => {
         <p className="text-gray-300 mb-6 text-lg leading-relaxed">{project.description}</p>
         <div className="space-y-3 mb-8">
           <p className="text-gray-400">
-            <span className="font-semibold text-white">Role:</span> {project.role}
+            <span className="font-semibold text-white"></span> {project.role}
           </p>
           <p className="text-primary-400 font-semibold flex items-center gap-2">
             <span className="text-xl">✓</span> {project.result}
