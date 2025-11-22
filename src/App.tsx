@@ -12,6 +12,8 @@ import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import AllProjectsPage from './pages/AllProjectsPage'
+import PrivacyPage from './pages/PrivacyPage'
+import TermsPage from './pages/TermsPage'
 
 function HomePage() {
   return (
@@ -128,6 +130,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/all-projects" element={<AllProjectsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </Router>
     </>

@@ -1,4 +1,5 @@
 import { Link } from 'react-scroll'
+import { Link as RouterLink } from 'react-router-dom'
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
@@ -91,8 +92,8 @@ const Footer = () => {
               © 2025 <span className="text-primary-400 font-bold">Gouri Shanker</span> – Elite Digital Solutions. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="/privacy.html" className="hover:text-primary-400 transition-colors">Privacy Policy</a>
-              <a href="/terms.html" className="hover:text-primary-400 transition-colors">Terms of Service</a>
+              <RouterLink to="/privacy" className="hover:text-primary-400 transition-colors">Privacy Policy</RouterLink>
+              <RouterLink to="/terms" className="hover:text-primary-400 transition-colors">Terms of Service</RouterLink>
             </div>
           </div>
           <p className="text-center text-gray-500 text-xs">
