@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { scroller } from 'react-scroll'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
