@@ -1,103 +1,229 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-scroll'
+import { scroller } from 'react-scroll'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileMenuOpen])
+
   const navItems = [
     { name: 'Home', to: 'home' },
+    { name: 'About', to: 'about' },
     { name: 'Services', to: 'services' },
     { name: 'Showcase', to: 'showcase' },
-    { name: 'Experience', to: 'experience' },
     { name: 'Contact', to: 'contact' },
   ]
 
-  return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg py-4' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="section-container py-0 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="home" smooth duration={500} className="cursor-pointer flex items-center gap-3">
-          <img src="/logo.jpeg" alt="Elite Digital Solutions" className="w-10 h-10 rounded-full" />
-          <span className="font-display text-xl font-bold">
-            <span className="gradient-text">Elite Digital</span>
-            <span className="text-white"> Solutions</span>
-          </span>
-        </Link>
+  // Universal nav handler - works on ALL pages
+  const handleNavClick = (sectionId: string) => {
+    setMobileMenuOpen(false)
+    
+    if (location.pathname !== '/') {
+      // On other pages: navigate to home, then scroll after page loads
+      navigate('/', { state: { scrollTo: sectionId } })
+    } else {
+      // On home page: just scroll
+      scroller.scrollTo(sectionId, {
+        smooth: true,
+        offset: -80,
+        duration: 500
+      })
+    }
+  }
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-              className="relative text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium group"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300" />
-            </Link>
-          ))}
-        </nav>
+  // Handle scroll after navigation from other pages
+  useEffect(() => {
+    if (location.pathname === '/' && location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo
+      setTimeout(() => {
+        scroller.scrollTo(sectionId, {
+          smooth: true,
+          offset: -80,
+          duration: 500
+        })
+      }, 100)
+      window.history.replaceState({}, document.title)
+    }
+  }, [location])
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-2xl text-white p-2"
-          aria-label="Toggle menu"
+  // Logo click handler
+  const handleLogoClick = () => {
+    setMobileMenuOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+    } else {
+      scroller.scrollTo('home', { smooth: true, offset: -80, duration: 500 })
+    }
+  }
+
+  // Mobile Menu Component (rendered via Portal)
+  const MobileMenu = () => {
+    if (!mobileMenuOpen) return null
+    
+    return createPortal(
+      <div className="md:hidden" style={{ position: 'fixed', inset: 0, zIndex: 99999 }}>
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setMobileMenuOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 99999,
+          }}
+        />
+        
+        {/* Menu Panel */}
+        <motion.div
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
+          transition={{ type: 'tween', duration: 0.25 }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            width: '75vw',
+            maxWidth: '300px',
+            backgroundColor: '#0d0d0d',
+            borderLeft: '1px solid rgba(77, 124, 254, 0.3)',
+            boxShadow: '-10px 0 30px rgba(0, 0, 0, 0.5)',
+            zIndex: 100000,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
         >
-          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 25 }}
-              className="fixed inset-y-0 right-0 w-64 glass md:hidden flex flex-col gap-6 p-8 pt-20"
+          {/* Menu Header */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '20px',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            backgroundColor: '#0d0d0d',
+          }}>
+            <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#4D7CFE' }}>Menu</span>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                fontSize: '24px',
+                color: '#9ca3af',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '8px',
+              }}
             >
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.header>
+              <FaTimes />
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <nav style={{ padding: '16px', backgroundColor: '#0d0d0d', flex: 1 }}>
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => handleNavClick(item.to)}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'left',
+                  padding: '16px',
+                  fontSize: '18px',
+                  color: '#d1d5db',
+                  background: 'none',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                  cursor: 'pointer',
+                  fontWeight: 500,
+                }}
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
+        </motion.div>
+      </div>,
+      document.body
+    )
+  }
+
+  return (
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'glass shadow-lg py-4' : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="section-container py-0 flex items-center justify-between">
+          {/* Logo */}
+          <button onClick={handleLogoClick} className="cursor-pointer flex items-center gap-3">
+            <img src="/logo.jpeg" alt="Elite Digital Solutions" className="w-10 h-10 rounded-full" />
+            <span className="font-display text-xl font-bold">
+              <span className="gradient-text">Elite Digital</span>
+              <span className="text-white"> Solutions</span>
+            </span>
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => handleNavClick(item.to)}
+                className="relative text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300" />
+              </button>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-2xl text-white p-2 hover:text-primary-400 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile Menu Portal */}
+      <MobileMenu />
+    </>
   )
 }
 
