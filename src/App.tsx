@@ -1,93 +1,61 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from './components/SEO'
+import { organizationSchema, localBusinessSchema, webSiteSchema } from './utils/schemas'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
 import Stats from './components/Stats'
 import Showcase from './components/Showcase'
+import CTA from './components/CTA'
 import Contact from './components/Contact'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
+import ServiceSelector from './components/ServiceSelector'
+import CostEstimator from './components/CostEstimator'
+import InteractiveCaseStudies from './components/InteractiveCaseStudies'
+import ConversationalAssistant from './components/ConversationalAssistant'
+import SmartCTA from './components/SmartCTA'
 import AllProjectsPage from './pages/AllProjectsPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
 
 function HomePage() {
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [organizationSchema, localBusinessSchema, webSiteSchema]
+  }
+
   return (
     <>
-      <Helmet>
-        <title>Elite Digital Solutions - AI & Web Development Expert | Gouri Shanker</title>
-        <meta name="description" content="Transform your business with AI-powered solutions, cutting-edge web development, and data-driven digital marketing. Led by Gouri Shanker, serving clients globally from India." />
-        <meta name="keywords" content="AI solutions, web development, digital marketing, automation, machine learning, React, Python, TensorFlow, elite digital solutions, gouri shanker, tech startup india" />
-        <meta name="author" content="Gouri Shanker" />
-        <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#4D7CFE" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Elite Digital Solutions - AI & Web Development Expert" />
-        <meta property="og:description" content="Tailored digital services for your business success. Gouri Shanker Tech Solutions." />
-        <meta property="og:image" content="https://www.elitedigitalsolutions.tech/logo.png" />
-        <meta property="og:url" content="https://www.elitedigitalsolutions.tech" />
-        <meta property="og:type" content="website" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Elite Digital Solutions" />
-        <meta name="twitter:description" content="Boost your brand with Elite Digital Solutions." />
-        <meta name="twitter:image" content="https://www.elitedigitalsolutions.tech/logo.png" />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Elite Digital Solutions",
-              "url": "https://www.elitedigitalsolutions.tech",
-              "logo": "https://www.elitedigitalsolutions.tech/logo.png",
-              "founder": {
-                "@type": "Person",
-                "name": "Gouri Shanker",
-                "jobTitle": "CEO & Founder"
-              },
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Visakhapatnam",
-                "addressRegion": "Andhra Pradesh",
-                "addressCountry": "IN"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-7893804498",
-                "contactType": "Customer Service",
-                "email": "gourishanker0408@gmail.com"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/",
-                "https://github.com/Majnu04",
-                "https://instagram.com/majnu_15__",
-                "https://gowri-shanker-portfolio.vercel.app/"
-              ]
-            }
-          `}
-        </script>
-      </Helmet>
+      <SEO
+        title="Elite Digital Solutions | Web Development & Digital Marketing"
+        description="Professional web development, SEO & digital marketing services to grow your business online. Transform your business with AI-powered solutions and cutting-edge technology."
+        keywords="web development, digital marketing, SEO services, website design, AI automation, elite digital solutions, visakhapatnam, india, react development, business growth"
+        canonical="https://elitedigitalsolutions.tech"
+        schema={combinedSchema}
+      />
 
-      <div className="min-h-screen bg-dark-950 text-gray-100 overflow-x-hidden">
+      <div className="min-h-screen bg-black text-white overflow-x-hidden">
         <Header />
         <main>
           <Hero />
           <About />
+          <ServiceSelector />
           <Services />
+          <CostEstimator />
           <Stats />
+          <InteractiveCaseStudies />
           <Showcase />
           <Testimonials />
+          <CTA />
           <Contact />
         </main>
         <Footer />
+        <ConversationalAssistant />
+        <SmartCTA />
       </div>
 
       {/* WhatsApp Button */}
@@ -119,10 +87,10 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <title>Elite Digital Solutions - AI & Web Development Expert | Gouri Shanker</title>
-        <meta name="description" content="Transform your business with AI-powered solutions, cutting-edge web development, and data-driven digital marketing. Led by Gouri Shanker, serving clients globally from India." />
-      </Helmet>
+      <SEO
+        title="Elite Digital Solutions | Web Development & Digital Marketing"
+        description="Professional web development, SEO & digital marketing services to grow your business online."
+      />
 
       {loading && <LoadingScreen />}
       

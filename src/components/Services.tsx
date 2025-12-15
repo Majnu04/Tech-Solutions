@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { FaRobot, FaCode, FaChartLine, FaVideo, FaPalette } from 'react-icons/fa'
 
 const services = [
@@ -63,6 +63,7 @@ const services = [
 const Services = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
     <section id="services" className="section-container">
@@ -87,26 +88,69 @@ const Services = () => {
         {services.map((service, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: index * 0.15 }}
-            className="card group hover:scale-[1.02] cursor-pointer"
+            initial={{ opacity: 0, y: 60, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{ 
+              duration: 0.7, 
+              delay: index * 0.15,
+              ease: [0.25, 0.4, 0.25, 1]
+            }}
+            whileHover={{ y: -12, scale: 1.02 }}
+            onHoverStart={() => setHoveredIndex(index)}
+            onHoverEnd={() => setHoveredIndex(null)}
+            className="card group cursor-pointer relative overflow-hidden"
           >
-            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/10 border border-primary-500/20 text-primary-400 mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary-500/30 transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-violet-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <motion.div 
+              className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/20 to-violet-600/10 border border-violet-500/30 text-violet-400 mb-6 relative z-10"
+              animate={hoveredIndex === index ? { 
+                scale: 1.1,
+                rotate: [0, -5, 5, 0] 
+              } : {}}
+              transition={{ duration: 0.5 }}
+            >
               {service.icon}
-            </div>
-            <h3 className="text-2xl md:text-3xl font-semibold mb-4 group-hover:text-primary-400 transition-colors duration-300">
+            </motion.div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-violet-400 transition-colors duration-300 relative z-10">
               {service.title}
             </h3>
-            <p className="text-gray-400 mb-8 leading-relaxed">{service.description}</p>
-            <ul className="space-y-3">
+            <p className="text-gray-400 mb-8 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+              {service.description}
+            </p>
+            <ul className="space-y-3 relative z-10 mb-6">
               {service.features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-gray-300">
-                  <span className="w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
+                <motion.li 
+                  key={i} 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: index * 0.15 + i * 0.05 }}
+                  className="flex items-center gap-3 text-gray-300"
+                >
+                  <span className="w-1.5 h-1.5 bg-violet-500 rounded-full flex-shrink-0" />
                   <span className="text-sm md:text-base">{feature}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 + 0.4 }}
+              className="relative z-10"
+            >
+              <motion.button
+                whileHover={{ x: 5 }}
+                className="text-violet-400 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-4"
+              >
+                Learn More
+                <motion.span
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                  →
+                </motion.span>
+              </motion.button>
+            </motion.div>
           </motion.div>
         ))}
       </div>

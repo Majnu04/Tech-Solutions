@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 const featuredProjects = [
   {
@@ -86,61 +86,115 @@ const Showcase = () => {
 
 const ProjectCard = ({ project, index, isInView }: any) => {
   const isEven = index % 2 === 0
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
+      initial={{ opacity: 0, y: 80, scale: 0.95 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ 
+        duration: 0.9, 
+        delay: index * 0.2,
+        ease: [0.25, 0.4, 0.25, 1]
+      }}
       className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}
     >
-      <div className={isEven ? '' : 'lg:col-start-2'}>
-        <h3 className="text-3xl md:text-4xl font-bold mb-6">{project.title}</h3>
-        <p className="text-gray-300 mb-6 text-lg leading-relaxed">{project.description}</p>
-        <div className="space-y-3 mb-8">
+      <motion.div 
+        initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, delay: index * 0.2 + 0.2 }}
+        className={isEven ? '' : 'lg:col-start-2'}
+      >
+        <motion.h3 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: index * 0.2 + 0.3 }}
+          className="text-3xl md:text-4xl font-black mb-6"
+        >
+          {project.title}
+        </motion.h3>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: index * 0.2 + 0.4 }}
+          className="text-gray-300 mb-6 text-lg leading-relaxed"
+        >
+          {project.description}
+        </motion.p>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ delay: index * 0.2 + 0.5 }}
+          className="space-y-3 mb-8"
+        >
           <p className="text-gray-400">
             <span className="font-semibold text-white"></span> {project.role}
           </p>
-          <p className="text-primary-400 font-semibold flex items-center gap-2">
+          <p className="text-violet-400 font-semibold flex items-center gap-2">
             <span className="text-xl">✓</span> {project.result}
           </p>
-        </div>
-        <div className="flex flex-wrap gap-3 mb-8">
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: index * 0.2 + 0.6 }}
+          className="flex flex-wrap gap-3 mb-8"
+        >
           {project.tech.map((tech: string, i: number) => (
-            <span
+            <motion.span
               key={i}
-              className="px-4 py-2 bg-primary-500/10 border border-primary-500/30 text-primary-400 rounded-lg text-sm font-medium hover:bg-primary-500/20 transition-colors"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: index * 0.2 + 0.6 + i * 0.05 }}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="px-4 py-2 bg-violet-500/10 border border-violet-500/30 text-violet-400 rounded-lg text-sm font-medium hover:bg-violet-500/20 transition-colors cursor-default"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
         {project.link && (
-          <a
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: index * 0.2 + 0.7 }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block btn-primary"
           >
             🌐 View Live Project
-          </a>
+          </motion.a>
         )}
-      </div>
-      <div className={isEven ? '' : 'lg:col-start-1 lg:row-start-1'}>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9, x: isEven ? 50 : -50 }}
+        animate={isInView ? { opacity: 1, scale: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+        className={isEven ? '' : 'lg:col-start-1 lg:row-start-1'}
+      >
         <motion.div
-          whileHover={{ scale: 1.02, y: -8 }}
-          transition={{ duration: 0.3 }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary-500/20 border border-white/5 group"
+          whileHover={{ scale: 1.03, y: -8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group"
         >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/30 to-violet-600/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          <div className="relative">
+            <motion.img
+              src={project.image}
+              alt={project.title}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={imageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }}
+              onLoad={() => setImageLoaded(true)}
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          </div>
         </motion.div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }

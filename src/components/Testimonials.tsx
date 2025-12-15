@@ -1,5 +1,6 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 const clients = [
   {
@@ -38,6 +39,43 @@ const testimonials = [
 const Testimonials = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1)
+      setActiveIndex((prev) => (prev + 1) % testimonials.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  }
+
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection)
+    setActiveIndex((prev) => {
+      const next = prev + newDirection
+      if (next < 0) return testimonials.length - 1
+      if (next >= testimonials.length) return 0
+      return next
+    })
+  }
 
   return (
     <section id="testimonials" className="section-container bg-dark-900/50">
@@ -61,7 +99,7 @@ const Testimonials = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="card text-center group hover:border-[#E7A93F]/50"
+            className="card text-center group hover:border-violet-500/50"
             onClick={() => client.website && window.open(client.website, '_blank')}
             style={{ cursor: client.website ? 'pointer' : 'default' }}
           >
@@ -70,7 +108,7 @@ const Testimonials = () => {
                 <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
               </div>
             </div>
-            <span className="inline-block px-3 py-1 bg-[#E7A93F]/10 border border-[#E7A93F]/30 text-[#E7A93F] text-xs font-bold rounded-full mb-4">
+            <span className="inline-block px-3 py-1 bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold rounded-full mb-4">
               {client.label}
             </span>
             <h3 className="text-xl font-semibold text-white mb-3">{client.name}</h3>
@@ -96,23 +134,81 @@ const Testimonials = () => {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: index * 0.15 }}
-            className="card hover:scale-[1.02]"
+      <div className="max-w-4xl mx-auto relative">
+        <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={activeIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.4 }
+              }}
+              className="absolute w-full"
+            >
+              <div className="card max-w-3xl mx-auto text-center p-8 lg:p-12 relative">
+                <FaQuoteLeft className="text-5xl text-violet-500/20 absolute top-8 left-8" />
+                <p className="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed italic relative z-10">
+                  "{testimonials[activeIndex].content}"
+                </p>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    {testimonials[activeIndex].author[0]}
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold text-white text-lg">{testimonials[activeIndex].author}</div>
+                    <div className="text-violet-400 text-sm">{testimonials[activeIndex].role}</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => paginate(-1)}
+            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-violet-500/50 flex items-center justify-center text-white hover:text-violet-400 transition-all"
+            aria-label="Previous testimonial"
           >
-            <div className="text-primary-400 text-6xl mb-4 font-serif leading-none">"</div>
-            <p className="text-gray-300 mb-8 italic leading-relaxed text-lg">{testimonial.content}</p>
-            <div className="border-t border-white/10 pt-6">
-              <p className="font-bold text-white text-lg">{testimonial.author}</p>
-              <p className="text-gray-400 text-sm mt-1">{testimonial.role}</p>
-            </div>
-          </motion.div>
-        ))}
+            <FaChevronLeft />
+          </motion.button>
+          
+          <div className="flex gap-2">
+            {testimonials.map((_, index) => (
+              <motion.button
+                key={index}
+                onClick={() => {
+                  setDirection(index > activeIndex ? 1 : -1)
+                  setActiveIndex(index)
+                }}
+                whileHover={{ scale: 1.2 }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex
+                    ? 'bg-violet-500 w-8'
+                    : 'bg-white/20 hover:bg-white/40'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+          
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => paginate(1)}
+            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-violet-500/50 flex items-center justify-center text-white hover:text-violet-400 transition-all"
+            aria-label="Next testimonial"
+          >
+            <FaChevronRight />
+          </motion.button>
+        </div>
       </div>
     </section>
   )

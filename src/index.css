@@ -15,14 +15,15 @@
   }
   
   body {
-    @apply bg-dark-950 text-dark-50 antialiased;
+    @apply bg-black text-white antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold;
+    @apply font-display font-black;
+    letter-spacing: -0.02em;
   }
 
   ::-webkit-scrollbar {
@@ -30,16 +31,17 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-dark-900;
+    @apply bg-black;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-500 rounded-full;
+    background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+    @apply rounded-full;
     transition: background-color 0.3s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-600;
+    background: linear-gradient(180deg, #a78bfa, #8b5cf6);
   }
 
   /* Smooth transitions for all interactive elements */
@@ -55,19 +57,37 @@
 
 @layer components {
   .glass {
-    @apply bg-dark-800/40 backdrop-blur-2xl border border-dark-700 shadow-lg;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.15);
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 via-purple-500 to-primary-600 bg-clip-text text-transparent;
+    background: linear-gradient(90deg, #8b5cf6 0%, #a78bfa 50%, #8b5cf6 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-[#E7A93F] to-[#d49835] text-dark-950 font-semibold rounded-2xl hover:shadow-xl hover:shadow-[#E7A93F]/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5;
+    @apply px-8 py-4 bg-gradient-to-r from-violet-500 to-violet-600 text-white font-bold rounded-xl relative overflow-hidden;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6), 0 0 60px rgba(139, 92, 246, 0.3);
+    @apply scale-105 -translate-y-1;
   }
 
   .btn-secondary {
-    @apply px-8 py-4 glass border-primary-500/30 text-primary-500 font-semibold rounded-2xl hover:bg-primary-500/10 hover:border-primary-400/50 transition-all duration-300 hover:shadow-lg;
+    @apply px-8 py-4 glass border-violet-500/30 text-violet-400 font-bold rounded-xl hover:bg-violet-500/10 hover:border-violet-400/50 transition-all duration-300;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  }
+
+  .btn-secondary:hover {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
   }
 
   .section-container {
@@ -81,29 +101,44 @@
   }
 
   .card {
-    @apply glass rounded-3xl p-8 transition-all duration-500 ease-out;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition-all duration-500 ease-out relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .card::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
+    pointer-events: none;
   }
 
   .card:hover {
-    @apply bg-white/[0.05] border-white/[0.15] shadow-2xl shadow-primary-500/10 translate-y-[-4px];
+    @apply border-violet-500/40 translate-y-[-8px];
+    box-shadow: 0 8px 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.15);
+  }
+
+  .card:hover::before {
+    @apply opacity-100;
   }
   
   .section-badge {
-    @apply inline-block px-4 py-1.5 bg-primary-500/10 border border-primary-500/30 text-primary-400 font-semibold text-xs tracking-widest uppercase rounded-full transition-all duration-300;
+    @apply inline-block px-4 py-2 bg-violet-500/10 border border-violet-500/50 text-violet-400 font-mono font-bold text-xs tracking-widest uppercase rounded-lg transition-all duration-300;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
   }
 
   .section-badge:hover {
-    @apply bg-primary-500/20 border-primary-500/50 scale-105;
+    @apply bg-violet-500/20 border-violet-400 scale-105;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
   }
 
-  /* Smooth glass effect */
-  .glass {
-    @apply bg-dark-800/40 backdrop-blur-2xl border border-dark-700 shadow-lg;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+}
 
-  .glass:hover {
-    @apply bg-dark-800/60 border-primary-500/30;
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 

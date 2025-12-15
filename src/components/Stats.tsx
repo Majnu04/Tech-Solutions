@@ -1,22 +1,25 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { motion, useInView, useSpring, useTransform } from 'framer-motion'
+import { useRef, useEffect } from 'react'
 
 const stats = [
-  { number: 10, label: 'Projects Completed', suffix: '+' },
-  { number: 8, label: 'Happy Clients', suffix: '+' },
-  { number: 100, label: 'Client Satisfaction', suffix: '%' }
+  { number: 50, label: 'Projects Completed', suffix: '+' },
+  { number: 35, label: 'Happy Clients', suffix: '+' },
+  { number: 100, label: 'Client Satisfaction', suffix: '%' },
+  { number: 3, label: 'Years Experience', suffix: '+' }
 ]
 
 const Stats = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section className="section-container bg-gradient-to-br from-primary-500/10 via-dark-900/50 to-purple-600/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/5 to-transparent" />
-      <div ref={ref} className="grid md:grid-cols-3 gap-12 md:gap-16 relative z-10">
+    <section className="section-container relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-black to-violet-600/5" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px]" />
+      
+      <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 relative z-10">
         {stats.map((stat, index) => (
-          <StatCard key={index} stat={stat} isInView={isInView} delay={index * 0.2} />
+          <StatCard key={index} stat={stat} isInView={isInView} delay={index * 0.15} />
         ))}
       </div>
     </section>
@@ -24,40 +27,37 @@ const Stats = () => {
 }
 
 const StatCard = ({ stat, isInView, delay }: { stat: typeof stats[0], isInView: boolean, delay: number }) => {
-  const [count, setCount] = useState(0)
+  const count = useSpring(0, { duration: 2000, bounce: 0 })
+  const displayCount = useTransform(count, (latest) => Math.floor(latest))
 
   useEffect(() => {
     if (isInView) {
-      let start = 0
-      const end = stat.number
-      const duration = 2000
-      const increment = end / (duration / 16)
-
-      const timer = setInterval(() => {
-        start += increment
-        if (start >= end) {
-          setCount(end)
-          clearInterval(timer)
-        } else {
-          setCount(Math.floor(start))
-        }
-      }, 16)
-
-      return () => clearInterval(timer)
+      count.set(stat.number)
     }
-  }, [isInView, stat.number])
+  }, [isInView, stat.number, count])
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.6, delay }}
-      className="text-center p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ 
+        duration: 0.7, 
+        delay,
+        ease: [0.25, 0.4, 0.25, 1]
+      }}
+      whileHover={{ y: -8, scale: 1.05 }}
+      className="text-center p-6 lg:p-8 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/5 hover:border-violet-500/30 transition-all duration-500 cursor-default group"
     >
-      <div className="text-6xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6">
-        {count}{stat.suffix}
+      <motion.div 
+        className="text-5xl lg:text-7xl font-black gradient-text mb-4"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.span>{displayCount}</motion.span>{stat.suffix}
+      </motion.div>
+      <div className="text-base lg:text-xl text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
+        {stat.label}
       </div>
-      <div className="text-xl md:text-2xl text-gray-300 font-medium">{stat.label}</div>
     </motion.div>
   )
 }

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -6,11 +6,12 @@ import Footer from '../components/Footer'
 const TermsPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Terms of Service - Elite Digital Solutions</title>
-        <meta name="description" content="Terms of Service for Elite Digital Solutions. Review our service terms and conditions." />
-        <meta name="robots" content="index, follow" />
-      </Helmet>
+      <SEO
+        title="Terms of Service | Elite Digital Solutions"
+        description="Terms of Service for Elite Digital Solutions. Review our service terms, conditions, and policies for using our web development and digital marketing services."
+        keywords="terms of service, service agreement, elite digital solutions terms"
+        canonical="https://elitedigitalsolutions.tech/terms"
+      />
 
       <div className="min-h-screen bg-dark-950 text-gray-100">
         <Header />

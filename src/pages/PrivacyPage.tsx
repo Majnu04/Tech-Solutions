@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -6,11 +6,12 @@ import Footer from '../components/Footer'
 const PrivacyPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy - Elite Digital Solutions</title>
-        <meta name="description" content="Privacy Policy for Elite Digital Solutions. Learn how we collect, use, and protect your information." />
-        <meta name="robots" content="index, follow" />
-      </Helmet>
+      <SEO
+        title="Privacy Policy | Elite Digital Solutions"
+        description="Privacy Policy for Elite Digital Solutions. Learn how we collect, use, and protect your information. Your privacy and data security are our priorities."
+        keywords="privacy policy, data protection, elite digital solutions privacy"
+        canonical="https://elitedigitalsolutions.tech/privacy"
+      />
 
       <div className="min-h-screen bg-dark-950 text-gray-100">
         <Header />

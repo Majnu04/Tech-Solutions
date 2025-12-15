@@ -188,12 +188,8 @@ const Header = () => {
       >
         <div className="section-container py-0 flex items-center justify-between">
           {/* Logo */}
-          <button onClick={handleLogoClick} className="cursor-pointer flex items-center gap-3">
-            <img src="/logo.jpeg" alt="Elite Digital Solutions" className="w-10 h-10 rounded-full" />
-            <span className="font-display text-xl font-bold">
-              <span className="gradient-text">Elite Digital</span>
-              <span className="text-white"> Solutions</span>
-            </span>
+          <button onClick={handleLogoClick} className="cursor-pointer flex items-center">
+            <img src="/logo.png" alt="Elite Digital Solutions" className="w-14 h-14 rounded-full" />
           </button>
 
           {/* Desktop Navigation */}
