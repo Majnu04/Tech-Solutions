@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMemo, useState } from 'react'
-import { FaCheck, FaCode, FaChartLine, FaBullhorn, FaPalette, FaChevronDown, FaWhatsapp } from 'react-icons/fa'
+import { FaCheck, FaCode, FaChartLine, FaBullhorn, FaPalette, FaChevronDown, FaWhatsapp, FaFilePdf } from 'react-icons/fa'
+import { usePersonalization } from '../context/PersonalizationContext'
+import { generateEstimatePdf, ProposalMode } from '../utils/generateEstimatePdf'
 
 type ServiceId = 'website' | 'seo' | 'ads' | 'branding'
 
@@ -81,12 +83,18 @@ const addOns = [
 ]
 
 const CostEstimator = () => {
+  const { goal } = usePersonalization()
   const [selectedServices, setSelectedServices] = useState<Set<ServiceId>>(new Set(['website', 'seo']))
   const [selections, setSelections] = useState<ServiceSelections>(defaultSelections)
   const [complexity, setComplexity] = useState<ComplexityLevel>('advanced')
   const [businessType, setBusinessType] = useState<BusinessType>('growing')
   const [industry, setIndustry] = useState<string>('E-commerce')
   const [activeAddOns, setActiveAddOns] = useState<Set<string>>(new Set(['analytics']))
+  const [generating, setGenerating] = useState(false)
+  const [contactName, setContactName] = useState('')
+  const [contactEmail, setContactEmail] = useState('')
+  const [contactPhone, setContactPhone] = useState('')
+  const [mode, setMode] = useState<ProposalMode>('estimate')
 
   const toggleService = (serviceId: ServiceId) => {
     setSelectedServices(prev => {
@@ -196,6 +204,49 @@ const CostEstimator = () => {
   const complexityFactor = complexityMultiplier[complexity]
   const businessFactor = businessMultiplier[businessType]
   const finalTotal = Math.round((baseTotal + addOnTotal) * complexityFactor * businessFactor)
+
+  const handleDownloadPdf = async () => {
+    if (!breakdown.length) return
+    setGenerating(true)
+    try {
+      const selectedAddOns = addOns.filter(a => activeAddOns.has(a.id))
+      const { blob, fileName } = await generateEstimatePdf({
+        services: breakdown.map(item => ({
+          id: item.id,
+          label: item.label,
+          base: item.base,
+          features: item.features,
+          subtotal: item.subtotal
+        })),
+        addOns: selectedAddOns,
+        addOnTotal,
+        subtotal: baseTotal + addOnTotal,
+        total: finalTotal,
+        rangeTolerance: 0.12,
+        businessType,
+        industry,
+        complexity,
+        goal,
+        clientName: contactName,
+        clientEmail: contactEmail,
+        clientPhone: contactPhone,
+        mode,
+        timeline: undefined,
+        whyUs: undefined,
+        scope: undefined,
+      })
+
+      // download
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = fileName
+      link.click()
+      URL.revokeObjectURL(url)
+    } finally {
+      setGenerating(false)
+    }
+  }
 
   const renderToggle = (active: boolean) => (
     <span className={`inline-flex h-6 w-12 items-center rounded-full transition-all duration-300 ${active ? 'bg-[#22C55E]' : 'bg-white/10'}`}>
@@ -723,6 +774,57 @@ const CostEstimator = () => {
                 </div>
               </div>
             </div>
+
+            <div className="grid sm:grid-cols-2 gap-3">
+              <div className="flex items-center gap-2 rounded-xl border border-[#1E293B] bg-[#0B1220] p-3">
+                <button
+                  onClick={() => setMode('estimate')}
+                  className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${mode === 'estimate' ? 'bg-primary-500 text-black' : 'bg-white/5 text-gray-300'}`}
+                >
+                  Estimate Mode
+                </button>
+                <button
+                  onClick={() => setMode('proposal')}
+                  className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${mode === 'proposal' ? 'bg-primary-500 text-black' : 'bg-white/5 text-gray-300'}`}
+                >
+                  Proposal Mode
+                </button>
+              </div>
+              <div className="text-right text-xs text-gray-400">
+                <p>Quote ID auto-generated</p>
+                <p>Includes watermark & 14-day validity</p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-3">
+              <input
+                value={contactName}
+                onChange={(e) => setContactName(e.target.value)}
+                placeholder="Client name (for PDF)"
+                className="w-full rounded-xl bg-[#0B1220] border border-[#1E293B] px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary-500 focus:outline-none"
+              />
+              <input
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
+                placeholder="Client email (optional)"
+                className="w-full rounded-xl bg-[#0B1220] border border-[#1E293B] px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary-500 focus:outline-none"
+                type="email"
+              />
+              <input
+                value={contactPhone}
+                onChange={(e) => setContactPhone(e.target.value)}
+                placeholder="Phone (optional)"
+                className="w-full rounded-xl bg-[#0B1220] border border-[#1E293B] px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary-500 focus:outline-none"
+              />
+            </div>
+
+            <button
+              onClick={handleDownloadPdf}
+              disabled={!breakdown.length || generating}
+              className={`btn-primary w-full justify-center flex items-center gap-2 ${(!breakdown.length || generating) ? 'opacity-70 cursor-not-allowed' : ''}`}
+            >
+              <FaFilePdf /> {generating ? 'Preparing PDF…' : 'Download Estimate PDF'}
+            </button>
 
             <div className="grid md:grid-cols-2 gap-3">
               <a
