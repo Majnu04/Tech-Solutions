@@ -15,7 +15,6 @@ const LoadingIntro = ({ onComplete }: { onComplete: () => void }) => {
   const { goal, setGoal } = usePersonalization()
   const [stage, setStage] = useState<Stage>('intro')
   const [localGoal, setLocalGoal] = useState<GrowthGoal>(goal)
-  const [message, setMessage] = useState('Building conversion-first digital experiences')
 
   useEffect(() => {
     const introTimer = setTimeout(() => setStage('question'), 1600)
@@ -26,17 +25,13 @@ const LoadingIntro = ({ onComplete }: { onComplete: () => void }) => {
     if (goal) {
       setLocalGoal(goal)
       setStage('question')
-      setTimeout(() => {
-        setMessage('Personalizing your experience…')
-        setTimeout(onComplete, 800)
-      }, 600)
+      setTimeout(onComplete, 1400)
     }
   }, [goal, onComplete])
 
   const handleSelect = (value: Exclude<GrowthGoal, null>) => {
     setLocalGoal(value)
     setGoal(value)
-    setMessage('Great choice. Personalizing your experience…')
     setTimeout(onComplete, 900)
   }
 

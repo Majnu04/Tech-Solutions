@@ -27,7 +27,8 @@ const LoadingScreen = () => {
   }, [])
 
   const currentMessage = useMemo(() => {
-    return progressStages.find(stage => progress <= stage.max)?.message ?? progressStages.at(-1)?.message
+    const fallback = progressStages.length ? progressStages[progressStages.length - 1].message : ''
+    return progressStages.find(stage => progress <= stage.max)?.message ?? fallback
   }, [progress])
 
   return (
