@@ -1,7 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import SEO from '../components/SEO'
-import { organizationSchema } from '../utils/schemas'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -79,10 +78,10 @@ const AllProjectsPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>All Projects - Elite Digital Solutions | Complete Portfolio</title>
-        <meta name="description" content="Browse our complete portfolio of web development, AI solutions, and digital transformation projects. See how Elite Digital Solutions has helped businesses succeed." />
-      </Helmet>
+      <SEO
+        title="All Projects - Elite Digital Solutions | Complete Portfolio"
+        description="Browse our complete portfolio of web development, AI solutions, and digital transformation projects. See how Elite Digital Solutions has helped businesses succeed."
+      />
 
       <div className="min-h-screen bg-dark-950 text-gray-100">
         <Header />

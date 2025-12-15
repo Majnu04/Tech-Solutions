@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { useRef, useState } from 'react'
 import { FaArrowsAltH, FaChartLine, FaUsers, FaTachometerAlt } from 'react-icons/fa'
 
 interface CaseStudy {
@@ -54,24 +54,23 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string; a
   return (
     <div ref={constraintsRef} className="relative w-full aspect-video rounded-xl overflow-hidden group">
       <div className="absolute inset-0 bg-[#0F172A]">
-        <div className="w-full h-full flex items-center justify-center text-gray-600">
-          <div className="text-center">
+        <img src={beforeImage} alt="Before" className="w-full h-full object-cover opacity-80" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-gray-100">
             <p className="text-sm mb-2">Before</p>
-            <div className="w-full h-64 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center text-gray-500">
-              Legacy Design
-            </div>
+            <div className="px-4 py-2 rounded-lg bg-black/50 border border-white/10 text-xs">Original experience</div>
           </div>
         </div>
       </div>
 
-      <motion.div
-        className="absolute inset-0"
-        style={{ clipPath }}
-      >
-        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0F172A] to-[#0B1220]">
-          <div className="text-center">
-            <p className="text-sm mb-2 text-white">After</p>
-            <div className="w-full h-64 bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] rounded-lg flex items-center justify-center text-white font-bold">
+      <motion.div className="absolute inset-0" style={{ clipPath }}>
+        <img src={afterImage} alt="After" className="w-full h-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-l from-[#0F172A]/60 via-[#0B1220]/40 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <p className="text-sm mb-2">After</p>
+            <div className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-xs font-semibold">
               Modern Elite Design
             </div>
           </div>
