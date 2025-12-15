@@ -4,10 +4,12 @@ import { motion } from 'framer-motion'
 import { scroller } from 'react-scroll'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import EstimateModal from './EstimateModal'
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [estimateOpen, setEstimateOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -170,6 +172,28 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                setEstimateOpen(true)
+              }}
+              style={{
+                display: 'block',
+                width: '100%',
+                textAlign: 'left',
+                padding: '16px',
+                fontSize: '18px',
+                color: '#0b0b0f',
+                background: 'linear-gradient(135deg, #4D7CFE, #9b8cff)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '12px',
+                cursor: 'pointer',
+                fontWeight: 700,
+                marginTop: '12px'
+              }}
+            >
+              Get Instant Estimate
+            </button>
           </nav>
         </motion.div>
       </div>,
@@ -186,7 +210,7 @@ const Header = () => {
           scrolled ? 'glass shadow-lg py-4' : 'bg-transparent py-6'
         }`}
       >
-        <div className="section-container py-0 flex items-center justify-between">
+        <div className="section-container py-0 flex items-center justify-between gap-4">
           {/* Logo */}
           <button onClick={handleLogoClick} className="cursor-pointer flex items-center">
             <img src="/logo.png" alt="Elite Digital Solutions" className="w-14 h-14 rounded-full" />
@@ -206,19 +230,38 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-2xl text-white p-2 hover:text-primary-400 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setEstimateOpen(true)}
+              className="hidden md:inline-flex items-center justify-center rounded-full bg-primary-500 px-4 py-2 text-sm font-semibold text-black shadow-lg shadow-primary-500/25 transition hover:bg-primary-400"
+            >
+              Get Instant Estimate
+            </button>
+
+            <button
+              onClick={() => setEstimateOpen(true)}
+              className="md:hidden inline-flex items-center justify-center rounded-full bg-primary-500 px-3 py-2 text-xs font-semibold text-black shadow-md shadow-primary-500/20 transition hover:bg-primary-400"
+            >
+              Estimate
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-2xl text-white p-2 hover:text-primary-400 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
       {/* Mobile Menu Portal */}
       <MobileMenu />
+
+      {/* Estimate Modal */}
+      <EstimateModal open={estimateOpen} onClose={() => setEstimateOpen(false)} />
     </>
   )
 }

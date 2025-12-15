@@ -42,7 +42,7 @@ const Showcase = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="showcase" className="section-container" style={{ background: '#020617' }}>
+    <section id="showcase" className="section-container" style={{ background: '#000000' }}>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}

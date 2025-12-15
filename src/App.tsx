@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { LazyMotion, domAnimation } from 'framer-motion'
 import SEO from './components/SEO'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from './utils/schemas'
 import Header from './components/Header'
@@ -8,20 +9,18 @@ import About from './components/About'
 import Services from './components/Services'
 import Stats from './components/Stats'
 import Showcase from './components/Showcase'
-import CTA from './components/CTA'
 import Contact from './components/Contact'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
-import LoadingScreen from './components/LoadingScreen'
 import ServiceSelector from './components/ServiceSelector'
-import CostEstimator from './components/CostEstimator'
-import InteractiveCaseStudies from './components/InteractiveCaseStudies'
 import ConversationalAssistant from './components/ConversationalAssistant'
 import SmartCTA from './components/SmartCTA'
 import WhyElite from './components/WhyElite'
 import AllProjectsPage from './pages/AllProjectsPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
+import { PersonalizationProvider } from './context/PersonalizationContext'
+import PremiumLoader from './components/PremiumLoader'
 
 function HomePage() {
   const combinedSchema = {
@@ -45,14 +44,11 @@ function HomePage() {
           <Hero />
           <About />
           <ServiceSelector />
-          <CostEstimator />
           <Services />
           <WhyElite />
           <Stats />
-          <InteractiveCaseStudies />
           <Showcase />
           <Testimonials />
-          <CTA />
           <Contact />
         </main>
         <Footer />
@@ -79,32 +75,29 @@ function HomePage() {
 function App() {
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(timer)
-  }, [])
 
   return (
-    <>
+    <PersonalizationProvider>
       <SEO
         title="Elite Digital Solutions | Web Development & Digital Marketing"
         description="Professional web development, SEO & digital marketing services to grow your business online."
       />
 
-      {loading && <LoadingScreen />}
-      
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/all-projects" element={<AllProjectsPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-        </Routes>
-      </Router>
-    </>
+      <PremiumLoader open={loading} onComplete={() => setLoading(false)} />
+
+      <LazyMotion features={domAnimation}>
+        {!loading && (
+          <Router>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/all-projects" element={<AllProjectsPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+            </Routes>
+          </Router>
+        )}
+      </LazyMotion>
+    </PersonalizationProvider>
   )
 }
 

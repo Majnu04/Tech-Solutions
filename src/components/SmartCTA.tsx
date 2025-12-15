@@ -29,12 +29,23 @@ const SmartCTA = () => {
             </button>
 
             <div className="flex items-start gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl">👋</span>
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <motion.span
+                  className="absolute inset-0 rounded-full bg-gradient-to-br from-[#2563EB] to-[#22C55E] opacity-70"
+                  animate={{ scale: [1, 1.25, 1], opacity: [0.35, 0.15, 0.35] }}
+                  transition={{ repeat: Infinity, duration: 2.4, ease: 'easeInOut' }}
+                />
+                <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] flex items-center justify-center border border-white/10 shadow-lg text-xl">
+                  🤝
+                </div>
               </div>
-              <div>
-                <h4 className="text-lg font-bold text-white mb-1">Ready to grow your business?</h4>
-                <p className="text-sm text-gray-400">Let's discuss your project</p>
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#0F172A] border border-[#2563EB]/40 text-[11px] text-[#8BB5FF] font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
+                  Neo • Growth Assistant
+                </div>
+                <h4 className="text-lg font-bold text-white">Elite Digital Solutions</h4>
+                <p className="text-sm text-gray-300">Ready when you are—let’s discuss your project</p>
               </div>
             </div>
 

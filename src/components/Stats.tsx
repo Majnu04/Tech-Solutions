@@ -1,16 +1,13 @@
 import { motion, useInView, useSpring, useTransform } from 'framer-motion'
 import { useRef, useEffect } from 'react'
 
-const stats = [
-  { number: 50, label: 'Projects Completed', suffix: '+' },
-  { number: 35, label: 'Happy Clients', suffix: '+' },
-  { number: 100, label: 'Client Satisfaction', suffix: '%' },
-  { number: 3, label: 'Years Experience', suffix: '+' }
-]
+const stats: any[] = []
 
 const Stats = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  if (!stats.length) return null
 
   return (
     <section className="section-container relative overflow-hidden">
