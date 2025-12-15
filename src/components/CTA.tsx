@@ -10,8 +10,8 @@ const CTA = () => {
   return (
     <section className="section-container relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-[128px] animate-pulse" />
-        <div className="absolute bottom-1/2 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#2563EB]/12 rounded-full blur-[128px] animate-pulse" />
+        <div className="absolute bottom-1/2 right-1/4 w-96 h-96 bg-[#22C55E]/10 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <motion.div
@@ -28,7 +28,7 @@ const CTA = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="card p-12 lg:p-16 relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/12 to-transparent" />
             
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ const CTA = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto relative z-10"
+              className="text-lg md:text-xl text-[#9CA3AF] mb-10 max-w-2xl mx-auto relative z-10"
             >
               Let's discuss how Elite Digital Solutions can help you achieve your goals with cutting-edge technology and innovative strategies.
             </motion.p>
@@ -60,7 +60,7 @@ const CTA = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-xl overflow-hidden inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+                className="group relative px-8 py-4 bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white font-bold rounded-xl overflow-hidden inline-flex items-center gap-3 w-full sm:w-auto justify-center"
               >
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
                 <FaWhatsapp className="text-2xl" />
@@ -77,7 +77,7 @@ const CTA = () => {
                 href="tel:+917893804498"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 border-2 border-violet-500/50 text-white font-bold rounded-xl hover:bg-violet-500/10 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+                className="px-8 py-4 border-2 border-[#2563EB]/50 text-white font-bold rounded-xl hover:bg-[#2563EB]/10 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center"
               >
                 <FaPhone className="text-xl" />
                 <span>Call Now</span>
@@ -104,7 +104,7 @@ const CTA = () => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-8 text-sm text-gray-500 relative z-10"
+              className="mt-8 text-sm text-[#9CA3AF] relative z-10"
             >
               <p>✓ Free Consultation • ✓ 100% Client Satisfaction • ✓ Fast Response Time</p>
             </motion.div>

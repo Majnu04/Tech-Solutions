@@ -43,7 +43,6 @@ const caseStudies: CaseStudy[] = [
 ]
 
 const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string; afterImage: string }) => {
-  const [sliderPosition, setSliderPosition] = useState(50)
   const constraintsRef = useRef(null)
   const x = useMotionValue(0)
   const clipPath = useTransform(x, (value) => {
@@ -54,7 +53,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string; a
 
   return (
     <div ref={constraintsRef} className="relative w-full aspect-video rounded-xl overflow-hidden group">
-      <div className="absolute inset-0 bg-gray-900">
+      <div className="absolute inset-0 bg-[#0F172A]">
         <div className="w-full h-full flex items-center justify-center text-gray-600">
           <div className="text-center">
             <p className="text-sm mb-2">Before</p>
@@ -69,10 +68,10 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string; a
         className="absolute inset-0"
         style={{ clipPath }}
       >
-        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-violet-900 to-purple-900">
+        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0F172A] to-[#0B1220]">
           <div className="text-center">
             <p className="text-sm mb-2 text-white">After</p>
-            <div className="w-full h-64 bg-gradient-to-br from-violet-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
+            <div className="w-full h-64 bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] rounded-lg flex items-center justify-center text-white font-bold">
               Modern Elite Design
             </div>
           </div>
@@ -88,7 +87,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string; a
         className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10"
         whileHover={{ scale: 1.2 }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-violet-600">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2563EB]">
           <FaArrowsAltH />
         </div>
       </motion.div>
@@ -96,12 +95,12 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string; a
       <div className="absolute top-4 left-4 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
         Before
       </div>
-      <div className="absolute top-4 right-4 px-3 py-1 bg-violet-500/80 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
+      <div className="absolute top-4 right-4 px-3 py-1 bg-[#2563EB]/80 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
         After
       </div>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/70 backdrop-blur-sm rounded-full text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
-        <FaArrowsAltH className="text-violet-400" />
+        <FaArrowsAltH className="text-[#8BB5FF]" />
         Drag to compare
       </div>
     </div>
@@ -114,10 +113,10 @@ const MetricCard = ({ icon, label, before, after, change, delay }: any) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay }}
-    className="bg-black/40 border border-white/10 rounded-xl p-6 hover:border-violet-500/50 transition-all group"
+    className="bg-[#0B1220] border border-[#1E293B] rounded-xl p-6 hover:border-[#2563EB]/60 transition-all group"
   >
     <div className="flex items-center gap-3 mb-4">
-      <div className="p-3 rounded-lg bg-violet-500/10 text-violet-400 group-hover:bg-violet-500/20 transition-colors text-xl">
+      <div className="p-3 rounded-lg bg-[#2563EB]/10 text-[#8BB5FF] group-hover:bg-[#2563EB]/20 transition-colors text-xl">
         {icon}
       </div>
       <h4 className="text-white font-semibold">{label}</h4>
@@ -132,7 +131,7 @@ const MetricCard = ({ icon, label, before, after, change, delay }: any) => (
         <span className="text-white font-semibold">{after}</span>
       </div>
       <div className="pt-2 border-t border-white/10">
-        <span className="text-green-400 font-bold text-lg">{change}</span>
+        <span className="text-[#22C55E] font-bold text-lg">{change}</span>
       </div>
     </div>
   </motion.div>
@@ -168,7 +167,7 @@ const InteractiveCaseStudies = () => {
             onClick={() => setActiveCase(index)}
             className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               activeCase === index
-                ? 'bg-violet-500 text-white shadow-lg shadow-violet-500/25'
+                ? 'bg-[#2563EB] text-white shadow-lg shadow-[#2563EB]/25'
                 : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
             }`}
           >
@@ -188,10 +187,10 @@ const InteractiveCaseStudies = () => {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-2xl font-bold text-white mb-2">{study.client}</h3>
-              <p className="text-violet-400">{study.industry}</p>
+              <p className="text-[#8BB5FF]">{study.industry}</p>
             </div>
-            <div className="px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
-              <span className="text-green-400 font-semibold text-sm">✓ Project Completed</span>
+            <div className="px-4 py-2 bg-[#22C55E]/10 border border-[#22C55E]/30 rounded-full">
+              <span className="text-[#22C55E] font-semibold text-sm">✓ Project Completed</span>
             </div>
           </div>
 

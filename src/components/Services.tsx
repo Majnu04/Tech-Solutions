@@ -100,9 +100,9 @@ const Services = () => {
             onHoverEnd={() => setHoveredIndex(null)}
             className="card group cursor-pointer relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-violet-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/8 to-[#22C55E]/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <motion.div 
-              className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/20 to-violet-600/10 border border-violet-500/30 text-violet-400 mb-6 relative z-10"
+              className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563EB]/15 to-[#22C55E]/10 border border-[#2563EB]/40 text-[#8BB5FF] mb-6 relative z-10"
               animate={hoveredIndex === index ? { 
                 scale: 1.1,
                 rotate: [0, -5, 5, 0] 
@@ -111,10 +111,10 @@ const Services = () => {
             >
               {service.icon}
             </motion.div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-violet-400 transition-colors duration-300 relative z-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-[#8BB5FF] transition-colors duration-300 relative z-10">
               {service.title}
             </h3>
-            <p className="text-gray-400 mb-8 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+            <p className="text-[#9CA3AF] mb-8 leading-relaxed relative z-10 group-hover:text-white transition-colors">
               {service.description}
             </p>
             <ul className="space-y-3 relative z-10 mb-6">
@@ -124,10 +124,10 @@ const Services = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: index * 0.15 + i * 0.05 }}
-                  className="flex items-center gap-3 text-gray-300"
+                  className="flex items-center gap-3 text-[#E5E7EB]"
                 >
-                  <span className="w-1.5 h-1.5 bg-violet-500 rounded-full flex-shrink-0" />
-                  <span className="text-sm md:text-base">{feature}</span>
+                  <span className="w-1.5 h-1.5 bg-[#2563EB] rounded-full flex-shrink-0" />
+                  <span className="text-sm md:text-base text-[#9CA3AF] group-hover:text-white transition-colors">{feature}</span>
                 </motion.li>
               ))}
             </ul>
@@ -140,7 +140,7 @@ const Services = () => {
             >
               <motion.button
                 whileHover={{ x: 5 }}
-                className="text-violet-400 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-4"
+                className="text-[#8BB5FF] font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-4"
               >
                 Learn More
                 <motion.span

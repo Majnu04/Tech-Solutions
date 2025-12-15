@@ -99,7 +99,7 @@ const Testimonials = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="card text-center group hover:border-violet-500/50"
+            className="card text-center group hover:border-[#2563EB]/50"
             onClick={() => client.website && window.open(client.website, '_blank')}
             style={{ cursor: client.website ? 'pointer' : 'default' }}
           >
@@ -108,7 +108,7 @@ const Testimonials = () => {
                 <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
               </div>
             </div>
-            <span className="inline-block px-3 py-1 bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold rounded-full mb-4">
+            <span className="inline-block px-3 py-1 bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#8BB5FF] text-xs font-bold rounded-full mb-4">
               {client.label}
             </span>
             <h3 className="text-xl font-semibold text-white mb-3">{client.name}</h3>
@@ -151,17 +151,17 @@ const Testimonials = () => {
               className="absolute w-full"
             >
               <div className="card max-w-3xl mx-auto text-center p-8 lg:p-12 relative">
-                <FaQuoteLeft className="text-5xl text-violet-500/20 absolute top-8 left-8" />
+                <FaQuoteLeft className="text-5xl text-[#2563EB]/25 absolute top-8 left-8" />
                 <p className="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed italic relative z-10">
                   "{testimonials[activeIndex].content}"
                 </p>
                 <div className="flex items-center justify-center gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] rounded-full flex items-center justify-center text-white font-bold text-xl">
                     {testimonials[activeIndex].author[0]}
                   </div>
                   <div className="text-left">
                     <div className="font-bold text-white text-lg">{testimonials[activeIndex].author}</div>
-                    <div className="text-violet-400 text-sm">{testimonials[activeIndex].role}</div>
+                    <div className="text-[#8BB5FF] text-sm">{testimonials[activeIndex].role}</div>
                   </div>
                 </div>
               </div>
@@ -174,7 +174,7 @@ const Testimonials = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => paginate(-1)}
-            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-violet-500/50 flex items-center justify-center text-white hover:text-violet-400 transition-all"
+            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-[#2563EB]/50 flex items-center justify-center text-white hover:text-[#8BB5FF] transition-all"
             aria-label="Previous testimonial"
           >
             <FaChevronLeft />
@@ -191,7 +191,7 @@ const Testimonials = () => {
                 whileHover={{ scale: 1.2 }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? 'bg-violet-500 w-8'
+                    ? 'bg-[#2563EB] w-8'
                     : 'bg-white/20 hover:bg-white/40'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -203,7 +203,7 @@ const Testimonials = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => paginate(1)}
-            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-violet-500/50 flex items-center justify-center text-white hover:text-violet-400 transition-all"
+            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-[#2563EB]/50 flex items-center justify-center text-white hover:text-[#8BB5FF] transition-all"
             aria-label="Next testimonial"
           >
             <FaChevronRight />

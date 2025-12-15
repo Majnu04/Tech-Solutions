@@ -42,7 +42,7 @@ const Showcase = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="showcase" className="section-container bg-dark-900/30">
+    <section id="showcase" className="section-container" style={{ background: '#020617' }}>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
@@ -127,10 +127,10 @@ const ProjectCard = ({ project, index, isInView }: any) => {
           transition={{ delay: index * 0.2 + 0.5 }}
           className="space-y-3 mb-8"
         >
-          <p className="text-gray-400">
+          <p className="text-[#9CA3AF]">
             <span className="font-semibold text-white"></span> {project.role}
           </p>
-          <p className="text-violet-400 font-semibold flex items-center gap-2">
+          <p className="text-[#8BB5FF] font-semibold flex items-center gap-2">
             <span className="text-xl">✓</span> {project.result}
           </p>
         </motion.div>
@@ -147,7 +147,7 @@ const ProjectCard = ({ project, index, isInView }: any) => {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: index * 0.2 + 0.6 + i * 0.05 }}
               whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 bg-violet-500/10 border border-violet-500/30 text-violet-400 rounded-lg text-sm font-medium hover:bg-violet-500/20 transition-colors cursor-default"
+              className="px-4 py-2 bg-[#2563EB]/10 border border-[#2563EB]/40 text-[#8BB5FF] rounded-lg text-sm font-medium hover:bg-[#2563EB]/20 transition-colors cursor-default"
             >
               {tech}
             </motion.span>
@@ -178,9 +178,9 @@ const ProjectCard = ({ project, index, isInView }: any) => {
         <motion.div
           whileHover={{ scale: 1.03, y: -8 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group"
+          className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#1E293B] group"
         >
-          <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/30 to-violet-600/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#2563EB]/25 to-[#1D4ED8]/25 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
           <div className="relative">
             <motion.img
               src={project.image}

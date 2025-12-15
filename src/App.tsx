@@ -18,6 +18,7 @@ import CostEstimator from './components/CostEstimator'
 import InteractiveCaseStudies from './components/InteractiveCaseStudies'
 import ConversationalAssistant from './components/ConversationalAssistant'
 import SmartCTA from './components/SmartCTA'
+import WhyElite from './components/WhyElite'
 import AllProjectsPage from './pages/AllProjectsPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
@@ -44,8 +45,9 @@ function HomePage() {
           <Hero />
           <About />
           <ServiceSelector />
-          <Services />
           <CostEstimator />
+          <Services />
+          <WhyElite />
           <Stats />
           <InteractiveCaseStudies />
           <Showcase />
