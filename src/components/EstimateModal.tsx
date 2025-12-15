@@ -78,7 +78,7 @@ const EstimateModal = ({ open, onClose }: EstimateModalProps) => {
               </button>
             </div>
 
-            <div className="max-h-[calc(92vh-180px)] sm:max-h-[70vh] overflow-y-auto px-4 sm:px-8 pb-28 pt-4 sm:pt-6 custom-scrollbar bg-gradient-to-b from-white/5 via-transparent to-transparent">
+            <div className="max-h-[calc(92vh-180px)] sm:max-h-[70vh] overflow-y-auto px-4 sm:px-8 pb-40 pt-4 sm:pt-6 custom-scrollbar bg-gradient-to-b from-white/5 via-transparent to-transparent">
               <Suspense
                 fallback={
                   <div className="flex h-48 items-center justify-center text-sm text-gray-300">
