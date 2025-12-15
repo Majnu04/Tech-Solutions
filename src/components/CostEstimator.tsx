@@ -19,7 +19,7 @@ interface ServiceSelections {
     pages: '5' | '10' | '15+'
     design: 'template' | 'custom' | 'premium'
     mobile: boolean
-    cms: 'none' |  'custom'
+    cms: 'none' | 'wordpress' | 'custom'
     performance: boolean
   }
   seo: {
