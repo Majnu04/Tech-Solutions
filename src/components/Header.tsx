@@ -34,17 +34,25 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   const navItems = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'about' },
-    { name: 'Services', to: 'services' },
-    { name: 'Showcase', to: 'showcase' },
-    { name: 'Contact', to: 'contact' },
+    { name: 'Home', to: 'home', type: 'scroll' as const },
+    { name: 'About', to: 'about', type: 'scroll' as const },
+    { name: 'Services', path: '/services', type: 'route' as const },
+    { name: 'Showcase', to: 'showcase', type: 'scroll' as const },
+    { name: 'Contact', to: 'contact', type: 'scroll' as const },
   ]
 
-  // Universal nav handler - works on ALL pages
-  const handleNavClick = (sectionId: string) => {
+  // Universal nav handler - works on ALL pages and routes
+  const handleNavClick = (item: typeof navItems[number]) => {
     setMobileMenuOpen(false)
-    
+
+    if (item.type === 'route' && item.path) {
+      navigate(item.path)
+      return
+    }
+
+    const sectionId = item.to
+    if (!sectionId) return
+
     if (location.pathname !== '/') {
       // On other pages: navigate to home, then scroll after page loads
       navigate('/', { state: { scrollTo: sectionId } })
@@ -154,7 +162,7 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => handleNavClick(item.to)}
+                onClick={() => handleNavClick(item)}
                 style={{
                   display: 'block',
                   width: '100%',
@@ -221,7 +229,7 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => handleNavClick(item.to)}
+                onClick={() => handleNavClick(item)}
                 className="relative text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium group"
               >
                 {item.name}

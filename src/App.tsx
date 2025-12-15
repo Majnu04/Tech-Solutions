@@ -6,7 +6,6 @@ import { organizationSchema, localBusinessSchema, webSiteSchema } from './utils/
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
-import Services from './components/Services'
 import Stats from './components/Stats'
 import Showcase from './components/Showcase'
 import Contact from './components/Contact'
@@ -19,6 +18,8 @@ import WhyElite from './components/WhyElite'
 import AllProjectsPage from './pages/AllProjectsPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
+import Services from './components/Services'
+import ServicesPage from './pages/ServicesPage'
 import { PersonalizationProvider } from './context/PersonalizationContext'
 import PremiumLoader from './components/PremiumLoader'
 
@@ -44,7 +45,6 @@ function HomePage() {
           <Hero />
           <About />
           <ServiceSelector />
-          <Services />
           <WhyElite />
           <Stats />
           <Showcase />
@@ -91,6 +91,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/all-projects" element={<AllProjectsPage />} />
+              <Route path="/services" element={<ServicesPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
             </Routes>

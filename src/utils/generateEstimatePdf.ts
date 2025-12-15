@@ -74,6 +74,7 @@ export const generateEstimatePdf = async (payload: EstimatePdfPayload) => {
   const brandPrimary = '#2563EB'
   const textDark = '#0F172A'
   const textMuted = '#475569'
+  const numberFont = 'helvetica' // fallback; tabular not native in jspdf
 
   const headerReset = () => {
     cursorY = 60
@@ -194,32 +195,55 @@ export const generateEstimatePdf = async (payload: EstimatePdfPayload) => {
     })
   }
 
-  // Service Breakdown
+  // Service Breakdown (table-aligned)
   drawSectionTitle('Service Breakdown')
-  payload.services.forEach(service => {
+  const priceX = marginX + 420
+  payload.services.forEach((service, serviceIdx) => {
     cursorY = ensureSpace(doc, cursorY, 120, headerReset)
+
+    // Service header row
     doc.setFont('helvetica', 'bold')
     doc.setFontSize(13)
+    doc.setTextColor(textDark)
     doc.text(service.label, marginX, cursorY)
-    doc.setFont('helvetica', 'normal')
+    doc.setFont(numberFont, 'bold')
     doc.setTextColor(brandPrimary)
-    doc.text(formatCurrency(service.subtotal), marginX + 420, cursorY)
-    doc.setTextColor(textMuted)
-    cursorY += 16
-
-    doc.setFontSize(11)
-    doc.text(`Base: ${formatCurrency(service.base)}`, marginX, cursorY)
+    doc.text(formatCurrency(service.subtotal), priceX, cursorY, { align: 'right' })
     cursorY += 14
 
+    // Divider under service
+    doc.setDrawColor('#e6e6e6')
+    doc.setLineWidth(0.6)
+    doc.line(marginX, cursorY, priceX, cursorY)
+    cursorY += 10
+
+    // Base row
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(textMuted)
+    doc.text('Base', marginX + 12, cursorY)
+    doc.setFont(numberFont, 'normal')
+    doc.text(formatCurrency(service.base), priceX, cursorY, { align: 'right' })
+    cursorY += 14
+
+    // Feature rows
+    doc.setTextColor(textMuted)
     service.features.forEach(feature => {
       cursorY = ensureSpace(doc, cursorY, 24, headerReset)
-      const line = `${feature.label}`
-      doc.text(line, marginX + 12, cursorY)
+      doc.text(feature.label, marginX + 12, cursorY)
       const priceText = feature.price > 0 ? `+${formatCurrency(feature.price)}` : 'Included'
-      doc.text(priceText, marginX + 420, cursorY)
+      doc.setFont(numberFont, 'normal')
+      doc.text(priceText, priceX, cursorY, { align: 'right' })
       cursorY += 14
     })
-    addSpacing(10)
+
+    // Spacer between services
+    cursorY += 12
+    if (serviceIdx < payload.services.length - 1) {
+      doc.setDrawColor('#dcdcdc')
+      doc.setLineWidth(0.4)
+      doc.line(marginX, cursorY, priceX, cursorY)
+      cursorY += 14
+    }
   })
 
   if (payload.addOns.length) {
@@ -240,21 +264,30 @@ export const generateEstimatePdf = async (payload: EstimatePdfPayload) => {
     doc.setTextColor(textDark)
   }
 
-  // Pricing Summary
+  // Pricing Summary (aligned)
   drawSectionTitle('Pricing Summary')
+  const summaryRows = [
+    { label: 'Subtotal', value: payload.subtotal },
+    { label: 'Add-ons', value: payload.addOnTotal }
+  ]
   doc.setFont('helvetica', 'normal')
-  doc.text('Subtotal', marginX, cursorY)
-  doc.text(formatCurrency(payload.subtotal), marginX + 420, cursorY)
-  cursorY += 16
-  doc.text('Add-ons', marginX, cursorY)
-  doc.text(formatCurrency(payload.addOnTotal), marginX + 420, cursorY)
-  cursorY += 16
-  doc.text('Estimated Total', marginX, cursorY)
+  doc.setTextColor(textDark)
+  summaryRows.forEach(row => {
+    doc.text(row.label, marginX, cursorY)
+    doc.setFont(numberFont, 'normal')
+    doc.text(formatCurrency(row.value), marginX + 420, cursorY, { align: 'right' })
+    cursorY += 16
+    doc.setFont('helvetica', 'normal')
+  })
+
   doc.setFont('helvetica', 'bold')
   doc.setTextColor(brandPrimary)
-  doc.text(formatCurrency(payload.total), marginX + 420, cursorY)
-  doc.setTextColor(textMuted)
+  doc.text('Estimated Total', marginX, cursorY)
+  doc.setFont(numberFont, 'bold')
+  doc.text(formatCurrency(payload.total), marginX + 420, cursorY, { align: 'right' })
   cursorY += 18
+  doc.setTextColor(textMuted)
+  doc.setFont('helvetica', 'normal')
 
   const variance = payload.rangeTolerance ?? 0.12
   const varianceValue = Math.round(payload.total * variance)
