@@ -255,7 +255,7 @@ const CostEstimator = () => {
   )
 
   return (
-    <section className="section-container" style={{ background: 'radial-gradient(circle at 10% 20%, rgba(37,99,235,0.05), transparent 35%), radial-gradient(circle at 80% 20%, rgba(34,197,94,0.05), transparent 35%)' }}>
+    <section className="section-container" style={{ background: '#04070d' }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -273,7 +273,7 @@ const CostEstimator = () => {
 
       <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 max-w-7xl mx-auto">
         <div className="space-y-8">
-          <div className="card p-6 md:p-8">
+          <div className="card p-6 md:p-8 bg-[#0A0F1A] border border-white/5">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <p className="text-sm text-[#8BB5FF] font-semibold">Step 1</p>
@@ -683,9 +683,9 @@ const CostEstimator = () => {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="lg:sticky lg:top-20 h-fit"
+          className="lg:sticky lg:top-12 h-fit"
         >
-          <div className="card p-6 md:p-8 space-y-6">
+          <div className="card p-6 md:p-8 space-y-6 bg-[#0A0F1A] border border-white/5">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-[#8BB5FF] font-semibold">Live estimate</p>

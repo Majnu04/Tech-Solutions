@@ -50,7 +50,7 @@ const EstimateModal = ({ open, onClose }: EstimateModalProps) => {
           />
 
           <motion.div
-            className="relative w-full max-w-6xl h-[92vh] sm:h-auto sm:max-h-[90vh] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-neutral-900 via-neutral-900 to-black shadow-2xl"
+            className="relative w-full max-w-6xl h-[92vh] sm:h-auto sm:max-h-[90vh] overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/10 bg-[#060910] shadow-2xl"
             initial={{ opacity: 0, scale: 0.96, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
@@ -59,11 +59,11 @@ const EstimateModal = ({ open, onClose }: EstimateModalProps) => {
             aria-modal="true"
             aria-label="Build Your Project Price"
           >
-            <div className="flex items-start justify-between gap-4 border-b border-white/10 px-4 sm:px-6 py-4 sm:py-5">
+            <div className="flex items-start justify-between gap-4 border-b border-white/10 px-4 sm:px-8 py-4 sm:py-6">
               <div>
                 <p className="text-sm uppercase tracking-[0.2em] text-primary-300">Estimate</p>
-                <h2 className="mt-1 text-2xl font-semibold text-white">Build Your Project Price</h2>
-                <p className="mt-1 text-sm text-gray-300">
+                <h2 className="mt-1 text-2xl sm:text-3xl font-semibold text-white">Build Your Project Price</h2>
+                <p className="mt-2 text-sm sm:text-base text-gray-300 max-w-2xl">
                   Select services, features, and business context to see transparent pricing in real-time.
                 </p>
               </div>
@@ -78,7 +78,7 @@ const EstimateModal = ({ open, onClose }: EstimateModalProps) => {
               </button>
             </div>
 
-            <div className="max-h-[calc(92vh-180px)] sm:max-h-[70vh] overflow-y-auto px-4 sm:px-6 pb-28 pt-4 sm:pt-6 custom-scrollbar">
+            <div className="max-h-[calc(92vh-180px)] sm:max-h-[70vh] overflow-y-auto px-4 sm:px-8 pb-28 pt-4 sm:pt-6 custom-scrollbar bg-gradient-to-b from-white/5 via-transparent to-transparent">
               <Suspense
                 fallback={
                   <div className="flex h-48 items-center justify-center text-sm text-gray-300">
@@ -90,7 +90,7 @@ const EstimateModal = ({ open, onClose }: EstimateModalProps) => {
               </Suspense>
             </div>
 
-            <div className="sticky bottom-0 flex flex-col gap-3 border-t border-white/10 bg-gradient-to-r from-primary-500/20 via-black/70 to-primary-500/15 px-4 sm:px-6 py-4 backdrop-blur">
+            <div className="sticky bottom-0 flex flex-col gap-3 border-t border-white/10 bg-gradient-to-r from-primary-500/20 via-black/80 to-primary-500/15 px-4 sm:px-8 py-4 backdrop-blur">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-primary-200">Next</p>

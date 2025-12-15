@@ -81,8 +81,8 @@ export const generateEstimatePdf = async (payload: EstimatePdfPayload) => {
 
   const drawSectionTitle = (title: string) => {
     cursorY = ensureSpace(doc, cursorY, 64, headerReset)
-    doc.setFillColor(230)
-    doc.setDrawColor(230)
+    doc.setFillColor('#e6e6e6')
+    doc.setDrawColor('#e6e6e6')
     doc.roundedRect(marginX, cursorY, 510, 32, 6, 6, 'F')
     doc.setTextColor(textDark)
     doc.setFontSize(12)
