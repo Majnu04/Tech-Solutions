@@ -221,7 +221,12 @@ const Header = () => {
         <div className="section-container py-0 flex items-center justify-between gap-4">
           {/* Logo */}
           <button onClick={handleLogoClick} className="cursor-pointer flex items-center">
-            <img src="/logo.png" alt="Elite Digital Solutions" className="w-14 h-14 rounded-full" />
+            <img
+              src="/logo.png"
+              alt="Elite Digital Solutions"
+              className="rounded-full"
+              style={{ width: '72px', height: '72px' }}
+            />
           </button>
 
           {/* Desktop Navigation */}

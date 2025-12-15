@@ -598,18 +598,21 @@ const CostEstimator = () => {
             </div>
           </div>
 
-          <div className="card p-6 md:p-8">
-            <div className="flex items-center justify-between mb-6">
+          <div className="card p-6 md:p-8 bg-[#0B1220]/90">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6">
               <div>
                 <p className="text-sm text-[#8BB5FF] font-semibold">Step 3</p>
                 <h3 className="text-2xl font-bold text-white">Business context</h3>
               </div>
-              <span className="text-xs text-gray-400">Impacts multipliers</span>
+              <span className="text-xs text-gray-400">Signals adjust multipliers</span>
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-gray-400 mb-2">Business size</p>
-                <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+              <div className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/80 p-4 space-y-3 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)]">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-gray-400">Business size</p>
+                  <span className="text-[11px] text-[#8BB5FF]">Reach & ops</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {([
                     { id: 'startup', label: 'Startup' },
                     { id: 'growing', label: 'Growing' },
@@ -618,16 +621,20 @@ const CostEstimator = () => {
                     <button
                       key={opt.id}
                       onClick={() => setBusinessType(opt.id)}
-                      className={`option-pill ${businessType === opt.id ? 'option-pill-active' : ''}`}
+                      className={`option-pill w-full ${businessType === opt.id ? 'option-pill-active' : ''}`}
                     >
                       {opt.label}
                     </button>
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-400 mb-2">Complexity level</p>
-                <div className="grid grid-cols-3 gap-2">
+
+              <div className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/80 p-4 space-y-3 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)]">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-gray-400">Complexity level</p>
+                  <span className="text-[11px] text-[#8BB5FF]">Scope & polish</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {([
                     { id: 'standard', label: 'Standard' },
                     { id: 'advanced', label: 'Advanced' },
@@ -636,15 +643,19 @@ const CostEstimator = () => {
                     <button
                       key={opt.id}
                       onClick={() => setComplexity(opt.id)}
-                      className={`option-pill ${complexity === opt.id ? 'option-pill-active' : ''}`}
+                      className={`option-pill w-full ${complexity === opt.id ? 'option-pill-active' : ''}`}
                     >
                       {opt.label}
                     </button>
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-400 mb-2">Industry</p>
+
+              <div className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/80 p-4 space-y-3 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)]">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-gray-400">Industry</p>
+                  <span className="text-[11px] text-[#8BB5FF]">Context fit</span>
+                </div>
                 <div className="relative">
                   <select
                     value={industry}
@@ -660,17 +671,21 @@ const CostEstimator = () => {
                   <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
                 </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-400 mb-2">Optional add-ons</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+              <div className="rounded-2xl border border-[#1E293B] bg-[#0F172A]/80 p-4 space-y-3 lg:col-span-3 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)]">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-gray-400">Optional add-ons</p>
+                  <span className="text-[11px] text-[#8BB5FF]">Strategic boosts</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {addOns.map(addOn => (
                     <button
                       key={addOn.id}
                       onClick={() => toggleAddOn(addOn.id)}
-                      className={`option-pill justify-between ${activeAddOns.has(addOn.id) ? 'option-pill-active' : ''}`}
+                      className={`option-pill w-full justify-between text-left ${activeAddOns.has(addOn.id) ? 'option-pill-active' : ''}`}
                     >
-                      <span>{addOn.label}</span>
-                      <span className="text-xs text-[#8BB5FF]">+₹{addOn.price.toLocaleString('en-IN')}</span>
+                      <span className="text-sm leading-tight">{addOn.label}</span>
+                      <span className="text-[12px] text-[#8BB5FF] whitespace-nowrap">+₹{addOn.price.toLocaleString('en-IN')}</span>
                     </button>
                   ))}
                 </div>
