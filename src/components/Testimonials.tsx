@@ -15,6 +15,12 @@ const clients = [
     description: 'Master Skills with DoFlow - Learn from industry experts and transform your career with premium courses.',
     logo: '/Doflow logo.PNG',
     website: 'https://doflow-ebon.vercel.app/#/'
+  },
+  {
+    name: 'Maxpixls',
+    label: 'Professional Photography Studio',
+    description: 'Capturing moments with precision and artistry. Premium photography services for every occasion.',
+    logo: '/elite-3.jpg'
   }
 ]
 

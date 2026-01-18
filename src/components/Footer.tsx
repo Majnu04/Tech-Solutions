@@ -89,7 +89,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8 pb-8 text-gray-400 text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
             <p>
-              © 2025 <span className="text-primary-400 font-bold">Gouri Shanker</span> – Elite Digital Solutions. All rights reserved.
+              © 2026 <span className="text-primary-400 font-bold">Gouri Shanker</span> – Elite Digital Solutions. All rights reserved.
             </p>
             <div className="flex gap-6">
               <RouterLink to="/privacy" className="hover:text-primary-400 transition-colors">Privacy Policy</RouterLink>
