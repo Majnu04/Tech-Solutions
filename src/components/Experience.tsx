@@ -43,7 +43,7 @@ const Experience = () => {
           Our Latest Work & <span className="gradient-text">Startup Journey</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-          <span className="text-primary-400 font-bold">Gouri Shanker</span> Digital Solutions is a fast-growing startup,
+          <span className="text-primary-400 font-bold">Nelam Gowri Sankar</span> Digital Solutions is a fast-growing startup,
           always innovating and building new digital products. Here are some of our most exciting and recent projects!
         </p>
       </motion.div>

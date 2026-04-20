@@ -371,7 +371,7 @@ A: Already integrated with Formspree!
 
 - 📧 Email: gourishanker0408@gmail.com
 - 📱 Phone: +91 7893804498
-- 💼 LinkedIn: [Gouri Shanker](https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/)
+- 💼 LinkedIn: [Nelam Gowri Sankar](https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/)
 - 🐙 GitHub: [@Majnu04](https://github.com/Majnu04)
 
 ## 🎉 Congratulations!

@@ -183,15 +183,15 @@ Feel free to submit issues and enhancement requests!
 
 ## 📄 License
 
-Copyright © 2025 Gouri Shanker - Elite Digital Solutions
+Copyright © 2025 Nelam Gowri Sankar - Elite Digital Solutions
 
 ## 📞 Contact
 
 - **Email**: gourishanker0408@gmail.com
 - **Phone**: +91 7893804498
 - **Website**: https://www.elitedigitalsolutions.tech
-- **LinkedIn**: [Gouri Shanker](https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/)
+- **LinkedIn**: [Nelam Gowri Sankar](https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/)
 
 ---
 
-Made with ❤️ by Gouri Shanker
+Made with ❤️ by Nelam Gowri Sankar

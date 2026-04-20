@@ -7,7 +7,7 @@ export const organizationSchema = {
   "description": "Professional web development, SEO & digital marketing services to grow your business online.",
   "founder": {
     "@type": "Person",
-    "name": "Gouri Shanker",
+    "name": "Nelam Gowri Sankar",
     "jobTitle": "CEO & Founder"
   },
   "address": {

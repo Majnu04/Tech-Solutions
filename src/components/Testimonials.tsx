@@ -31,7 +31,7 @@ const testimonials = [
     role: "Startup Founder"
   },
   {
-    content: "Working with Gouri Shanker was a fantastic experience. The team was responsive, creative, and truly cared about our business goals.",
+    content: "Working with Nelam Gowri Sankar was a fantastic experience. The team was responsive, creative, and truly cared about our business goals.",
     author: "Rahul M.",
     role: "Business Owner"
   },
@@ -136,7 +136,7 @@ const Testimonials = () => {
           <span className="gradient-text">Testimonials</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-          Hear from those who have worked with <span className="text-primary-400 font-bold">Gouri Shanker</span> and Elite Digital Solutions.
+          Hear from those who have worked with <span className="text-primary-400 font-bold">Nelam Gowri Sankar</span> and Elite Digital Solutions.
         </p>
       </motion.div>
 

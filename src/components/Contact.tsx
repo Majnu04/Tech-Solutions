@@ -67,7 +67,7 @@ const Contact = () => {
         >
           <div>
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              <span className="text-primary-400">Gouri Shanker</span> is ready to help your business grow.
+              <span className="text-primary-400">Gowri Sankar</span> is ready to help your business grow.
             </h3>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
               Contact <span className="text-primary-400 font-semibold">Elite Digital Solutions</span> for new projects, collaborations, or just to say hi!
@@ -101,25 +101,45 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* CEO Card */}
-          <div className="card text-center max-w-sm mx-auto border-2 border-primary-500/20 hover:border-primary-500/40 transition-all">
-            <img
-              src="https://ui-avatars.com/api/?name=Gouri+Shanker&background=4D7CFE&color=fff&size=96&rounded=true"
-              alt="Gouri Shanker"
-              className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-500 shadow-lg shadow-primary-500/30"
-            />
-            <h4 className="text-2xl font-bold text-primary-400 mb-2">Gouri Shanker</h4>
-            <p className="text-gray-400 mb-6">CEO, Elite Digital Solutions</p>
-            <div className="flex justify-center gap-4">
-              <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
-                <FaLinkedin className="text-2xl" />
-              </a>
-              <a href="https://github.com/Majnu04" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
-                <FaGithub className="text-2xl" />
-              </a>
-              <a href="https://instagram.com/majnu_15__" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
-                <FaInstagram className="text-2xl" />
-              </a>
+          {/* Leadership Cards */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="card text-center border-2 border-primary-500/20 hover:border-primary-500/40 transition-all">
+              <img
+                src="https://ui-avatars.com/api/?name=Nelam+Gowri+Sankar&background=4D7CFE&color=fff&size=96&rounded=true"
+                alt="Nelam Gowri Sankar"
+                className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-500 shadow-lg shadow-primary-500/30"
+              />
+              <h4 className="text-2xl font-bold text-primary-400 mb-2">Nelam Gowri Sankar</h4>
+              <p className="text-gray-400 mb-6">CEO & Founder, Elite Digital Solutions</p>
+              <div className="flex justify-center gap-4">
+                <a href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
+                  <FaLinkedin className="text-2xl" />
+                </a>
+                <a href="https://github.com/Majnu04" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
+                  <FaGithub className="text-2xl" />
+                </a>
+                <a href="https://instagram.com/majnu_15__" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
+                  <FaInstagram className="text-2xl" />
+                </a>
+              </div>
+            </div>
+
+            <div className="card text-center border-2 border-primary-500/20 hover:border-primary-500/40 transition-all">
+              <img
+                src="https://ui-avatars.com/api/?name=Polamreddy+Chiranjeevi+Reddy&background=1F2937&color=fff&size=96&rounded=true"
+                alt="Polamreddy Chiranjeevi Reddy"
+                className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-500 shadow-lg shadow-primary-500/30"
+              />
+              <h4 className="text-xl font-bold text-primary-400 mb-2">Polamreddy Chiranjeevi Reddy</h4>
+              <p className="text-gray-400 mb-6">CTO, Elite Digital Solutions</p>
+              <div className="flex justify-center gap-4">
+                <a href="https://www.linkedin.com/in/chiranjeevi-reddy-polamreddy-40774027a" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
+                  <FaLinkedin className="text-2xl" />
+                </a>
+                <a href="https://github.com/PolamreddyChiranjeeviReddy" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors transform hover:scale-110">
+                  <FaGithub className="text-2xl" />
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>

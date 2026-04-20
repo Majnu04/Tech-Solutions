@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold mb-4 text-primary-400">About</h4>
             <p className="text-gray-400 leading-relaxed">
-              Elite Digital Solutions by Gouri Shanker delivers innovative digital products and solutions for startups and businesses.
+              Elite Digital Solutions by Gowri Sankar delivers innovative digital products and solutions for startups and businesses.
               We value transparency, collaboration, and measurable results.
             </p>
           </div>
@@ -89,7 +89,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8 pb-8 text-gray-400 text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
             <p>
-              © 2026 <span className="text-primary-400 font-bold">Gouri Shanker</span> – Elite Digital Solutions. All rights reserved.
+              © 2026 <span className="text-primary-400 font-bold">Nelam Gowri Sankar</span> – Elite Digital Solutions. All rights reserved.
             </p>
             <div className="flex gap-6">
               <RouterLink to="/privacy" className="hover:text-primary-400 transition-colors">Privacy Policy</RouterLink>

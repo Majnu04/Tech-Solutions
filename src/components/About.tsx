@@ -21,7 +21,7 @@ const About = () => {
         </h2>
         <p className="text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed">
           <span className="text-primary-400 font-bold">Elite Digital Solutions</span>, led by CEO{' '}
-          <span className="text-primary-400 font-bold">Gouri Shanker</span>, is dedicated to delivering
+          <span className="text-primary-400 font-bold"> Gowri Sankar</span>, is dedicated to delivering
           innovative digital solutions. Our mission is to empower startups and businesses with{' '}
           <span className="text-white font-semibold">cutting-edge technology</span>,{' '}
           <span className="text-white font-semibold">creative design</span>, and{' '}
