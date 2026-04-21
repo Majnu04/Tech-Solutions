@@ -5,47 +5,47 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#020617]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_at_20%_0%,rgba(37,99,235,0.12),transparent_45%),radial-gradient(700px_at_85%_10%,rgba(34,197,94,0.08),transparent_35%)]" />
-      <div className="section-container relative z-10 py-14 sm:py-16">
-        <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8 shadow-2xl shadow-black/20 backdrop-blur-sm">
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_0.9fr] lg:items-center">
+      <div className="section-container relative z-10 py-12 sm:py-16">
+        <div className="mb-8 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 md:p-8 shadow-2xl shadow-black/20 backdrop-blur-sm">
+          <div className="grid gap-6 lg:grid-cols-[1.4fr_0.9fr] lg:items-center">
             <div>
               <span className="section-badge">Ready to grow?</span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-display font-black leading-tight text-white">
+              <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-display font-black leading-tight text-white">
                 Let&apos;s build a faster, stronger digital presence.
               </h2>
-              <p className="mt-4 max-w-2xl text-gray-400 leading-relaxed">
+              <p className="mt-3 max-w-2xl text-sm sm:text-base text-gray-400 leading-relaxed">
                 Elite Digital Solutions creates high-performance websites, AI automation, SEO systems, and digital campaigns designed to convert and scale.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <a href="/#contact" className="btn-primary inline-flex items-center justify-center px-6 py-4 text-sm">
+            <div className="flex flex-col gap-2 sm:flex-row lg:justify-end">
+              <a href="/#contact" className="btn-primary inline-flex items-center justify-center px-5 py-3.5 text-sm">
                 Start a Project
               </a>
-              <RouterLink to="/services" className="btn-secondary inline-flex items-center justify-center px-6 py-4 text-sm">
+              <RouterLink to="/services" className="btn-secondary inline-flex items-center justify-center px-5 py-3.5 text-sm">
                 View Services
               </RouterLink>
             </div>
           </div>
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-[1.2fr_0.85fr_0.9fr_0.9fr]">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-[1.2fr_0.85fr_0.9fr_0.9fr]">
           <div>
-            <div className="flex items-center gap-4 mb-5">
+            <div className="flex items-center gap-4 mb-4">
               <img src="/logo.png" alt="Elite Digital Solutions" className="h-14 w-14 rounded-full border border-white/10" loading="eager" decoding="async" />
               <div>
                 <p className="text-white font-bold text-lg leading-tight">Elite Digital Solutions</p>
                 <p className="text-sm text-gray-500">Web Development, SEO & AI Automation</p>
               </div>
             </div>
-            <p className="max-w-md text-gray-400 leading-relaxed">
+            <p className="max-w-md text-sm sm:text-base text-gray-400 leading-relaxed">
               Built for businesses that want a premium digital presence with measurable performance, clear messaging, and stronger search visibility.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4 text-primary-400">Explore</h4>
-            <nav className="flex flex-col gap-3">
+            <h4 className="text-lg font-bold mb-3 text-primary-400">Explore</h4>
+            <nav className="flex flex-col gap-2.5">
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About', href: '/#about' },
@@ -65,8 +65,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4 text-primary-400">Services</h4>
-            <nav className="flex flex-col gap-3">
+            <h4 className="text-lg font-bold mb-3 text-primary-400">Services</h4>
+            <nav className="flex flex-col gap-2.5">
               {[
                 { label: 'Web Development', href: '/services' },
                 { label: 'SEO & Performance', href: '/services' },
@@ -85,8 +85,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4 text-primary-400">Contact</h4>
-            <address className="not-italic space-y-4 text-gray-400">
+            <h4 className="text-lg font-bold mb-3 text-primary-400">Contact</h4>
+            <address className="not-italic space-y-3 text-gray-400">
               <a href="mailto:elitetechsolutions04@gmail.com" className="flex items-start gap-3 transition-colors hover:text-primary-400">
                 <FaEnvelope className="mt-1 shrink-0" />
                 <span>elitetechsolutions04@gmail.com</span>
@@ -106,7 +106,7 @@ const Footer = () => {
               </a>
             </address>
 
-            <div className="mt-6 flex gap-3">
+            <div className="mt-5 flex gap-3">
               <a
                 href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/"
                 target="_blank"
@@ -138,7 +138,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-8 text-sm text-gray-500">
+        <div className="mt-8 border-t border-white/10 pt-6 text-sm text-gray-500">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p>
               © 2026 <span className="text-primary-400 font-semibold">Elite Digital Solutions</span>. All rights reserved.
