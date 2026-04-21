@@ -2,8 +2,11 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
+  corePlugins: {
+    container: false,
+  },
   theme: {
     extend: {
       colors: {

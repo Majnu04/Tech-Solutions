@@ -1,26 +1,25 @@
-import { useState } from 'react'
+import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { LazyMotion, domAnimation } from 'framer-motion'
 import SEO from './components/SEO'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from './utils/schemas'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import About from './components/About'
-import Stats from './components/Stats'
-import Showcase from './components/Showcase'
-import Contact from './components/Contact'
-import Testimonials from './components/Testimonials'
-import Footer from './components/Footer'
-import ServiceSelector from './components/ServiceSelector'
-import ConversationalAssistant from './components/ConversationalAssistant'
-import SmartCTA from './components/SmartCTA'
-import WhyElite from './components/WhyElite'
-import AllProjectsPage from './pages/AllProjectsPage'
-import PrivacyPage from './pages/PrivacyPage'
-import TermsPage from './pages/TermsPage'
-import ServicesPage from './pages/ServicesPage'
 import { PersonalizationProvider } from './context/PersonalizationContext'
-import PremiumLoader from './components/PremiumLoader'
+
+const About = lazy(() => import('./components/About'))
+const Stats = lazy(() => import('./components/Stats'))
+const Showcase = lazy(() => import('./components/Showcase'))
+const Contact = lazy(() => import('./components/Contact'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Footer = lazy(() => import('./components/Footer'))
+const ServiceSelector = lazy(() => import('./components/ServiceSelector'))
+const ConversationalAssistant = lazy(() => import('./components/ConversationalAssistant'))
+const SmartCTA = lazy(() => import('./components/SmartCTA'))
+const WhyElite = lazy(() => import('./components/WhyElite'))
+const AllProjectsPage = lazy(() => import('./pages/AllProjectsPage'))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 
 function HomePage() {
   const combinedSchema = {
@@ -42,17 +41,21 @@ function HomePage() {
         <Header />
         <main>
           <Hero />
-          <About />
-          <ServiceSelector />
-          <WhyElite />
-          <Stats />
-          <Showcase />
-          <Testimonials />
-          <Contact />
+          <Suspense fallback={<div className="section-container py-10" aria-hidden="true" />}>
+            <About />
+            <ServiceSelector />
+            <WhyElite />
+            <Stats />
+            <Showcase />
+            <Testimonials />
+            <Contact />
+          </Suspense>
         </main>
-        <Footer />
-        <ConversationalAssistant />
-        <SmartCTA />
+        <Suspense fallback={null}>
+          <Footer />
+          <ConversationalAssistant />
+          <SmartCTA />
+        </Suspense>
       </div>
 
       {/* WhatsApp Button */}
@@ -72,9 +75,6 @@ function HomePage() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true)
-
-
   return (
     <PersonalizationProvider>
       <SEO
@@ -82,21 +82,17 @@ function App() {
         description="Professional web development, SEO & digital marketing services to grow your business online."
       />
 
-      <PremiumLoader open={loading} onComplete={() => setLoading(false)} />
-
-      <LazyMotion features={domAnimation}>
-        {!loading && (
-          <Router>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/all-projects" element={<AllProjectsPage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/privacy" element={<PrivacyPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-            </Routes>
-          </Router>
-        )}
-      </LazyMotion>
+      <Router>
+        <Suspense fallback={<div className="min-h-screen bg-black" aria-hidden="true" />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/all-projects" element={<AllProjectsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+          </Routes>
+        </Suspense>
+      </Router>
     </PersonalizationProvider>
   )
 }
