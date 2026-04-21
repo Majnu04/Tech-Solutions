@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion } from 'framer-motion'
-import { scroller } from 'react-scroll'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import EstimateModal from './EstimateModal'
 
@@ -10,8 +9,6 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [estimateOpen, setEstimateOpen] = useState(false)
-  const navigate = useNavigate()
-  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,61 +31,19 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   const navItems = [
-    { name: 'Home', to: 'home', type: 'scroll' as const },
-    { name: 'About', to: 'about', type: 'scroll' as const },
-    { name: 'Services', path: '/services', type: 'route' as const },
-    { name: 'Showcase', to: 'showcase', type: 'scroll' as const },
-    { name: 'Contact', to: 'contact', type: 'scroll' as const },
+    { name: 'Home', href: '/', type: 'route' as const },
+    { name: 'About', href: '/#about', type: 'anchor' as const },
+    { name: 'Services', href: '/services', type: 'route' as const },
+    { name: 'Showcase', href: '/#showcase', type: 'anchor' as const },
+    { name: 'Contact', href: '/#contact', type: 'anchor' as const },
   ]
 
-  // Universal nav handler - works on ALL pages and routes
-  const handleNavClick = (item: typeof navItems[number]) => {
+  const handleNavClick = () => {
     setMobileMenuOpen(false)
-
-    if (item.type === 'route' && item.path) {
-      navigate(item.path)
-      return
-    }
-
-    const sectionId = item.to
-    if (!sectionId) return
-
-    if (location.pathname !== '/') {
-      // On other pages: navigate to home, then scroll after page loads
-      navigate('/', { state: { scrollTo: sectionId } })
-    } else {
-      // On home page: just scroll
-      scroller.scrollTo(sectionId, {
-        smooth: true,
-        offset: -80,
-        duration: 500
-      })
-    }
   }
 
-  // Handle scroll after navigation from other pages
-  useEffect(() => {
-    if (location.pathname === '/' && location.state?.scrollTo) {
-      const sectionId = location.state.scrollTo
-      setTimeout(() => {
-        scroller.scrollTo(sectionId, {
-          smooth: true,
-          offset: -80,
-          duration: 500
-        })
-      }, 100)
-      window.history.replaceState({}, document.title)
-    }
-  }, [location])
-
-  // Logo click handler
   const handleLogoClick = () => {
     setMobileMenuOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
-    } else {
-      scroller.scrollTo('home', { smooth: true, offset: -80, duration: 500 })
-    }
   }
 
   // Mobile Menu Component (rendered via Portal)
@@ -160,9 +115,10 @@ const Header = () => {
           {/* Menu Items */}
           <nav style={{ padding: '16px', backgroundColor: '#0d0d0d', flex: 1 }}>
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => handleNavClick(item)}
+                href={item.href}
+                onClick={handleNavClick}
                 style={{
                   display: 'block',
                   width: '100%',
@@ -178,7 +134,7 @@ const Header = () => {
                 }}
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <button
               onClick={() => {
@@ -220,26 +176,37 @@ const Header = () => {
       >
         <div className="section-container py-0 flex items-center justify-between gap-4">
           {/* Logo */}
-          <button onClick={handleLogoClick} className="cursor-pointer flex items-center">
+          <RouterLink to="/" onClick={handleLogoClick} className="cursor-pointer flex items-center">
             <img
               src="/logo.png"
               alt="Elite Digital Solutions"
               className="rounded-full"
               style={{ width: '72px', height: '72px' }}
             />
-          </button>
+          </RouterLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
+              item.type === 'route' ? (
+              <RouterLink
                 key={item.name}
-                onClick={() => handleNavClick(item)}
+                to={item.href}
                 className="relative text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300" />
-              </button>
+              </RouterLink>
+              ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                className="relative text-gray-300 hover:text-primary-400 cursor-pointer transition-colors duration-300 font-medium group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300" />
+              </a>
+              )
             ))}
           </nav>
 

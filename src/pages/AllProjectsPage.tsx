@@ -81,6 +81,8 @@ const AllProjectsPage = () => {
       <SEO
         title="All Projects - Elite Digital Solutions | Complete Portfolio"
         description="Browse our complete portfolio of web development, AI solutions, and digital transformation projects. See how Elite Digital Solutions has helped businesses succeed."
+        keywords="portfolio, projects, web development portfolio, AI solutions, digital transformation, Elite Digital Solutions"
+        canonical="https://elitedigitalsolutions.tech/all-projects"
       />
 
       <div className="min-h-screen bg-dark-950 text-gray-100">

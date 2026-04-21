@@ -1,103 +1,155 @@
-import { Link } from 'react-scroll'
 import { Link as RouterLink } from 'react-router-dom'
-import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-900 border-t border-white/10">
-      <div className="section-container">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* About */}
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#020617]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_at_20%_0%,rgba(37,99,235,0.12),transparent_45%),radial-gradient(700px_at_85%_10%,rgba(34,197,94,0.08),transparent_35%)]" />
+      <div className="section-container relative z-10 py-14 sm:py-16">
+        <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8 shadow-2xl shadow-black/20 backdrop-blur-sm">
+          <div className="grid gap-8 lg:grid-cols-[1.4fr_0.9fr] lg:items-center">
+            <div>
+              <span className="section-badge">Ready to grow?</span>
+              <h2 className="mt-4 text-3xl md:text-4xl font-display font-black leading-tight text-white">
+                Let&apos;s build a faster, stronger digital presence.
+              </h2>
+              <p className="mt-4 max-w-2xl text-gray-400 leading-relaxed">
+                Elite Digital Solutions creates high-performance websites, AI automation, SEO systems, and digital campaigns designed to convert and scale.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <a href="/#contact" className="btn-primary inline-flex items-center justify-center px-6 py-4 text-sm">
+                Start a Project
+              </a>
+              <RouterLink to="/services" className="btn-secondary inline-flex items-center justify-center px-6 py-4 text-sm">
+                View Services
+              </RouterLink>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-[1.2fr_0.85fr_0.9fr_0.9fr]">
           <div>
-            <h4 className="text-xl font-bold mb-4 text-primary-400">About</h4>
-            <p className="text-gray-400 leading-relaxed">
-              Elite Digital Solutions by Gowri Sankar delivers innovative digital products and solutions for startups and businesses.
-              We value transparency, collaboration, and measurable results.
+            <div className="flex items-center gap-4 mb-5">
+              <img src="/logo.png" alt="Elite Digital Solutions" className="h-14 w-14 rounded-full border border-white/10" loading="eager" decoding="async" />
+              <div>
+                <p className="text-white font-bold text-lg leading-tight">Elite Digital Solutions</p>
+                <p className="text-sm text-gray-500">Web Development, SEO & AI Automation</p>
+              </div>
+            </div>
+            <p className="max-w-md text-gray-400 leading-relaxed">
+              Built for businesses that want a premium digital presence with measurable performance, clear messaging, and stronger search visibility.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-primary-400">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4 text-primary-400">Explore</h4>
             <nav className="flex flex-col gap-3">
-              {['Home', 'About', 'Services', 'Showcase', 'Experience', 'Contact'].map((item) => (
-                <Link
-                  key={item}
-                  to={item.toLowerCase()}
-                  smooth
-                  duration={500}
-                  className="text-gray-400 hover:text-primary-400 cursor-pointer transition-colors"
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'About', href: '/#about' },
+                { label: 'Showcase', href: '/#showcase' },
+                { label: 'Contact', href: '/#contact' },
+                { label: 'All Projects', href: '/all-projects' },
+              ].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-gray-400 transition-colors hover:text-primary-400"
                 >
-                  {item}
-                </Link>
+                  {item.label}
+                </a>
               ))}
             </nav>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-primary-400">Contact</h4>
-            <div className="space-y-2 text-gray-400">
-              <p>
-                <span className="text-gray-500">Email:</span><br />
-                elitetechsolutions04@gmail.com
-              </p>
-              <p>
-                <span className="text-gray-500">Phone:</span><br />
-                +91 7893804498
-              </p>
-              <p>
-                <span className="text-gray-500">Location:</span><br />
-                Visakhapatnam, Andhra Pradesh
-              </p>
-            </div>
+            <h4 className="text-lg font-bold mb-4 text-primary-400">Services</h4>
+            <nav className="flex flex-col gap-3">
+              {[
+                { label: 'Web Development', href: '/services' },
+                { label: 'SEO & Performance', href: '/services' },
+                { label: 'Digital Marketing', href: '/services' },
+                { label: 'AI Automation', href: '/services' },
+              ].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-gray-400 transition-colors hover:text-primary-400"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
           </div>
 
-          {/* Social */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-primary-400">Follow Us</h4>
-            <div className="flex gap-4">
+            <h4 className="text-lg font-bold mb-4 text-primary-400">Contact</h4>
+            <address className="not-italic space-y-4 text-gray-400">
+              <a href="mailto:elitetechsolutions04@gmail.com" className="flex items-start gap-3 transition-colors hover:text-primary-400">
+                <FaEnvelope className="mt-1 shrink-0" />
+                <span>elitetechsolutions04@gmail.com</span>
+              </a>
+              <a href="tel:+917893804498" className="flex items-start gap-3 transition-colors hover:text-primary-400">
+                <FaPhone className="mt-1 shrink-0" />
+                <span>+91 7893804498</span>
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Visakhapatnam,+Andhra+Pradesh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 transition-colors hover:text-primary-400"
+              >
+                <FaMapMarkerAlt className="mt-1 shrink-0" />
+                <span>Visakhapatnam, Andhra Pradesh</span>
+              </a>
+            </address>
+
+            <div className="mt-6 flex gap-3">
               <a
                 href="https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 hover:bg-primary-500 border border-white/10 hover:border-primary-500 rounded-full flex items-center justify-center transition-all hover:scale-110 group"
+                aria-label="LinkedIn"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-400 transition-all hover:border-primary-500/40 hover:bg-primary-500 hover:text-white hover:scale-105"
               >
-                <FaLinkedin className="text-xl text-gray-400 group-hover:text-white" />
+                <FaLinkedin className="text-xl" />
               </a>
               <a
                 href="https://github.com/Majnu04"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 hover:bg-primary-500 border border-white/10 hover:border-primary-500 rounded-full flex items-center justify-center transition-all hover:scale-110 group"
+                aria-label="GitHub"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-400 transition-all hover:border-primary-500/40 hover:bg-primary-500 hover:text-white hover:scale-105"
               >
-                <FaGithub className="text-xl text-gray-400 group-hover:text-white" />
+                <FaGithub className="text-xl" />
               </a>
               <a
                 href="https://instagram.com/majnu_15__"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 hover:bg-primary-500 border border-white/10 hover:border-primary-500 rounded-full flex items-center justify-center transition-all hover:scale-110 group"
+                aria-label="Instagram"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-400 transition-all hover:border-primary-500/40 hover:bg-primary-500 hover:text-white hover:scale-105"
               >
-                <FaInstagram className="text-xl text-gray-400 group-hover:text-white" />
+                <FaInstagram className="text-xl" />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 pb-8 text-gray-400 text-sm">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+        <div className="mt-10 border-t border-white/10 pt-8 text-sm text-gray-500">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p>
-              © 2026 <span className="text-primary-400 font-bold">Nelam Gowri Sankar</span> – Elite Digital Solutions. All rights reserved.
+              © 2026 <span className="text-primary-400 font-semibold">Elite Digital Solutions</span>. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <RouterLink to="/privacy" className="hover:text-primary-400 transition-colors">Privacy Policy</RouterLink>
-              <RouterLink to="/terms" className="hover:text-primary-400 transition-colors">Terms of Service</RouterLink>
+            <div className="flex flex-wrap gap-6">
+              <RouterLink to="/privacy" className="transition-colors hover:text-primary-400">Privacy Policy</RouterLink>
+              <RouterLink to="/terms" className="transition-colors hover:text-primary-400">Terms of Service</RouterLink>
             </div>
           </div>
-          <p className="text-center text-gray-500 text-xs">
-            Based in <span className="text-primary-400 font-semibold">Visakhapatnam, India</span> — delivering premium digital solutions worldwide
+          <p className="mt-4 text-center text-xs uppercase tracking-[0.24em] text-gray-600">
+            Based in Visakhapatnam, India
           </p>
         </div>
       </div>

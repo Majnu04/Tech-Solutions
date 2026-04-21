@@ -73,8 +73,6 @@ const Showcase = () => {
       >
         <a
           href="/all-projects"
-          target="_blank"
-          rel="noopener noreferrer"
           className="btn-primary inline-block"
         >
           View All Projects →
