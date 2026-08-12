@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SEO from './components/SEO'
-import { organizationSchema, localBusinessSchema, webSiteSchema } from './utils/schemas'
+import { organizationSchema, professionalServiceSchema, webSiteSchema, creativeWorkSchema } from './utils/schemas'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import { PersonalizationProvider } from './context/PersonalizationContext'
@@ -24,16 +24,16 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 function HomePage() {
   const combinedSchema = {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema, localBusinessSchema, webSiteSchema]
+    "@graph": [organizationSchema, professionalServiceSchema, webSiteSchema, creativeWorkSchema]
   }
 
   return (
     <>
       <SEO
-        title="Elite Digital Solutions | Web Development & Digital Marketing"
-        description="Professional web development, SEO & digital marketing services to grow your business online. Transform your business with AI-powered solutions and cutting-edge technology."
-        keywords="web development, digital marketing, SEO services, website design, AI automation, elite digital solutions, visakhapatnam, india, react development, business growth"
-        canonical="https://elitedigitalsolutions.tech"
+        title="Elite Digital Solutions | Web Development & Digital Solutions"
+        description="Elite Digital Solutions creates high-performance business websites, custom web applications, and UI/UX design. We deliver web development, software development, and AI automation to help your business grow."
+        keywords="web development, software development, digital solutions, UI/UX design, custom web applications, business websites, AI automation, elite digital solutions, visakhapatnam, india"
+        canonical="https://elitedigitalsolutions.co.in/"
         schema={combinedSchema}
       />
 
@@ -78,8 +78,8 @@ function App() {
   return (
     <PersonalizationProvider>
       <SEO
-        title="Elite Digital Solutions | Web Development & Digital Marketing"
-        description="Professional web development, SEO & digital marketing services to grow your business online."
+        title="Elite Digital Solutions | Web Development & Digital Solutions"
+        description="Elite Digital Solutions creates high-performance business websites, custom web applications, and UI/UX design for growing companies."
       />
 
       <Router>

@@ -15,8 +15,8 @@ const SEO = ({
   title,
   description,
   keywords = 'web development, digital marketing, SEO services, website design, elite digital solutions',
-  canonical = 'https://elitedigitalsolutions.tech',
-  ogImage = 'https://elitedigitalsolutions.tech/logo.png',
+  canonical = 'https://elitedigitalsolutions.co.in/',
+  ogImage = 'https://elitedigitalsolutions.co.in/logo.png',
   ogType = 'website',
   author = 'Elite Digital Solutions',
   schema

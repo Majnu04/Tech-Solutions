@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.elitedigitalsolutions.co.in" }],
+      "destination": "https://elitedigitalsolutions.co.in/:splat",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

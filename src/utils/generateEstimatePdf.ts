@@ -353,8 +353,8 @@ export const generateEstimatePdf = async (payload: EstimatePdfPayload) => {
   doc.setFont('helvetica', 'normal')
   const contactLines = payload.contact?.length ? payload.contact : [
     'Elite Digital Solutions',
-    'Website: https://elitedigitalsolutions.tech',
-    'Email: hello@elitedigitalsolutions.tech',
+    'Website: https://elitedigitalsolutions.co.in',
+    'Email: hello@elitedigitalsolutions.co.in',
     'WhatsApp / Phone: +91 78938 04498'
   ]
   contactLines.forEach(line => {

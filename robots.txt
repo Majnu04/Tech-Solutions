@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://elitedigitalsolutions.tech/sitemap.xml

@@ -10,7 +10,7 @@ const PrivacyPage = () => {
         title="Privacy Policy | Elite Digital Solutions"
         description="Privacy Policy for Elite Digital Solutions. Learn how we collect, use, and protect your information. Your privacy and data security are our priorities."
         keywords="privacy policy, data protection, elite digital solutions privacy"
-        canonical="https://elitedigitalsolutions.tech/privacy"
+        canonical="https://elitedigitalsolutions.co.in/privacy"
       />
 
       <div className="min-h-screen bg-dark-950 text-gray-100">

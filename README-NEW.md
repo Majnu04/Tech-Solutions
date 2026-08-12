@@ -189,7 +189,7 @@ Copyright © 2025 Nelam Gowri Sankar - Elite Digital Solutions
 
 - **Email**: gourishanker0408@gmail.com
 - **Phone**: +91 7893804498
-- **Website**: https://www.elitedigitalsolutions.tech
+- **Website**: https://elitedigitalsolutions.co.in
 - **LinkedIn**: [Nelam Gowri Sankar](https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/)
 
 ---

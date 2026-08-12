@@ -91,10 +91,10 @@ tech-solutions/
 ├── .htaccess              # Performance & security
 ├── privacy.html           # Privacy policy page
 ├── terms.html             # Terms of service page
-├── favicon.ico            # Website icon
-├── robots.txt             # SEO crawler instructions
-├── sitemap.xml            # SEO sitemap
-└── images/                # Image assets
+├── public/                # Static assets deployed as-is
+│   ├── robots.txt         # SEO crawler instructions
+│   ├── sitemap.xml        # SEO sitemap
+│   └── images/            # Image assets
     ├── ai-analytics-dashboard-screenshot.webp.webp
     ├── Immersive_Web_Experience_Cropped.webp
     ├── Smart-Inventory-Management-System.jpg
@@ -144,7 +144,7 @@ For technical support or questions about these enhancements, contact:
 **Elite Digital Solutions**
 - Email: gourishanker0408@gmail.com
 - Phone: +91 7893804498
-- Website: https://www.elitedigitalsolutions.tech
+- Website: https://elitedigitalsolutions.co.in
 
 ---
 

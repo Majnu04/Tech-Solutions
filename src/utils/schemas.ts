@@ -2,9 +2,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Elite Digital Solutions",
-  "url": "https://elitedigitalsolutions.tech",
-  "logo": "https://elitedigitalsolutions.tech/logo.png",
-  "description": "Professional web development, SEO & digital marketing services to grow your business online.",
+  "url": "https://elitedigitalsolutions.co.in",
+  "logo": "https://elitedigitalsolutions.co.in/logo.png",
+  "description": "Elite Digital Solutions creates high-performance business websites, custom web applications, UI/UX design, and AI automation for businesses.",
   "founder": {
     "@type": "Person",
     "name": "Nelam Gowri Sankar",
@@ -20,55 +20,30 @@ export const organizationSchema = {
     "@type": "ContactPoint",
     "telephone": "+91-7893804498",
     "contactType": "Customer Service",
-    "email": "gourishanker0408@gmail.com",
+    "email": "gourishanker005@gmail.com",
     "areaServed": "IN",
     "availableLanguage": ["English", "Hindi", "Telugu"]
   },
   "sameAs": [
     "https://www.linkedin.com/in/gowri-sankar-nelam-0555771b6/",
     "https://github.com/Majnu04",
-    "https://instagram.com/majnu_15__"
+    "https://instagram.com/majnu_04__"
   ]
 }
 
-export const localBusinessSchema = {
+export const professionalServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   "name": "Elite Digital Solutions",
-  "image": "https://elitedigitalsolutions.tech/logo.png",
-  "url": "https://elitedigitalsolutions.tech",
+  "image": "https://elitedigitalsolutions.co.in/logo.png",
+  "url": "https://elitedigitalsolutions.co.in",
   "telephone": "+91-7893804498",
-  "email": "gourishanker0408@gmail.com",
-  "priceRange": "$$",
+  "email": "gourishanker005@gmail.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Visakhapatnam",
     "addressLocality": "Visakhapatnam",
-    "addressRegion": "AP",
-    "postalCode": "530046",
+    "addressRegion": "Andhra Pradesh",
     "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 17.6868,
-    "longitude": 83.2185
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    "opens": "09:00",
-    "closes": "18:00"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "127"
   }
 }
 
@@ -76,12 +51,22 @@ export const webSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Elite Digital Solutions",
-  "url": "https://elitedigitalsolutions.tech",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://elitedigitalsolutions.tech/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "url": "https://elitedigitalsolutions.co.in"
+}
+
+export const creativeWorkSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Vignan's Institute of Information Technology – Official Website",
+  "author": {
+    "@type": "Organization",
+    "name": "Elite Digital Solutions",
+    "url": "https://elitedigitalsolutions.co.in"
+  },
+  "url": "https://vignaniit.edu.in",
+  "description": "Premium website built for VIIT Duvvada with modern UI and optimized performance.",
+  "creator": "Elite Digital Solutions",
+  "keywords": "education website, college website, VIIT, web development Visakhapatnam"
 }
 
 export const serviceSchema = {
@@ -90,7 +75,8 @@ export const serviceSchema = {
   "serviceType": "Digital Marketing & Web Development",
   "provider": {
     "@type": "Organization",
-    "name": "Elite Digital Solutions"
+    "name": "Elite Digital Solutions",
+    "url": "https://elitedigitalsolutions.co.in"
   },
   "areaServed": {
     "@type": "Country",

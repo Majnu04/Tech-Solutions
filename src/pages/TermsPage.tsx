@@ -10,7 +10,7 @@ const TermsPage = () => {
         title="Terms of Service | Elite Digital Solutions"
         description="Terms of Service for Elite Digital Solutions. Review our service terms, conditions, and policies for using our web development and digital marketing services."
         keywords="terms of service, service agreement, elite digital solutions terms"
-        canonical="https://elitedigitalsolutions.tech/terms"
+        canonical="https://elitedigitalsolutions.co.in/terms"
       />
 
       <div className="min-h-screen bg-dark-950 text-gray-100">
