@@ -114,6 +114,14 @@ export const serviceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
+          "name": "AI Ads for Business",
+          "description": "AI-powered advertising campaigns for targeted reach and ROI"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
           "name": "AI Automation",
           "description": "AI-powered automation solutions for businesses"
         }

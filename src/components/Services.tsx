@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { FaRobot, FaCode, FaChartLine, FaVideo, FaPalette } from 'react-icons/fa'
+import { FaRobot, FaCode, FaChartLine, FaVideo, FaPalette, FaBullhorn } from 'react-icons/fa'
 
 const services = [
   {
@@ -34,6 +34,17 @@ const services = [
       'Social Media Campaigns',
       'Content Strategy',
       'Analytics & Reporting'
+    ]
+  },
+  {
+    icon: <FaBullhorn className="w-12 h-12" />,
+    title: 'AI Ads for Business',
+    description: 'Run AI-powered ad campaigns that target the right audience, optimize spend automatically, and deliver measurable ROI.',
+    features: [
+      'AI-Powered Ad Targeting',
+      'Google & Meta Campaigns',
+      'Smart Ad Copy & Creative',
+      'ROI Tracking & Optimization'
     ]
   },
   {

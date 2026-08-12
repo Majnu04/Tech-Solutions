@@ -72,6 +72,7 @@ const Footer = () => {
                 { label: 'SEO & Performance', href: '/services' },
                 { label: 'Digital Marketing', href: '/services' },
                 { label: 'AI Automation', href: '/services' },
+                { label: 'AI Ads for Business', href: '/services' },
               ].map((item) => (
                 <a
                   key={item.label}

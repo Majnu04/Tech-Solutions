@@ -194,6 +194,7 @@ const Contact = () => {
               <option value="ai">AI & Automation</option>
               <option value="web">Web Development</option>
               <option value="marketing">Digital Marketing</option>
+              <option value="ai-ads">AI Ads for Business</option>
               <option value="other">Other / New Project</option>
             </select>
           </div>
