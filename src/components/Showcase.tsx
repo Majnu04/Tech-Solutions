@@ -12,6 +12,15 @@ const featuredProjects = [
     link: 'https://vignaniit.edu.in'
   },
   {
+    title: 'Vignan Institute of Pharmaceutical Technology – Official Website',
+    description: 'Developed a premium, fully responsive institutional website for Vignan Institute of Pharmaceutical Technology (VIPT). The platform provides a modern digital experience with structured academic sections, admissions, placements, research, facilities, campus life, and institutional information.',
+    result: 'Premium Pharmaceutical Education Platform LIVE',
+    tech: ['React', 'Node.js', 'TailwindCSS', 'Cloud Hosting'],
+    image: '/images/Vignan%20pharmacy.png',
+    imageAlt: 'Vignan Institute of Pharmaceutical Technology official website',
+    link: 'https://www.vignanpharma.com/'
+  },
+  {
     title: 'AI-Powered Analytics Platform',
     description: 'Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses.',
 
@@ -182,7 +191,7 @@ const ProjectCard = ({ project, index, isInView }: any) => {
           <div className="relative">
             <motion.img
               src={project.image}
-              alt={project.title}
+              alt={project.imageAlt || project.title}
               initial={{ opacity: 0, scale: 1.1 }}
               animate={imageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }}
               onLoad={() => setImageLoaded(true)}

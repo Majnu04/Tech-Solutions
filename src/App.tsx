@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SEO from './components/SEO'
-import { organizationSchema, professionalServiceSchema, webSiteSchema, creativeWorkSchema } from './utils/schemas'
+import { organizationSchema, professionalServiceSchema, webSiteSchema, creativeWorkSchema, viptCreativeWorkSchema } from './utils/schemas'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import { PersonalizationProvider } from './context/PersonalizationContext'
@@ -24,7 +24,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 function HomePage() {
   const combinedSchema = {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema, professionalServiceSchema, webSiteSchema, creativeWorkSchema]
+    "@graph": [organizationSchema, professionalServiceSchema, webSiteSchema, creativeWorkSchema, viptCreativeWorkSchema]
   }
 
   return (

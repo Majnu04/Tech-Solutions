@@ -69,6 +69,21 @@ export const creativeWorkSchema = {
   "keywords": "education website, college website, VIIT, web development Visakhapatnam"
 }
 
+export const viptCreativeWorkSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Vignan Institute of Pharmaceutical Technology – Official Website",
+  "author": {
+    "@type": "Organization",
+    "name": "Elite Digital Solutions",
+    "url": "https://elitedigitalsolutions.co.in"
+  },
+  "url": "https://www.vignanpharma.com/",
+  "description": "Premium, fully responsive institutional website for Vignan Institute of Pharmaceutical Technology (VIPT) with structured academic sections, admissions, placements, research, facilities, and campus life.",
+  "creator": "Elite Digital Solutions",
+  "keywords": "pharmaceutical institute website, pharmacy college website, VIPT, web development Visakhapatnam"
+}
+
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",

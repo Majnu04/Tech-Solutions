@@ -16,6 +16,17 @@ const allProjects = [
     category: 'Featured'
   },
   {
+    title: 'Vignan Institute of Pharmaceutical Technology – Official Website',
+    description: 'Developed a premium, fully responsive institutional website for Vignan Institute of Pharmaceutical Technology (VIPT). The platform provides a modern digital experience with structured academic sections, admissions, placements, research, facilities, campus life, and institutional information.',
+    role: 'Lead Developer & UI/UX Designer',
+    result: 'Premium Pharmaceutical Education Platform LIVE',
+    tech: ['React', 'Node.js', 'TailwindCSS', 'Cloud Hosting'],
+    image: '/images/Vignan%20pharmacy.png',
+    imageAlt: 'Vignan Institute of Pharmaceutical Technology official website',
+    link: 'https://www.vignanpharma.com/',
+    category: 'Featured'
+  },
+  {
     title: 'AI-Powered Analytics Platform',
     description: 'Built a scalable analytics dashboard using machine learning to provide actionable insights for growing businesses.',
     role: 'Full-stack Developer',
@@ -186,7 +197,7 @@ const ProjectCard = ({ project, index, isInView }: any) => {
         >
           <img
             src={project.image}
-            alt={project.title}
+            alt={project.imageAlt || project.title}
             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />

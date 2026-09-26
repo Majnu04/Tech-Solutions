@@ -10,6 +10,13 @@ const clients = [
     logo: '/vignanlogo.png'
   },
   {
+    name: 'Vignan Institute of Pharmaceutical Technology',
+    label: 'Pharmaceutical Education Partner',
+    description: 'Built the official digital platform for VIPT, covering academics, admissions, placements, research, and campus life.',
+    logo: '/images/VignanPharma_logo.jpeg',
+    website: 'https://www.vignanpharma.com/'
+  },
+  {
     name: 'DoFlow',
     label: '#1 Online Learning Platform',
     description: 'Master Skills with DoFlow - Learn from industry experts and transform your career with premium courses.',
@@ -106,7 +113,7 @@ const Testimonials = () => {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="card text-center group hover:border-[#2563EB]/50"
-            onClick={() => client.website && window.open(client.website, '_blank')}
+            onClick={() => client.website && window.open(client.website, '_blank', 'noopener,noreferrer')}
             style={{ cursor: client.website ? 'pointer' : 'default' }}
           >
             <div className="mb-6 flex items-center justify-center">
